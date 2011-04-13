@@ -210,7 +210,7 @@ projects[mothership][version] = "1.1"
 projects[dynamo][type] = "theme"
 projects[dynamo][download][type] = "git"
 projects[dynamo][download][url] = "https://github.com/dingproject/dynamo.git"
-projects[dynamo][download][revision] = "v2.1.5"
+projects[dynamo][download][revision] = "v2.1.6"
 
 ; Ding modules
 
@@ -227,7 +227,7 @@ projects[openruth][download][revision] = "v1.0.7"
 projects[ding][type] = "module"
 projects[ding][download][type] = "git"
 projects[ding][download][url] = "https://github.com/dingproject/ding.git"
-projects[ding][download][revision] = "v1.5.7"
+projects[ding][download][revision] = "v1.5.8"
 
 projects[ding_campaign][type] = "module"
 projects[ding_campaign][download][type] = "git"
