@@ -227,7 +227,7 @@ projects[openruth][download][revision] = "v1.0.7"
 projects[ding][type] = "module"
 projects[ding][download][type] = "git"
 projects[ding][download][url] = "https://github.com/dingproject/ding.git"
-projects[ding][download][revision] = "v1.5.8"
+projects[ding][download][revision] = "v1.5.9"
 
 projects[ding_campaign][type] = "module"
 projects[ding_campaign][download][type] = "git"
