@@ -1,6 +1,11 @@
-; $Id: ding.make,v 1.1 2010/05/14 08:28:32 mikl Exp $
+api = 2
 core = 6.x
-projects[] = drupal
+
+; Install pressflow v6.x
+
+projects[pressflow][type] = "core"
+projects[pressflow][download][type] = "get"
+projects[pressflow][download][url] = "http://files.pressflow.org/pressflow-6-current.tar.gz"
 
 ; Contrib projects
 
@@ -50,7 +55,7 @@ projects[date][subdir] = "contrib"
 projects[date][version] = "2.6"
 
 projects[dibs][subdir] = "contrib"
-projects[dibs][version] = "1.x-dev"
+projects[dibs][version] = "1.0"
 
 projects[email][subdir] = "contrib"
 projects[email][version] = "1.2"
@@ -135,7 +140,7 @@ projects[office_hours][download][url] = "https://github.com/dingproject/drupal-o
 projects[office_hours][download][tag] = "DRUPAL-6--2-0-UNOFFICIAL7"
 
 projects[panels][subdir] = "contrib"
-projects[panels][version] = "3.8"
+projects[panels][version] = "3.9"
 projects[panels][patch][] = "https://github.com/downloads/dingproject/ding-deploy/panels_legacy_mode_disabling.patch"
 
 projects[path_redirect][subdir] = "contrib"
@@ -167,7 +172,7 @@ projects[suggestedterms][subdir] = "contrib"
 projects[suggestedterms][version] = "1.3"
 
 projects[tagadelic][subdir] = "contrib"
-projects[tagadelic][version] = "1.2"
+projects[tagadelic][version] = "1.3"
 
 projects[term_node_count][subdir] = "contrib"
 projects[term_node_count][version] = "1.3"
@@ -205,24 +210,24 @@ projects[mothership][version] = "1.1"
 projects[dynamo][type] = "theme"
 projects[dynamo][download][type] = "git"
 projects[dynamo][download][url] = "https://github.com/dingproject/dynamo.git"
-projects[dynamo][download][revision] = "v2.1.5"
+projects[dynamo][download][revision] = "v2.1.6"
 
 ; Ding modules
 
 projects[alma][type] = "module"
 projects[alma][download][type] = "git"
 projects[alma][download][url] = "https://github.com/dingproject/alma.git"
-projects[alma][download][revision] = "v1.5.2"
+projects[alma][download][revision] = "v1.5.4"
 
 projects[openruth][type] = "module"
 projects[openruth][download][type] = "git"
 projects[openruth][download][url] = "https://github.com/dingproject/openruth.git"
-projects[openruth][download][revision] = "v1.0.2"
+projects[openruth][download][revision] = "v1.0.7"
 
 projects[ding][type] = "module"
 projects[ding][download][type] = "git"
 projects[ding][download][url] = "https://github.com/dingproject/ding.git"
-projects[ding][download][revision] = "v1.5.2"
+projects[ding][download][revision] = "v1.5.9"
 
 projects[ding_campaign][type] = "module"
 projects[ding_campaign][download][type] = "git"
@@ -232,13 +237,17 @@ projects[ding_campaign][download][revision] = "v1.3.1"
 projects[ting][type] = "module"
 projects[ting][download][type] = "git"
 projects[ting][download][url] = "https://github.com/dingproject/ting.git"
-projects[ting][download][revision] = "v1.5.2"
+projects[ting][download][revision] = "v1.5.6"
 
 projects[trampoline][type] = "module"
 projects[trampoline][download][type] = "git"
 projects[trampoline][download][url] = "https://github.com/dingproject/trampoline.git"
-projects[trampoline][download][revision] = "v1.1"
+projects[trampoline][download][revision] = "v1.2"
 
+projects[webtrends][type] = "module"
+projects[webtrends][download][type] = "git"
+projects[webtrends][download][url] = "https://github.com/dingproject/webtrends.git"
+projects[webtrends][download][revision] = "v1.1.0"
 
 ; Libraries
 libraries[ting-client][download][type] = "git"
