@@ -237,7 +237,7 @@ projects[ding_campaign][download][revision] = "v1.3.1"
 projects[ting][type] = "module"
 projects[ting][download][type] = "git"
 projects[ting][download][url] = "https://github.com/dingproject/ting.git"
-projects[ting][download][revision] = "v1.5.7"
+projects[ting][download][revision] = "v1.5.8"
 
 projects[trampoline][type] = "module"
 projects[trampoline][download][type] = "git"
