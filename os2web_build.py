@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-Build script for Ding.
+Build script for OS2Web.
 
-Utilises Drush make to build a site or install profile based on Ding.
+Utilises Drush make to build a site or install profile based on OS2Web.
 """
 
 from optparse import OptionParser
@@ -58,9 +58,9 @@ def make_command(options, make_path):
     """ Generate the make command based on current options. """
     # Set command based on mode.
     if options.mode == 'site':
-        command = ['drush.php', 'make', '--contrib-destination=profiles/ding', 'ding.make', make_path]
+        command = ['drush.php', 'make', '--contrib-destination=profiles/os2web', 'os2web.make', make_path]
     elif options.mode == 'profile':
-        command = ['drush.php', 'make', '--no-core', '--contrib-destination=.', 'ding.make', make_path]
+        command = ['drush.php', 'make', '--no-core', '--contrib-destination=.', 'os2web.make', make_path]
     else:
         sys.exit('Unknown mode "%s", aborting.' % options.mode)
 
@@ -98,11 +98,11 @@ def setup_profile(options, make_path):
     Handles copying the profile file into the correct folder.
     """
     if options.mode == 'site':
-        path = os.path.join(make_path, 'profiles', 'ding')
+        path = os.path.join(make_path, 'profiles', 'os2web')
     else:
         path = make_path
 
-    shutil.copy('ding.profile', path)
+    shutil.copy('os2web.profile', path)
 
 def create_symlinks(options, folder_name):
     """
@@ -135,7 +135,7 @@ def main():
     try:
         folder_name = args[-1]
     except IndexError: 
-        folder_name = 'ding'
+        folder_name = 'os2web'
 
     make_path = 'build/%s' % folder_name
 
