@@ -103,6 +103,8 @@ def setup_profile(options, make_path):
         path = make_path
 
     shutil.copy('os2web.profile', path)
+    shutil.copy('os2web.info', path)
+    shutil.copy('os2web.install', path)
 
 def create_symlinks(options, folder_name):
     """

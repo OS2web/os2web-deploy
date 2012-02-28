@@ -1,0 +1,9 @@
+name = OS2Web
+description = Basic install
+version = 0.01a
+core = 7.x
+dependencies[] = field
+dependencies[] = block
+dependencies[] = dblog
+files[] = os2web.profile
+
