@@ -21,6 +21,7 @@ projects[omega][version] = "3.1"
 ; 
 ; ; Contrib projects
 ; 
+;
 ; projects[admin][subdir] = "contrib"
 ; projects[admin][version] = "2.0"
 ; 
@@ -89,6 +90,13 @@ projects[omega][version] = "3.1"
 ; ; Patch to fix reverting menu links http://drupal.org/node/860974
 ; projects[features][patch][] = "http://drupal.org/files/issues/features.860974.patch"
 ; 
+projects[feeds][subdir] = "contrib"
+projects[feeds][version] = "7.x-2.0-alpha4"
+; Patch to support import of hierarchical taxonomy terms
+projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
+; Patch to support text format (eg. html) when importing to custom taxonomy term fields
+projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
+;
 ; projects[filefield][subdir] = contrib
 ; projects[filefield][version] = 3.10
 ; 
