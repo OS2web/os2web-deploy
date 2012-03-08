@@ -95,6 +95,8 @@ projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_te
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
 ;
+projects[feeds_xpathparser][subdir] = "contrib"
+projects[feeds_xpathparser][version] = "1.0-beta3"
 ; projects[filefield][subdir] = contrib
 ; projects[filefield][version] = 3.10
 ; 
