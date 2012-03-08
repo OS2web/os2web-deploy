@@ -129,6 +129,8 @@ projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1
 ; projects[imagefield][subdir] = contrib
 ; projects[imagefield][version] = 3.10
 ; 
+projects[job_scheduler][subdir] = "contrib"
+projects[job_scheduler][version] = "2.0-alpha2"
 ; projects[jquery_ui][subdir] = "contrib"
 ; projects[jquery_ui][version] = "1.5"
 ; 
@@ -227,8 +229,8 @@ projects[link][version] = "1.0"
 ; projects[vertical_tabs][subdir] = "contrib"
 ; projects[vertical_tabs][version] = "1.0-rc2"
 ; 
-; projects[views][subdir] = "contrib"
-; projects[views][version] = "2.16"
+projects[views][subdir] = "contrib"
+projects[views][version] = "3.3"
 ; 
 ; projects[views_bulk_operations][subdir] = "contrib"
 ; projects[views_bulk_operations][version] = "1.13"
