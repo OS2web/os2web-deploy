@@ -64,8 +64,8 @@ projects[omega][version] = "3.1"
 ; projects[ctm][subdir] = contrib
 ; projects[ctm][version] = 1.1
 ; 
-; projects[ctools][subdir] = "contrib"
-; projects[ctools][version] = "1.8"
+projects[ctools][subdir] = "contrib"
+projects[ctools][version] = "1.0-rc1"
 ; 
 ; projects[date][subdir] = "contrib"
 ; projects[date][version] = "2.8"
@@ -85,10 +85,8 @@ projects[omega][version] = "3.1"
 ; projects[environment_indicator][subdir] = contrib
 ; projects[environment_indicator][version] = 1.1
 ; 
-; projects[features][subdir] = "contrib"
-; projects[features][version] = "1.2"
-; ; Patch to fix reverting menu links http://drupal.org/node/860974
-; projects[features][patch][] = "http://drupal.org/files/issues/features.860974.patch"
+projects[features][subdir] = "contrib"
+projects[features][version] = "1.0-beta6"
 ; 
 projects[feeds][subdir] = "contrib"
 projects[feeds][version] = "2.0-alpha4"
@@ -137,8 +135,8 @@ projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1
 ; projects[jquery_update][subdir] = "contrib"
 ; projects[jquery_update][version] = "1.1"
 ; 
-; projects[link][subdir] = "contrib"
-; projects[link][version] = "2.9"
+projects[link][subdir] = "contrib"
+projects[link][version] = "1.0"
 ; 
 ; projects[location][subdir] = "contrib"
 ; projects[location][version] = "3.1"
