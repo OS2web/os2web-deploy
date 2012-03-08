@@ -8,7 +8,7 @@ projects[drupal][version] = "7.12"
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
 projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
-;projects[os2web][download][revision] = "dev"
+projects[os2web][download][revision] = "dev"
 
 ; Themes
 projects[omega][version] = "3.1"
