@@ -5,5 +5,6 @@ core = 7.x
 dependencies[] = field
 dependencies[] = block
 dependencies[] = dblog
+dependencies[] = ctools
 files[] = os2web.profile
 
