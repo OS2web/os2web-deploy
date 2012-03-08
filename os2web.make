@@ -91,7 +91,7 @@ projects[omega][version] = "3.1"
 ; projects[features][patch][] = "http://drupal.org/files/issues/features.860974.patch"
 ; 
 projects[feeds][subdir] = "contrib"
-projects[feeds][version] = "7.x-2.0-alpha4"
+projects[feeds][version] = "2.0-alpha4"
 ; Patch to support import of hierarchical taxonomy terms
 projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
