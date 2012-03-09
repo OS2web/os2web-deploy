@@ -8,5 +8,16 @@
 function os2web_install() {
   include_once DRUPAL_ROOT . '/profiles/minimal/minimal.install';
   minimal_install();
+
+  theme_enable(array('rubik','balk'));
+  theme_disable(array('bartik','seven'));
+  module_disable(array('update'));
+  // Set admin theme to Rubik
+  variable_set('theme_default','balk');
+  // Set admin theme to Rubik
+  variable_set('admin_theme','rubik');
+  // Set admin theme on node/edit and node/add
+  variable_set('node_admin_theme', '1');
+
 }
 

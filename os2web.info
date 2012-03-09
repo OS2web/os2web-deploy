@@ -2,6 +2,7 @@ name = OS2Web
 description = Basic install
 version = 0.01a
 core = 7.x
+;contrib modules
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = toolbar
@@ -16,5 +17,7 @@ dependencies[] = views_ui
 dependencies[] = block
 dependencies[] = dblog
 dependencies[] = ctools
+; Features
+dependencies[] = taxonomies_and_taxonomy_importers
 files[] = os2web.profile
 

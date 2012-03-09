@@ -28,7 +28,15 @@ projects[feeds_xpathparser][subdir] = "contrib"
 projects[feeds_xpathparser][version] = "1.0-beta3"
 
 ; Themes
+
+projects[syddjurs][type] = "theme"
+projects[syddjurs][download][type] = "git"
+projects[syddjurs][download][url] = "git@github.com:jm-bellcom/os2web-theme-syddjurs.git"
+projects[syddjurs][download][revision] = "dev"
+
 projects[omega][version] = "3.1"
+projects[rubik][version] = "4.0-beta8"
+projects[tao][version] = "3.0-beta4"
 
 ; ; Install pressflow v6.x
 ; 
