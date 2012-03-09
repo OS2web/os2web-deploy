@@ -4,11 +4,28 @@ core = 7.x
 projects[drupal][type] = "core"
 projects[drupal][version] = "7.12"
 
-; Modules
+; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
 projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
 projects[os2web][download][revision] = "dev"
+
+; Contrib modules
+projects[features][subdir] = "contrib"
+projects[features][version] = "1.0-beta6"
+
+projects[strongarm][subdir] = "contrib"
+projects[strongarm][version] = "2.0-beta5"
+
+projects[feeds][subdir] = "contrib"
+projects[feeds][version] = "2.0-alpha4"
+; Patch to support import of hierarchical taxonomy terms
+projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
+; Patch to support text format (eg. html) when importing to custom taxonomy term fields
+projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
+
+projects[feeds_xpathparser][subdir] = "contrib"
+projects[feeds_xpathparser][version] = "1.0-beta3"
 
 ; Themes
 projects[omega][version] = "3.1"
@@ -85,18 +102,6 @@ projects[ctools][version] = "1.0-rc1"
 ; projects[environment_indicator][subdir] = contrib
 ; projects[environment_indicator][version] = 1.1
 ; 
-projects[features][subdir] = "contrib"
-projects[features][version] = "1.0-beta6"
-; 
-projects[feeds][subdir] = "contrib"
-projects[feeds][version] = "2.0-alpha4"
-; Patch to support import of hierarchical taxonomy terms
-projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
-; Patch to support text format (eg. html) when importing to custom taxonomy term fields
-projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
-;
-projects[feeds_xpathparser][subdir] = "contrib"
-projects[feeds_xpathparser][version] = "1.0-beta3"
 ; projects[filefield][subdir] = contrib
 ; projects[filefield][version] = 3.10
 ; 
