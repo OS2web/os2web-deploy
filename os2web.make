@@ -17,6 +17,20 @@ projects[features][version] = "1.0-beta6"
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0-beta5"
 
+; TODO: Mangler versionslås
+projects[date][subdir] = "contrib"
+projects[entity][subdir] = "contrib"
+projects[field_group][subdir] = "contrib"
+projects[field_slideshow][subdir] = "contrib"
+projects[libraries][subdir] = "contrib"
+projects[media][subdir] = "contrib"
+projects[panels][subdir] = "contrib"
+projects[references][subdir] = "contrib"
+projects[rules][subdir] = "contrib"
+projects[views_bulk_operations][subdir] = "contrib"
+projects[wsclient][subdir] = "contrib"
+
+
 projects[feeds][subdir] = "contrib"
 projects[feeds][version] = "2.0-alpha4"
 ; Patch to support import of hierarchical taxonomy terms
