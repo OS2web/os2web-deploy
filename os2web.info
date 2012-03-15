@@ -17,7 +17,41 @@ dependencies[] = views_ui
 dependencies[] = block
 dependencies[] = dblog
 dependencies[] = ctools
-; Features
+
+dependencies[] = menu
+dependencies[] = locale
+dependencies[] = image
+dependencies[] = file
+dependencies[] = contextual
+dependencies[] = path
+dependencies[] = search
+dependencies[] = page_manager
+dependencies[] = panels_node
+dependencies[] = date
+dependencies[] = date_api
+dependencies[] = date_popup
+dependencies[] = date_views
+dependencies[] = field_group
+dependencies[] = references
+dependencies[] = node_reference
+dependencies[] = user_reference
+dependencies[] = file_entity
+dependencies[] = media
+dependencies[] = media_internet
+dependencies[] = libraries
+
+;Features
+dependencies[] = ofir_job_index_integration
 dependencies[] = taxonomies_and_taxonomy_importers
+dependencies[] = ballerup_content_types
+dependencies[] = ballerup_image_presets
+dependencies[] = ballerup_kultunaut
+dependencies[] = ballerup_menuer
+dependencies[] = ballerup_panels_and_pages
+dependencies[] = ballerup_taxonomies
+dependencies[] = ballerup_views
+dependencies[] = borger_dk_integration
+
+
 files[] = os2web.profile
 

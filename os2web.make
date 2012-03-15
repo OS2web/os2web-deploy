@@ -29,6 +29,13 @@ projects[references][subdir] = "contrib"
 projects[rules][subdir] = "contrib"
 projects[views_bulk_operations][subdir] = "contrib"
 projects[wsclient][subdir] = "contrib"
+projects[filefield_sources][subdir] = "contrib"
+; Fra Franz:
+projects[wysiwyg][subdir] = "contrib"
+projects[skinr][subdir] = "contrib"
+projects[menu_block][subdir] = "contrib"
+projects[delta][subdir] = "contrib"
+projects[float_filter][subdir] = "contrib"
 
 
 projects[feeds][subdir] = "contrib"
