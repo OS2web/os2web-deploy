@@ -17,6 +17,7 @@ dependencies[] = views_ui
 dependencies[] = block
 dependencies[] = dblog
 dependencies[] = ctools
+dependencies[] = jquery_ui
 
 dependencies[] = menu
 dependencies[] = locale
@@ -25,6 +26,8 @@ dependencies[] = file
 dependencies[] = contextual
 dependencies[] = path
 dependencies[] = search
+dependencies[] = omega_tools
+dependencies[] = ckeditor
 dependencies[] = page_manager
 dependencies[] = panels_node
 dependencies[] = date
@@ -38,7 +41,16 @@ dependencies[] = user_reference
 dependencies[] = file_entity
 dependencies[] = media
 dependencies[] = media_internet
+dependencies[] = media_youtube
 dependencies[] = libraries
+dependencies[] = omega_tools
+dependencies[] = delta
+dependencies[] = float_filter
+
+;Development - Disable on prod.
+dependencies[] = features_tools
+dependencies[] = devel
+
 
 ;Features
 dependencies[] = ofir_job_index_integration
