@@ -51,6 +51,9 @@ dependencies[] = float_filter
 dependencies[] = features_tools
 dependencies[] = devel
 
+;OS2web modules
+dependencies[] = os2web_pws
+
 
 ;Features
 dependencies[] = ofir_job_index_integration
