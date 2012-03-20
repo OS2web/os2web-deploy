@@ -60,7 +60,7 @@ dependencies[] = ballerup_image_presets
 dependencies[] = ballerup_kultunaut
 dependencies[] = ballerup_menuer
 dependencies[] = ballerup_panels_and_pages
-dependencies[] = ballerup_taxonomies
+;dependencies[] = ballerup_taxonomies
 dependencies[] = ballerup_views
 dependencies[] = borger_dk_integration
 
