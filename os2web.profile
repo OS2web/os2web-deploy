@@ -26,6 +26,28 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
 }
 
 function os2web_import_default_feeds($install_state) {
+  //Set default KLE taxonomy feed url
+  $source = feeds_source('taxonomy_kle');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=1';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Organisation taxonomy feed url
+  $source = feeds_source('taxonomy_organization');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=5';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Politik taxonomy feed url
+  $source = feeds_source('taxonomy_politics');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=2';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Ofir feed url
   $source = feeds_source('ofir_job_import');
   $config = $source->getConfig();
   $config['FeedsHTTPFetcher']['source'] = 'http://job.ofir.dk/Templates/XMLliste_7DAE0E45-E8C0-43EF-9D3C-350F69BE5C9B.asp';
