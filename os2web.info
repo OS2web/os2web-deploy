@@ -50,6 +50,7 @@ dependencies[] = float_filter
 ;Development - Disable on prod.
 dependencies[] = features_tools
 dependencies[] = devel
+dependencies[] = devel_generate
 
 ;OS2web modules
 dependencies[] = os2web_pws
