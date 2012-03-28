@@ -47,6 +47,13 @@ function os2web_import_default_feeds($install_state) {
   $source->setConfig($config);
   $source->save();
 
+  //Set default Egenavne/stednavne taxonomy feed url
+  $source = feeds_source('taxonomy_gisnames');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetGisNames';
+  $source->setConfig($config);
+  $source->save();
+
   //Set default Ofir feed url
   $source = feeds_source('ofir_job_import');
   $config = $source->getConfig();
