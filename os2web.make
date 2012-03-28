@@ -10,8 +10,17 @@ libraries[jquery_ui][download][type] = "get"
 libraries[jquery_ui][download][url] = "http://jquery-ui.googlecode.com/files/jquery-ui-1.7.3.zip"
 libraries[jquery_ui][directory_name] = "jquery.ui"
 libraries[jquery_ui][destination] = "modules/contrib/jquery_ui"
-projects[jcarousel][type] = "library"
-projects[jcarousel][version] = "2.6"
+
+libraries[jcycle][download][type] = "get"
+libraries[jcycle][download][url] = "http://malsup.github.com/jquery.cycle.all.js"
+libraries[jcycle][directory_name] = "jquery.cycle"
+libraries[jcycle][destination] = "libraries"
+
+libraries[jcarousel][download][type] = "get"
+libraries[jcarousel][download][url] = "http://sorgalla.com/projects/download-zip.php?jcarousel"
+libraries[jcarousel][directory_name] = "jquery.jcarousel"
+libraries[jcarousel][destination] = "libraries"
+
 libraries[ckeditor][download][type]= "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.2/ckeditor_3.6.2.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
@@ -30,6 +39,9 @@ projects[features][version] = "1.0-beta6"
 
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0-beta5"
+
+projects[jcarousel][subdir] = "contrib"
+projects[jcarousel][version] = "2.6"
 
 ; TODO: Mangler versionslås
 
