@@ -48,6 +48,7 @@ dependencies[] = libraries
 dependencies[] = omega_tools
 dependencies[] = delta
 dependencies[] = float_filter
+dependencies[] = ldap
 
 ;Development - Disable on prod.
 dependencies[] = features_tools
