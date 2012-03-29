@@ -54,6 +54,7 @@ dependencies[] = ldap_profile
 dependencies[] = ldap_servers
 dependencies[] = ldap_sso
 
+
 ;Development - Disable on prod.
 dependencies[] = features_tools
 dependencies[] = devel
@@ -75,7 +76,8 @@ dependencies[] = ballerup_panels_and_pages
 ;dependencies[] = ballerup_taxonomies
 dependencies[] = ballerup_views
 ;dependencies[] = borger_dk_integration
-
+dependencies[] = os2web_roles
+dependencies[] = os2web_ad_integration
 
 files[] = os2web.profile
 files[] = os2web.install
