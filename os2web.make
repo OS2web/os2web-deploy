@@ -72,6 +72,7 @@ projects[link][subdir] = "contrib"
 projects[link][version] = "1.0"
 projects[views][subdir] = "contrib"
 projects[views][version] = "3.3"
+projects[ldap][subdir] = "contrib"
 ; Fra Franz:
 projects[wysiwyg][subdir] = "contrib"
 projects[skinr][subdir] = "contrib"
