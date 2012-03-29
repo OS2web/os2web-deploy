@@ -40,7 +40,7 @@ projects[os2web][download][revision] = "dev"
 
 ; Contrib modules
 projects[features][subdir] = "contrib"
-projects[features][version] = "1.0-beta6"
+projects[features][version] = "1.0-rc1"
 
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = "2.0-beta5"
