@@ -1,6 +1,6 @@
 <?php
 
-define('TESTING', TRUE);
+define('TESTING', FALSE);
 
 /**
  * Implement hook_install().
@@ -51,15 +51,6 @@ function os2web_install() {
   );
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
-  if (TESTING) {
-//    // Setup test terms
-//    $vid = db_query("SELECT vid FROM {taxonomy_vocabulary} WHERE machine_name = 'site_struktur'")->fetchField();
-//    error_log(basename(__FILE__) . ':' . __LINE__ . ' Var: $vid = ' . print_r($vid, 1));
-//    taxonomy_term_save((object) array(
-//            'name' => 'Test placering',
-//            'vid' => $vid,
-//    ));
-  }
 
   if (TESTING) {
     theme_enable(array('rubik','garland'));
