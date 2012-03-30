@@ -26,10 +26,10 @@ libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEd
 libraries[ckeditor][directory_name] = "ckeditor"
 libraries[ckeditor][destination] = "modules/contrib/ckeditor/ckeditor"
 
-libraries[jcarousel][download][type] = "get"
-libraries[jcarousel][download][url] = "https://github.com/downloads/moxiecode/plupload/plupload_1_5_2.zip"
-libraries[jcarousel][directory_name] = "plupload"
-libraries[jcarousel][destination] = "libraries"
+libraries[plupload][download][type] = "get"
+libraries[plupload][download][url] = "https://github.com/downloads/moxiecode/plupload/plupload_1_5_2.zip"
+libraries[plupload][directory_name] = "plupload"
+libraries[plupload][destination] = "libraries"
 
 
 ; OS2Web Modules

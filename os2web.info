@@ -68,6 +68,7 @@ dependencies[] = os2web_pws
 dependencies[] = ofir_job_index_integration
 dependencies[] = taxonomies_and_taxonomy_importers
 dependencies[] = os2web_indholdstyper
+dependencies[] = os2web_grund_paneler
 dependencies[] = ballerup_content_types
 dependencies[] = ballerup_image_presets
 dependencies[] = kulturnaut_events
