@@ -83,6 +83,7 @@ projects[float_filter][subdir] = "contrib"
 projects[omega_tools][subdir] = "contrib"
 projects[jquery_ui][subdir] = "contrib"
 projects[multistep][subdir] = "contrib"
+projects[megamenu][subdir] = "contrib"
 
 ;Test
 projects[simpletest][subdir] = "contrib"
