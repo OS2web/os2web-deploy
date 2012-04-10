@@ -36,7 +36,7 @@ libraries[plupload][destination] = "libraries"
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
 projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
-projects[os2web][download][revision] = "dev"
+projects[os2web][download][revision] = "master"
 
 ; Contrib modules
 projects[features][subdir] = "contrib"
@@ -113,12 +113,12 @@ projects[feeds_xpathparser][version] = "1.0-beta3"
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
 projects[cmstheme][download][url] = "git@github.com:bellcom/cmstheme.git"
-projects[cmstheme][download][revision] = "dev"
+projects[cmstheme][download][revision] = "master"
 
 projects[syddjurs][type] = "theme"
 projects[syddjurs][download][type] = "git"
 projects[syddjurs][download][url] = "git@github.com:bellcom/os2web-theme-syddjurs.git"
-projects[syddjurs][download][revision] = "dev"
+projects[syddjurs][download][revision] = "master"
 
 projects[omega][version] = "3.1"
 projects[rubik][version] = "4.0-beta8"
