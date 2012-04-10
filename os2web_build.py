@@ -56,11 +56,16 @@ def configure_logging(options):
 
 def make_command(options, make_path):
     """ Generate the make command based on current options. """
+    if options.developer:
+        make_file = 'os2web.dev.make'
+    else:
+        make_file = 'os2web.make'
+
     # Set command based on mode.
     if options.mode == 'site':
-        command = ['drush', 'make', '--contrib-destination=profiles/os2web', 'os2web.make', make_path]
+        command = ['drush', 'make', '--contrib-destination=profiles/os2web', make_file, make_path]
     elif options.mode == 'profile':
-        command = ['drush', 'make', '--no-core', '--contrib-destination=.', 'os2web.make', make_path]
+        command = ['drush', 'make', '--no-core', '--contrib-destination=.', make_file, make_path]
     else:
         sys.exit('Unknown mode "%s", aborting.' % options.mode)
 
