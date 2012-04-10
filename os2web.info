@@ -29,6 +29,8 @@ dependencies[] = dblog
 dependencies[] = ctools
 dependencies[] = jquery_ui
 dependencies[] = multistep
+dependencies[] = workbench
+dependencies[] = workbench_files
 
 dependencies[] = contextual
 dependencies[] = path

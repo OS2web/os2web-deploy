@@ -48,8 +48,16 @@ projects[strongarm][version] = "2.0-beta5"
 projects[jcarousel][subdir] = "contrib"
 projects[jcarousel][version] = "2.6"
 
-; TODO: Mangler versionslås
+; Contrib modules
+projects[ctools][subdir] = "contrib"
+projects[ctools][version] = "1.0"
+projects[link][subdir] = "contrib"
+projects[link][version] = "1.0"
+projects[views][subdir] = "contrib"
+projects[views][version] = "3.3"
+projects[ldap][subdir] = "contrib"
 
+; TODO: Mangler versionslås
 projects[job_scheduler][subdir] = "contrib"
 projects[date][subdir] = "contrib"
 projects[entity][subdir] = "contrib"
@@ -66,13 +74,8 @@ projects[views_bulk_operations][subdir] = "contrib"
 projects[plupload][subdir] = "contrib"
 projects[filefield_sources][subdir] = "contrib"
 projects[filefield_sources_plupload][subdir] = "contrib"
-projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.0"
-projects[link][subdir] = "contrib"
-projects[link][version] = "1.0"
-projects[views][subdir] = "contrib"
-projects[views][version] = "3.3"
-projects[ldap][subdir] = "contrib"
+projects[workbench][subdir] = "contrib"
+projects[workbench_files][subdir] = "contrib"
 ; Fra Franz:
 projects[wysiwyg][subdir] = "contrib"
 projects[skinr][subdir] = "contrib"
