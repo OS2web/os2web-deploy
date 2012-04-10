@@ -2,10 +2,19 @@ name = OS2Web
 description = Basic install
 version = 0.01a
 core = 7.x
-;contrib modules
+
+; core modules
 dependencies[] = field
 dependencies[] = field_ui
 dependencies[] = toolbar
+dependencies[] = menu
+dependencies[] = locale
+dependencies[] = image
+dependencies[] = file
+dependencies[] = search
+dependencies[] = comment
+
+;contrib modules
 dependencies[] = features
 dependencies[] = strongarm
 dependencies[] = feeds
@@ -21,13 +30,8 @@ dependencies[] = ctools
 dependencies[] = jquery_ui
 dependencies[] = multistep
 
-dependencies[] = menu
-dependencies[] = locale
-dependencies[] = image
-dependencies[] = file
 dependencies[] = contextual
 dependencies[] = path
-dependencies[] = search
 dependencies[] = omega_tools
 dependencies[] = ckeditor
 dependencies[] = page_manager
