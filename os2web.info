@@ -31,6 +31,15 @@ dependencies[] = jquery_ui
 dependencies[] = multistep
 dependencies[] = workbench
 dependencies[] = workbench_files
+dependencies[] = workbench_access
+
+dependencies[] = megamenu
+dependencies[] = delta_blocks
+dependencies[] = delta_ui
+dependencies[] = jcarousel
+dependencies[] = views_slideshow
+dependencies[] = skinr_ui
+dependencies[] = context_ui
 
 dependencies[] = contextual
 dependencies[] = path
@@ -62,32 +71,30 @@ dependencies[] = ldap_sso
 
 
 ;Development - Disable on prod.
-dependencies[] = features_tools
-dependencies[] = devel
-dependencies[] = devel_generate
+;dependencies[] = features_tools
+;dependencies[] = devel
+;dependencies[] = devel_generate
 
 ;OS2web modules
 dependencies[] = os2web_pws
 
-
 ;Features
 dependencies[] = ofir_job_index_integration
 dependencies[] = taxonomies_and_taxonomy_importers
+dependencies[] = kulturnaut_events
 dependencies[] = os2web_indholdstyper
 dependencies[] = os2web_grund_paneler
-dependencies[] = ballerup_content_types
-;dependencies[] = ballerup_image_presets
-dependencies[] = kulturnaut_events
-dependencies[] = ballerup_menuer
-;dependencies[] = ballerup_panels_and_pages
-;dependencies[] = ballerup_taxonomies
-dependencies[] = ballerup_views
-;dependencies[] = borger_dk_integration
 dependencies[] = os2web_roles
 dependencies[] = os2web_ad_integration
-dependencies[] = os2web_settings
+dependencies[] = os2web_workbench_setup
 dependencies[] = os2web_sovs
-dependencies[] = os2web_workbench_setup 
+;dependencies[] = ballerup_content_types
+;dependencies[] = ballerup_image_presets
+;dependencies[] = ballerup_menuer
+;dependencies[] = ballerup_panels_and_pages
+;dependencies[] = ballerup_taxonomies
+;dependencies[] = ballerup_views
+;dependencies[] = borger_dk_integration
 
 files[] = os2web.profile
 files[] = os2web.install
