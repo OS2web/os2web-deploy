@@ -17,16 +17,13 @@ projects[cmstheme][download][type] = "git"
 projects[cmstheme][download][url] = "git@github.com:bellcom/cmstheme.git"
 projects[cmstheme][download][revision] = "dev"
 
-projects[syddjurs][type] = "theme"
-projects[syddjurs][download][type] = "git"
-projects[syddjurs][download][url] = "git@github.com:bellcom/os2web-theme-syddjurs.git"
-projects[syddjurs][download][revision] = "dev"
+;projects[syddjurs][type] = "theme"
+;projects[syddjurs][download][type] = "git"
+;projects[syddjurs][download][url] = "git@github.com:bellcom/os2web-theme-syddjurs.git"
+;projects[syddjurs][download][revision] = "dev"
 
 ; Test
 projects[simpletest][subdir] = "contrib"
-
-; Proxy
-projects[proxy][subdir] = "contrib"
 
 ; Development
 projects[devel][subdir] = "contrib"
