@@ -4,6 +4,7 @@ core = 7.x
 projects[drupal][type] = "core"
 projects[drupal][version] = "7.14"
 projects[drupal][patch][1187776] = "http://drupal.org/files/1187776.patch"
+projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
 
 ; OS2Web Modules
 projects[os2web][type] = "module"
@@ -33,5 +34,6 @@ projects[ftools][subdir] = "contrib"
 ; Upstream - To be included:
 
 projects[search_api][subdir] = "contrib"
+projects[search_log][subdir] = "contrib"
 projects[search_api_ajax][subdir] = "contrib"
 
