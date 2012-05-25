@@ -65,7 +65,7 @@ def make_command(options, make_path):
     if options.mode == 'site':
         command = ['drush', 'make', '--translations=da','--contrib-destination=profiles/os2web', make_file, make_path]
     elif options.mode == 'profile':
-        command = ['drush', 'make', '--no-core', '--contrib-destination=.', make_file, make_path]
+        command = ['drush', 'make', '--translations=da','--no-core', '--contrib-destination=.', make_file, make_path]
     else:
         sys.exit('Unknown mode "%s", aborting.' % options.mode)
 
