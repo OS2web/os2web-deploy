@@ -33,7 +33,7 @@ projects[ftools][subdir] = "contrib"
 
 ; Upstream - To be included:
 
-projects[search_api][subdir] = "contrib"
-projects[search_log][subdir] = "contrib"
-projects[search_api_ajax][subdir] = "contrib"
+;projects[search_api][subdir] = "contrib"
+;projects[search_log][subdir] = "contrib"
+;projects[search_api_ajax][subdir] = "contrib"
 
