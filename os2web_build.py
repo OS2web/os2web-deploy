@@ -30,6 +30,9 @@ def parse_args():
     parser.add_option("-m", "--mode",
                       action="store", dest="mode", default='site',
                       help="what build mode to use. 'site' for full Drupal site, 'profile' for just the installation profile. Default is 'site'.")
+    parser.add_option("-f", "--file",
+                      action="store", dest="file", default='os2web.make',
+                      help="Use alternate make file")
     parser.add_option("-v", "--verbose",
                       action="store_true", dest="verbose", default=False,
                       help="make lots of noise")
@@ -56,10 +59,7 @@ def configure_logging(options):
 
 def make_command(options, make_path):
     """ Generate the make command based on current options. """
-    if options.developer:
-        make_file = 'os2web.dev.make'
-    else:
-        make_file = 'os2web.make'
+    make_file = options.file
 
     # Set command based on mode.
     if options.mode == 'site':
