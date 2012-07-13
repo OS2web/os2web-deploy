@@ -11,6 +11,7 @@ projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
 projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
 projects[os2web][download][revision] = "dev"
+projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
 
 ; OS2Web Themes
 
@@ -18,6 +19,7 @@ projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
 projects[cmstheme][download][url] = "git@github.com:bellcom/cmstheme.git"
 projects[cmstheme][download][revision] = "dev"
+projects[cmstheme][download][url] = "git@github.com:bellcom/cmstheme.git"
 
 ;projects[syddjurs][type] = "theme"
 ;projects[syddjurs][download][type] = "git"
