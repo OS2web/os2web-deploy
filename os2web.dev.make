@@ -9,7 +9,7 @@ projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
 
 ; OS2Web Themes
 projects[cmstheme][download][revision] = "dev"
-projects[cmstheme][download][url] = "git@github.com:bellcom/cmstheme.git"
+projects[cmstheme][download][url] = "git@github.com:syddjurs/cmstheme.git"
 
 ; Test
 projects[simpletest][subdir] = "contrib"

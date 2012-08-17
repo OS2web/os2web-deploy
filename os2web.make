@@ -16,6 +16,6 @@ projects[os2web][download][revision] = "master"
 
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/bellcom/cmstheme.git"
+projects[cmstheme][download][url] = "git://github.com/syddjurs/cmstheme.git"
 projects[cmstheme][download][revision] = "master"
 
