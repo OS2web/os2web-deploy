@@ -1,7 +1,10 @@
 api = 2
 core = 7.x
 
+;; Base of the main make file
 includes[base] = "os2web.make"
+
+;; Change/Add stuff here
 
 ; OS2Web Modules
 projects[os2web][download][revision] = "dev"
