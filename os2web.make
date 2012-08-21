@@ -4,9 +4,12 @@ core = 7.x
 ;; OS2Web projects:
 
 projects[drupal][type] = "core"
-projects[drupal][version] = "7.14"
-projects[drupal][patch][1187776] = "http://drupal.org/files/1187776.patch"
+projects[drupal][version] = "7.15"
+; projects[drupal][patch][1187776] = "http://drupal.org/files/1187776.patch" 
 projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
+
+; Danish translations
+;translations[] = da
 
 ; OS2Web Modules
 projects[os2web][type] = "module"
@@ -147,7 +150,7 @@ projects[workbench_access][version] = "1.0"
 
 ; Basic
 projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.0"
+projects[ctools][version] = "1.1"
 
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
@@ -320,9 +323,11 @@ projects[feeds][version] = "2.0-alpha4"
 projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
+; Patch to enable Proxy support
+projects[feeds][patch][] = "patches/feeds-proxy.patch"
 
 projects[feeds_xpathparser][subdir] = "contrib"
-projects[feeds_xpathparser][version] = "1.0-beta3"
+projects[feeds_xpathparser][version] = "1.x-dev"
 
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][version] = "1.0-rc1"

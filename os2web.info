@@ -7,6 +7,36 @@ core = 7.x
 
 ; Misc.
 dependencies[] = os2web_adlib_api
+dependencies[] = os2web_settings
+dependencies[] = os2web_special
+dependencies[] = fontyourface_ui
+dependencies[] = views_ui
+dependencies[] = feeds_ui
+dependencies[] = feeds_xpathparser
+dependencies[] = context_ui
+dependencies[] = delta_ui
+dependencies[] = field_ui
+dependencies[] = dblog
+dependencies[] = locale
+dependencies[] = pathauto
+dependencies[] = toolbar
+dependencies[] = views_content
+dependencies[] = ctools_custom_content
+dependencies[] = features_tools
+
+; OS2Web features
+
+dependencies[] = os2web_design
+dependencies[] = os2web_kontaktblok
+dependencies[] = os2web_kontaktform
+dependencies[] = os2web_ofir_job
+dependencies[] = os2web_menuer_og_blokke
+dependencies[] = os2web_sektionssider
+dependencies[] = os2web_selvbetjeningslinks
+dependencies[] = os2web_spotbokse
+dependencies[] = os2web_meeting_views
+dependencies[] = os2web_context
+dependencies[] = os2web_qbrick
 dependencies[] = ofir_job_index_integration
 dependencies[] = taxonomies_and_taxonomy_importers
 dependencies[] = kulturnaut_events
