@@ -28,10 +28,9 @@ function os2web_profile_prepare() {
 }
 
 function os2web_settings_form($install_state) {
-  error_log(basename(__FILE__) . ':' . __LINE__ . ' Var: $install_state = ' . print_r($install_state, 1));
   drupal_load('module','os2web_settings');
   module_load_include('admin.inc', 'os2web_settings');
-  return os2web_settings_settings_form();
+  return os2web_settings_settings_form(array(),array());
 }
 
 /**

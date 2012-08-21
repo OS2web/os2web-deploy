@@ -6,10 +6,11 @@ diff -git a/libraries/http_request.inc b/libraries/http_request.inc
          curl_setopt($download, CURLOPT_USERPWD, "{$username}:{$password}");
        }
 +
-+      error_log('MARK - ' . basename(__FILE__) . ':' . __LINE__ . ' in ' . __FUNCTION__ . '()');
-+      curl_setopt($download, CURLOPT_PROXY, 'localhost');
-+      curl_setopt($download, CURLOPT_PROXYPORT, 3128);
-+      curl_setopt($download, CURLOPT_HTTPPROXYTUNNEL, TRUE);
++      if (variable_get('os2web_pws_proxy', FALSE)) {
++        curl_setopt($download, CURLOPT_PROXY, variable_get('os2web_pws_proxy_host'));
++        curl_setopt($download, CURLOPT_PROXYPORT, variable_get('os2web_pws_proxy_port'));
++        curl_setopt($download, CURLOPT_HTTPPROXYTUNNEL, TRUE);
++      }
 +
        curl_setopt($download, CURLOPT_HTTPHEADER, $headers);
        curl_setopt($download, CURLOPT_HEADER, TRUE);
