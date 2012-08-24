@@ -1,7 +1,7 @@
 diff -git a/libraries/http_request.inc b/libraries/http_request.inc
 --- a/libraries/http_request.inc	2012-08-21 10:19:40.604960697 +0200
 +++ b/libraries/http_request.inc	2012-04-13 13:04:33.000000000 +0200
-@@ -156,6 +156,12 @@
+@@ -156,6 +156,13 @@
        if (!empty($username)) {
          curl_setopt($download, CURLOPT_USERPWD, "{$username}:{$password}");
        }

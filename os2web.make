@@ -5,7 +5,7 @@ core = 7.x
 
 projects[drupal][type] = "core"
 projects[drupal][version] = "7.15"
-; projects[drupal][patch][1187776] = "http://drupal.org/files/1187776.patch" 
+projects[drupal][patch][1187776] = "patches/1187776.patch" 
 projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
 
 ; Danish translations
@@ -324,7 +324,7 @@ projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_te
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
 ; Patch to enable Proxy support
-projects[feeds][patch][] = "http://raw.github.com/syddjurs/os2web-deploy/dev/patches/feeds-proxy.patch"
+projects[feeds][patch][] = "patches/feeds-proxy.patch"
 
 projects[feeds_xpathparser][subdir] = "contrib"
 projects[feeds_xpathparser][version] = "1.x-dev"
