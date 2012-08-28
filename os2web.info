@@ -46,6 +46,8 @@ dependencies[] = os2web_roles
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_workbench_setup
 dependencies[] = os2web_sovs
+dependencies[] = content_taxonomy_autocomplete
+dependencies[] = os2web_taxonomy_autocomplete
 
 ; Acadre MM
 dependencies[] = os2web_meetings

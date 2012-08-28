@@ -1,0 +1,12 @@
+diff -ur a/field_group.module b/field_group.module
+--- a/field_group.module	2012-08-28 13:44:19.335340185 +0200
++++ b/field_group.module	2012-08-28 13:45:30.589501937 +0200
+@@ -1501,7 +1501,7 @@
+ function field_group_unpack($group) {
+ 
+   // Extract unserialized data.
+-  if (isset($group->data)) {
++  if (is_array($group->data)) {
+     $data = $group->data;
+     unset($group->data);
+     $group->label = $data['label'];

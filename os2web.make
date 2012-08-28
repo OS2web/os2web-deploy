@@ -206,6 +206,8 @@ projects[link][version] = "1.0"
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
+; Patch to remove notices in badly stored features. TODO: add issue on d.o
+projects[field_group][patches] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
