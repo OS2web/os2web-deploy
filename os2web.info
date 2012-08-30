@@ -5,7 +5,10 @@ core = 7.x
 
 ;OS2web modules
 
-; Misc.
+; Basic setup and common modules
+
+dependencies[] = dblog
+dependencies[] = help
 dependencies[] = os2web_adlib_api
 dependencies[] = os2web_settings
 dependencies[] = os2web_special
@@ -15,16 +18,22 @@ dependencies[] = feeds_ui
 dependencies[] = context_ui
 dependencies[] = delta_ui
 dependencies[] = field_ui
-dependencies[] = dblog
 dependencies[] = locale
 dependencies[] = pathauto
 dependencies[] = toolbar
-dependencies[] = views_content
-dependencies[] = ctools_custom_content
 dependencies[] = features_tools
+
+; Needs to be moved into a feature dependency
+dependencies[] = views_content
+dependencies[] = features_tools
+dependencies[] = ctools_custom_content
+dependencies[] = user_reference
+dependencies[] = customfilter
+
 
 ; OS2Web features
 
+dependencies[] = ballerup_views
 dependencies[] = os2web_design
 dependencies[] = os2web_kontaktblok
 dependencies[] = os2web_kontaktform
@@ -32,6 +41,7 @@ dependencies[] = os2web_ofir_job
 dependencies[] = os2web_menuer_og_blokke
 dependencies[] = os2web_sektionssider
 dependencies[] = os2web_selvbetjeningslinks
+dependencies[] = os2web_borgerservices
 dependencies[] = os2web_spotbokse
 dependencies[] = os2web_meeting_views
 dependencies[] = os2web_context
@@ -45,6 +55,7 @@ dependencies[] = os2web_grund_paneler
 dependencies[] = os2web_roles
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_workbench_setup
+dependencies[] = os2web_access_helper
 dependencies[] = os2web_sovs
 dependencies[] = content_taxonomy_autocomplete
 dependencies[] = os2web_taxonomy_autocomplete
@@ -62,3 +73,7 @@ dependencies[] = os2web_acadre_arp
 
 files[] = os2web.profile
 files[] = os2web.install
+
+
+; Development
+dependencies[] = devel_generate

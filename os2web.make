@@ -191,6 +191,8 @@ projects[securelogin][version] = "1.2"
 ; Misc
 projects[customfilter][subdir] = "contrib"
 projects[customfilter][version] = "1.0"
+; Patch to fix undeclare var. http://drupal.org/node/1034556
+projects[customfilter][patches] = "http://drupal.org/files/customfilter-1034556.patch"
 
 projects[superfish][subdir] = "contrib"
 projects[superfish][version] = "1.8"
