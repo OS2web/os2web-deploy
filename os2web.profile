@@ -38,9 +38,9 @@ function os2web_profile_prepare() {
       ->fetchField();
 
   // Hovedtermer
-  taxonomy_term_save((object) array('name' => 'Borger', 'description' => 'Borger sektionen.', 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Erhverv', 'description' => 'Erhvervs sektionen.', 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Politik & Planer', 'description' => 'Politisk debat og indsigt.', 'vid' => $vid ));
+  taxonomy_term_save((object) array('path' => array('alias' => 'borger'), 'name' => 'Borger', 'description' => 'Borger sektionen.', 'vid' => $vid ));
+  taxonomy_term_save((object) array('path' => array('alias' => 'erhverv'), 'name' => 'Erhverv', 'description' => 'Erhvervs sektionen.', 'vid' => $vid ));
+  taxonomy_term_save((object) array('path' => array('alias' => 'politik-og-planer'), 'name' => 'Politik & Planer', 'description' => 'Politisk debat og indsigt.', 'vid' => $vid ));
 
   // Undertermer til Borger
   $tid = db_select('taxonomy_term_data', 'td')
@@ -54,6 +54,17 @@ function os2web_profile_prepare() {
   taxonomy_term_save((object) array('name' => 'Natur, miljø og klima', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
   taxonomy_term_save((object) array('name' => 'Ældre', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
   taxonomy_term_save((object) array('name' => 'Sundhed', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
+
+  // Create promotion terms
+  $vid = db_select('taxonomy_vocabulary', 'tv')
+      ->fields('tv', array('vid'))
+      ->condition('machine_name', 'forfrem_til')
+      ->execute()
+      ->fetchField();
+
+  // Hovedtermer
+  taxonomy_term_save((object) array('name' => 'Forside', 'description' => 'Vil blive vist på forsiden.', 'vid' => $vid ));
+  taxonomy_term_save((object) array('name' => 'Portalforside', 'description' => 'Vil blive vist på Portalsider.', 'vid' => $vid ));
 
 }
 
