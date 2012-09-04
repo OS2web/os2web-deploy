@@ -1,4 +1,4 @@
-Build and deploy tools for the Ding project
+Build and deploy tool for the OS2Web project
 ===========================================
 
 Installing Ding
@@ -12,7 +12,7 @@ Prerequisites
 The required server software for running Ding:
 
 * Apache 2.x with mod_rewrite
-* PHP 5.2.X and APC or XCache
+* PHP 5.3.X and APC or XCache
 * MySQL 5.X
 
 The configuration must adhere to [the default system requirements for Drupal](http://drupal.org/requirements).
