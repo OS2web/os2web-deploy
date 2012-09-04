@@ -4,9 +4,12 @@ core = 7.x
 ;; OS2Web projects:
 
 projects[drupal][type] = "core"
-projects[drupal][version] = "7.14"
-projects[drupal][patch][1187776] = "http://drupal.org/files/1187776.patch"
+projects[drupal][version] = "7.15"
+projects[drupal][patch][1187776] = "patches/1187776.patch" 
 projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
+
+; Danish translations
+;translations[] = da
 
 ; OS2Web Modules
 projects[os2web][type] = "module"
@@ -121,8 +124,8 @@ projects[media_browser_plus][version] = "1.x-dev"
 projects[multiform][subdir] = "contrib"
 projects[multiform][version] = "1.0"
 
-projects[media_youtube][subdir] = "contrib"
-projects[media_youtube][version] = "1.0-beta3"
+;projects[media_youtube][subdir] = "contrib"
+;projects[media_youtube][version] = "1.0-beta3"
 
 ; Files
 projects[filefield_sources][subdir] = "contrib"
@@ -147,7 +150,7 @@ projects[workbench_access][version] = "1.0"
 
 ; Basic
 projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.0"
+projects[ctools][version] = "1.1"
 
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
@@ -188,6 +191,8 @@ projects[securelogin][version] = "1.2"
 ; Misc
 projects[customfilter][subdir] = "contrib"
 projects[customfilter][version] = "1.0"
+; Patch to fix undeclare var. http://drupal.org/node/1034556
+projects[customfilter][patches] = "http://drupal.org/files/customfilter-1034556.patch"
 
 projects[superfish][subdir] = "contrib"
 projects[superfish][version] = "1.8"
@@ -203,6 +208,8 @@ projects[link][version] = "1.0"
 
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
+; Patch to remove notices in badly stored features. TODO: add issue on d.o
+projects[field_group][patches] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
@@ -320,9 +327,11 @@ projects[feeds][version] = "2.0-alpha4"
 projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
+; Patch to enable Proxy support
+projects[feeds][patch][] = "patches/feeds-proxy.patch"
 
 projects[feeds_xpathparser][subdir] = "contrib"
-projects[feeds_xpathparser][version] = "1.0-beta3"
+projects[feeds_xpathparser][version] = "1.x-dev"
 
 projects[entityreference][subdir] = "contrib"
 projects[entityreference][version] = "1.0-rc1"

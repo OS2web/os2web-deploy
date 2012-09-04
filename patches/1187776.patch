@@ -1,0 +1,14 @@
+diff --git a/modules/node/node.module b/modules/node/node.module
+index fe8ee51..9380582 100644
+--- a/modules/node/node.module
++++ b/modules/node/node.module
+@@ -2072,6 +2072,9 @@ function node_type_page_title($type) {
+  * Title callback.
+  */
+ function node_page_title($node) {
++  if (is_numeric($node)) {
++    return '';
++  }
+   return $node->title;
+ }
+ 

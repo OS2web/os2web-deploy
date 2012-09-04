@@ -79,7 +79,7 @@ function os2web_install() {
   // Set admin theme to Rubik
   variable_set('admin_theme', 'rubik');
   // Set admin theme on node/edit and node/add
-  variable_set('node_admin_theme', '0');
+  variable_set('node_admin_theme', '1');
   module_disable(array('update'));
   // Set default TZ
   variable_set('date_default_timezone', "Europe/Berlin");
