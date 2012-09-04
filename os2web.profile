@@ -38,9 +38,9 @@ function os2web_profile_prepare() {
       ->fetchField();
 
   // Hovedtermer
-  taxonomy_term_save((object) array('path' => array('alias' => 'borger'), 'name' => 'Borger', 'description' => 'Borger sektionen.', 'vid' => $vid ));
-  taxonomy_term_save((object) array('path' => array('alias' => 'erhverv'), 'name' => 'Erhverv', 'description' => 'Erhvervs sektionen.', 'vid' => $vid ));
-  taxonomy_term_save((object) array('path' => array('alias' => 'politik-og-planer'), 'name' => 'Politik & Planer', 'description' => 'Politisk debat og indsigt.', 'vid' => $vid ));
+  taxonomy_term_save((object) array('path' => array('alias' => 'borger'), 'name' => 'Borger', 'description' => 'Borger sektionen.', 'vid' => $vid));
+  taxonomy_term_save((object) array('path' => array('alias' => 'erhverv'), 'name' => 'Erhverv', 'description' => 'Erhvervs sektionen.', 'vid' => $vid));
+  taxonomy_term_save((object) array('path' => array('alias' => 'politik-og-planer'), 'name' => 'Politik & Planer', 'description' => 'Politisk debat og indsigt.', 'vid' => $vid));
 
   // Undertermer til Borger
   $tid = db_select('taxonomy_term_data', 'td')
@@ -48,12 +48,12 @@ function os2web_profile_prepare() {
           ->condition('name', 'Borger')
           ->condition('vid', $vid)
           ->execute()->fetchField();
-  taxonomy_term_save((object) array('name' => 'Dagpasning 0-6 år', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Kultur og Fritid', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Social, psykiatri og handikap', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Natur, miljø og klima', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Ældre', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Sundhed', 'description' => '', 'parent' => $tid, 'vid' => $vid ));
+  taxonomy_term_save((object) array('name' => 'Dagpasning 0-6 år', 'description' => '', 'parent' => $tid, 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Kultur og Fritid', 'description' => '', 'parent' => $tid, 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Social, psykiatri og handikap', 'description' => '', 'parent' => $tid, 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Natur, miljø og klima', 'description' => '', 'parent' => $tid, 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Ældre', 'description' => '', 'parent' => $tid, 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Sundhed', 'description' => '', 'parent' => $tid, 'vid' => $vid));
 
   // Create promotion terms
   $vid = db_select('taxonomy_vocabulary', 'tv')
@@ -63,9 +63,8 @@ function os2web_profile_prepare() {
       ->fetchField();
 
   // Hovedtermer
-  taxonomy_term_save((object) array('name' => 'Forside', 'description' => 'Vil blive vist på forsiden.', 'vid' => $vid ));
-  taxonomy_term_save((object) array('name' => 'Portalforside', 'description' => 'Vil blive vist på Portalsider.', 'vid' => $vid ));
-
+  taxonomy_term_save((object) array('name' => 'Forside', 'description' => 'Vil blive vist på forsiden.', 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Portalforside', 'description' => 'Vil blive vist på Portalsider.', 'vid' => $vid));
 }
 
 function os2web_settings_form($install_state) {
@@ -154,65 +153,67 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
 }
 
 function os2web_import_default_feeds_form($install_state) {
+  $config = feeds_source('ofir_job_import')->getConfig();
+  $ofir_url = $config['FeedsHTTPFetcher']['source'];
   $form = array(
       'os2web_import_group' => array(
           '#type' => 'fieldset',
           '#title' => st('KLE Import'),
           '#description' => st('Setup for the KLE Term import.'),
-          'os2web_import_kle_url' => array(
-              '#type' => 'textfield',
-              '#title' => st('Default URL for KLE terms import feed.'),
-              '#default_value' => 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=1',
-          ),
+//          'os2web_import_kle_url' => array(
+//              '#type' => 'textfield',
+//              '#title' => st('Default URL for KLE terms import feed.'),
+//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/kle.xml',
+//          ),
           'os2web_import_kle_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => false,
+              '#default_value' => true,
           ),
       ),
       'os2web_import_group2' => array(
           '#type' => 'fieldset',
           '#title' => st('Organization Terms Import'),
           '#description' => st('Setup for the Organization terms import.'),
-          'os2web_import_org_url' => array(
-              '#type' => 'textfield',
-              '#title' => st('Default URL for Organization terms import feed.'),
-              '#default_value' => 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=5',
-          ),
+//          'os2web_import_org_url' => array(
+//              '#type' => 'textfield',
+//              '#title' => st('Default URL for Organization terms import feed.'),
+//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/org.xml',
+//          ),
           'os2web_import_org_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => false,
+              '#default_value' => true,
           ),
       ),
       'os2web_import_group3' => array(
           '#type' => 'fieldset',
           '#title' => st('Politics terms Import'),
           '#description' => st('Setup for the Politics terms import.'),
-          'os2web_import_pol_url' => array(
-              '#type' => 'textfield',
-              '#title' => st('Default URL for Organization terms import feed.'),
-              '#default_value' => 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetTaxonomy?taxonomyId=2',
-          ),
+//          'os2web_import_pol_url' => array(
+//              '#type' => 'textfield',
+//              '#title' => st('Default URL for Organization terms import feed.'),
+//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/pol.xml',
+//          ),
           'os2web_import_pol_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => false,
+              '#default_value' => true,
           ),
       ),
       'os2web_import_group4' => array(
           '#type' => 'fieldset',
           '#title' => st('GIS terms Import'),
           '#description' => st('Setup for the GIS terms import.'),
-          'os2web_import_gis_url' => array(
-              '#type' => 'textfield',
-              '#title' => st('Default URL for GIS terms import feed.'),
-              '#default_value' => 'http://10.1.1.182/SOFDDataService/SOFDWebService.asmx/GetGisNames',
-          ),
+//          'os2web_import_gis_url' => array(
+//              '#type' => 'textfield',
+//              '#title' => st('Default URL for GIS terms import feed.'),
+//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/gis.xml',
+//          ),
           'os2web_import_gis_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => false,
+              '#default_value' => true,
           ),
       ),
       'os2web_import_group5' => array(
@@ -222,7 +223,7 @@ function os2web_import_default_feeds_form($install_state) {
           'os2web_import_ofir_url' => array(
               '#type' => 'textfield',
               '#title' => st('Default URL for Ofir.dk job feed.'),
-              '#default_value' => 'http://job.ofir.dk/Templates/XMLliste_7DAE0E45-E8C0-43EF-9D3C-350F69BE5C9B.asp',
+              '#default_value' => $ofir_url,
           ),
           'os2web_import_ofir_import' => array(
               '#type' => 'checkbox',
@@ -235,40 +236,40 @@ function os2web_import_default_feeds_form($install_state) {
 }
 
 function os2web_import_default_feeds($install_state) {
-  //Set default KLE taxonomy feed url
-  $source = feeds_source('taxonomy_kle');
-  $config = $source->getConfig();
-  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_kle_url', '');
-  $source->setConfig($config);
-  $source->save();
-
-  //Set default Organisation taxonomy feed url
-  $source = feeds_source('taxonomy_organization');
-  $config = $source->getConfig();
-  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_org_url', '');
-  $source->setConfig($config);
-  $source->save();
-
-  //Set default Politik taxonomy feed url
-  $source = feeds_source('taxonomy_politics');
-  $config = $source->getConfig();
-  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_pol_url', '');
-  $source->setConfig($config);
-  $source->save();
-
-  //Set default Egenavne/stednavne taxonomy feed url
-  $source = feeds_source('taxonomy_gisnames');
-  $config = $source->getConfig();
-  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_gis_url', '');
-  $source->setConfig($config);
-  $source->save();
-
-  //Set default Ofir feed url
-  $source = feeds_source('ofir_job_import');
-  $config = $source->getConfig();
-  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_ofir_url', '');
-  $source->setConfig($config);
-  $source->save();
+//  //Set default KLE taxonomy feed url
+//  $source = feeds_source('taxonomy_kle');
+//  $config = $source->getConfig();
+//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_kle_url', '');
+//  $source->setConfig($config);
+//  $source->save();
+//
+//  //Set default Organisation taxonomy feed url
+//  $source = feeds_source('taxonomy_organization');
+//  $config = $source->getConfig();
+//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_org_url', '');
+//  $source->setConfig($config);
+//  $source->save();
+//
+//  //Set default Politik taxonomy feed url
+//  $source = feeds_source('taxonomy_politics');
+//  $config = $source->getConfig();
+//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_pol_url', '');
+//  $source->setConfig($config);
+//  $source->save();
+//
+//  //Set default Egenavne/stednavne taxonomy feed url
+//  $source = feeds_source('taxonomy_gisnames');
+//  $config = $source->getConfig();
+//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_gis_url', '');
+//  $source->setConfig($config);
+//  $source->save();
+//
+//  //Set default Ofir feed url
+//  $source = feeds_source('ofir_job_import');
+//  $config = $source->getConfig();
+//  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_ofir_url', '');
+//  $source->setConfig($config);
+//  $source->save();
 
   $batch = array(
       'title' => t('Importing feeds'),
