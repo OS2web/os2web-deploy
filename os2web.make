@@ -410,6 +410,9 @@ projects[custom_search][version] = "1.9"
 projects[chart][subdir] = "contrib"
 projects[chart][version] = "1.1"
 
+projects[fieldable_panels_panes][subdir] = "contrib"
+projects[fieldable_panels_panes][version] = "1.2"
+
 ; Themes
 
 projects[rubik][version] = "4.0-beta8"
