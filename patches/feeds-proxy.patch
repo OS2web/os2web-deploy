@@ -1,0 +1,50 @@
+diff -git a/libraries/http_request.inc b/libraries/http_request.inc
+--- a/libraries/http_request.inc	2012-08-21 10:19:40.604960697 +0200
++++ b/libraries/http_request.inc	2012-04-13 13:04:33.000000000 +0200
+@@ -156,6 +156,13 @@
+       if (!empty($username)) {
+         curl_setopt($download, CURLOPT_USERPWD, "{$username}:{$password}");
+       }
++
++      if (variable_get('os2web_pws_proxy', FALSE)) {
++        curl_setopt($download, CURLOPT_PROXY, variable_get('os2web_pws_proxy_host'));
++        curl_setopt($download, CURLOPT_PROXYPORT, variable_get('os2web_pws_proxy_port'));
++        curl_setopt($download, CURLOPT_HTTPPROXYTUNNEL, TRUE);
++      }
++
+       curl_setopt($download, CURLOPT_HTTPHEADER, $headers);
+       curl_setopt($download, CURLOPT_HEADER, TRUE);
+       curl_setopt($download, CURLOPT_RETURNTRANSFER, TRUE);
+@@ -171,7 +177,8 @@
+       }
+       $header_size = curl_getinfo($download, CURLINFO_HEADER_SIZE);
+       $header = substr($data, 0, $header_size - 1);
+-      $result->data = substr($data, $header_size);
++      //$result->data = substr($data, $header_size);
++      $result->data = substr($data, -curl_getinfo($download,CURLINFO_CONTENT_LENGTH_DOWNLOAD));
+       $header_lines = preg_split("/\r\n|\n|\r/", $header);
+ 
+       $result->headers = array();
+@@ -193,11 +200,14 @@
+     }
+   }
+   else {
++  error_log('MARK - ' . basename(__FILE__) . ':' . __LINE__ . ' in ' . __FUNCTION__ . '()');
+     $result = drupal_http_request($url, array('headers' => $headers));
+   }
+ 
+   $result->code = isset($result->code) ? $result->code : 200;
+ 
++//  error_log("Var: \$result = " . print_r($result, 1));
++
+   // In case of 304 Not Modified try to return cached data.
+   if ($result->code == 304) {
+ 
+@@ -233,6 +243,7 @@
+  *   TRUE if curl is available, FALSE otherwise.
+  */
+ function http_request_use_curl() {
++  return true;
+   // Allow site administrators to choose to not use cURL.
+   if (variable_get('feeds_never_use_curl', FALSE)) {
+     return FALSE;
