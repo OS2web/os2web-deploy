@@ -158,65 +158,30 @@ function os2web_import_default_feeds_form($install_state) {
   $form = array(
       'os2web_import_group' => array(
           '#type' => 'fieldset',
-          '#title' => st('KLE Import'),
-          '#description' => st('Setup for the KLE Term import.'),
-//          'os2web_import_kle_url' => array(
-//              '#type' => 'textfield',
-//              '#title' => st('Default URL for KLE terms import feed.'),
-//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/kle.xml',
-//          ),
+          '#title' => st('Taxonomy imports'),
+          '#description' => st('Choose if you wish to import all vocabularies during install.'),
           'os2web_import_kle_import' => array(
               '#type' => 'checkbox',
-              '#title' => st('Import during install ?'),
+              '#title' => st('KLE'),
+              '#default_value' => true,
+          ),
+          'os2web_import_org_import' => array(
+              '#type' => 'checkbox',
+              '#title' => st('Organizations'),
+              '#default_value' => true,
+          ),
+          'os2web_import_pol_import' => array(
+              '#type' => 'checkbox',
+              '#title' => st('Politics'),
+              '#default_value' => true,
+          ),
+          'os2web_import_gis_import' => array(
+              '#type' => 'checkbox',
+              '#title' => st('GIS Names'),
               '#default_value' => true,
           ),
       ),
       'os2web_import_group2' => array(
-          '#type' => 'fieldset',
-          '#title' => st('Organization Terms Import'),
-          '#description' => st('Setup for the Organization terms import.'),
-//          'os2web_import_org_url' => array(
-//              '#type' => 'textfield',
-//              '#title' => st('Default URL for Organization terms import feed.'),
-//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/org.xml',
-//          ),
-          'os2web_import_org_import' => array(
-              '#type' => 'checkbox',
-              '#title' => st('Import during install ?'),
-              '#default_value' => true,
-          ),
-      ),
-      'os2web_import_group3' => array(
-          '#type' => 'fieldset',
-          '#title' => st('Politics terms Import'),
-          '#description' => st('Setup for the Politics terms import.'),
-//          'os2web_import_pol_url' => array(
-//              '#type' => 'textfield',
-//              '#title' => st('Default URL for Organization terms import feed.'),
-//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/pol.xml',
-//          ),
-          'os2web_import_pol_import' => array(
-              '#type' => 'checkbox',
-              '#title' => st('Import during install ?'),
-              '#default_value' => true,
-          ),
-      ),
-      'os2web_import_group4' => array(
-          '#type' => 'fieldset',
-          '#title' => st('GIS terms Import'),
-          '#description' => st('Setup for the GIS terms import.'),
-//          'os2web_import_gis_url' => array(
-//              '#type' => 'textfield',
-//              '#title' => st('Default URL for GIS terms import feed.'),
-//              '#default_value' => drupal_get_path('module', 'taxonomies_and_taxonomy_importers').'/data/gis.xml',
-//          ),
-          'os2web_import_gis_import' => array(
-              '#type' => 'checkbox',
-              '#title' => st('Import during install ?'),
-              '#default_value' => true,
-          ),
-      ),
-      'os2web_import_group5' => array(
           '#type' => 'fieldset',
           '#title' => st('Ofir.dk job Import'),
           '#description' => st('Setup for the Ofir.dk import.'),
@@ -236,40 +201,40 @@ function os2web_import_default_feeds_form($install_state) {
 }
 
 function os2web_import_default_feeds($install_state) {
-//  //Set default KLE taxonomy feed url
-//  $source = feeds_source('taxonomy_kle');
-//  $config = $source->getConfig();
-//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_kle_url', '');
-//  $source->setConfig($config);
-//  $source->save();
-//
-//  //Set default Organisation taxonomy feed url
-//  $source = feeds_source('taxonomy_organization');
-//  $config = $source->getConfig();
-//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_org_url', '');
-//  $source->setConfig($config);
-//  $source->save();
-//
-//  //Set default Politik taxonomy feed url
-//  $source = feeds_source('taxonomy_politics');
-//  $config = $source->getConfig();
-//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_pol_url', '');
-//  $source->setConfig($config);
-//  $source->save();
-//
-//  //Set default Egenavne/stednavne taxonomy feed url
-//  $source = feeds_source('taxonomy_gisnames');
-//  $config = $source->getConfig();
-//  $config['FeedsFileFetcher']['source'] = variable_get('os2web_import_gis_url', '');
-//  $source->setConfig($config);
-//  $source->save();
-//
-//  //Set default Ofir feed url
-//  $source = feeds_source('ofir_job_import');
-//  $config = $source->getConfig();
-//  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_ofir_url', '');
-//  $source->setConfig($config);
-//  $source->save();
+  //Set default KLE taxonomy feed url
+  $source = feeds_source('taxonomy_kle');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'taxonomies_and_taxonomy_importers') . '/data/kle.xml';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Organisation taxonomy feed url
+  $source = feeds_source('taxonomy_organization');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'taxonomies_and_taxonomy_importers') . '/data/org.xml';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Politik taxonomy feed url
+  $source = feeds_source('taxonomy_politics');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'taxonomies_and_taxonomy_importers') . '/data/pol.xml';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Egenavne/stednavne taxonomy feed url
+  $source = feeds_source('taxonomy_gisnames');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'taxonomies_and_taxonomy_importers') . '/data/gis.xml';
+  $source->setConfig($config);
+  $source->save();
+
+  //Set default Ofir feed url
+  $source = feeds_source('ofir_job_import');
+  $config = $source->getConfig();
+  $config['FeedsHTTPFetcher']['source'] = variable_get('os2web_import_ofir_url', '');
+  $source->setConfig($config);
+  $source->save();
 
   $batch = array(
       'title' => t('Importing feeds'),
@@ -294,10 +259,6 @@ function os2web_import_default_feeds($install_state) {
     $batch['operations'][] = array('feeds_batch', array('import', 'ofir_job_import', 0));
 
   // Clean up temporary vars
-  variable_del('os2web_import_kle_url');
-  variable_del('os2web_import_org_url');
-  variable_del('os2web_import_pol_url');
-  variable_del('os2web_import_gis_url');
   variable_del('os2web_import_ofir_url');
   variable_del('os2web_import_kle_import');
   variable_del('os2web_import_org_import');
@@ -307,4 +268,14 @@ function os2web_import_default_feeds($install_state) {
 
 
   return $batch;
+}
+
+/**
+ * Sets the default language to danish
+ *
+ * @return array
+ */
+function os2web_profile_details(){
+  $details['language'] = "da";
+  return $details;
 }
