@@ -33,7 +33,6 @@ dependencies[] = customfilter
 
 ; OS2Web features
 
-dependencies[] = ballerup_views
 dependencies[] = os2web_design
 dependencies[] = os2web_kontaktblok
 dependencies[] = os2web_kontaktform
@@ -69,7 +68,7 @@ dependencies[] = os2web_case_field
 dependencies[] = os2web_doc_field
 
 ; Acadre ARP
-dependencies[] = os2web_acadre_arp
+; dependencies[] = os2web_acadre_arp
 
 files[] = os2web.profile
 files[] = os2web.install
