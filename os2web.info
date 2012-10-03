@@ -22,6 +22,7 @@ dependencies[] = locale
 dependencies[] = pathauto
 dependencies[] = toolbar
 dependencies[] = features_tools
+dependencies[] = feeds_soapfetcher
 
 ; Needs to be moved into a feature dependency
 dependencies[] = views_content
@@ -29,7 +30,6 @@ dependencies[] = features_tools
 dependencies[] = ctools_custom_content
 dependencies[] = user_reference
 dependencies[] = customfilter
-
 
 ; OS2Web features
 
@@ -55,7 +55,7 @@ dependencies[] = os2web_roles
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_workbench_setup
 dependencies[] = os2web_access_helper
-dependencies[] = os2web_sovs
+;dependencies[] = os2web_sovs
 dependencies[] = content_taxonomy_autocomplete
 dependencies[] = os2web_taxonomy_autocomplete
 

@@ -6,7 +6,7 @@ index fe8ee51..9380582 100644
   * Title callback.
   */
  function node_page_title($node) {
-+  if (is_numeric($node)) {
++  if (!is_object($node)) {
 +    return '';
 +  }
    return $node->title;

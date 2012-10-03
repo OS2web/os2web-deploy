@@ -38,9 +38,21 @@ function os2web_profile_prepare() {
       ->fetchField();
 
   // Hovedtermer
-  taxonomy_term_save((object) array('path' => array('alias' => 'borger'), 'name' => 'Borger', 'description' => 'Borger sektionen.', 'vid' => $vid));
-  taxonomy_term_save((object) array('path' => array('alias' => 'erhverv'), 'name' => 'Erhverv', 'description' => 'Erhvervs sektionen.', 'vid' => $vid));
-  taxonomy_term_save((object) array('path' => array('alias' => 'politik-og-planer'), 'name' => 'Politik & Planer', 'description' => 'Politisk debat og indsigt.', 'vid' => $vid));
+  taxonomy_term_save((object) array(
+      'path' => array('alias' => 'borger'),
+      'name' => 'Borger',
+      'description' => 'Borger sektionen.',
+      'vid' => $vid));
+  taxonomy_term_save((object) array(
+      'path' => array('alias' => 'erhverv'),
+      'name' => 'Erhverv',
+      'description' => 'Erhvervs sektionen.',
+      'vid' => $vid));
+  taxonomy_term_save((object) array(
+      'path' => array('alias' => 'politik-og-planer'),
+      'name' => 'Politik & Planer',
+      'description' => 'Politisk debat og indsigt.',
+      'vid' => $vid));
 
   // Undertermer til Borger
   $tid = db_select('taxonomy_term_data', 'td')
@@ -148,6 +160,7 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate the site name with the server name.
   $form['site_information']['site_name']['#default_value'] = 'OS2Web Test';
   $form['update_notifications']['update_status_module']['#default_value'] = array(0, 0);
+  $form['update_notifications']['update_status_module']['#enable'] = false;
   $form['server_settings']['site_default_country']['#default_value'] = 'DK';
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
 }
@@ -193,7 +206,7 @@ function os2web_import_default_feeds_form($install_state) {
           'os2web_import_ofir_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => true,
+              '#default_value' => false,
           ),
       ),
   );
