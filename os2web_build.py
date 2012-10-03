@@ -110,7 +110,12 @@ def setup_profile(options, make_path):
     shutil.copy('os2web.profile', path)
     shutil.copy('os2web.info', path)
     shutil.copy('os2web.install', path)
-    shutil.copy('translations', path)
+    shutil.copytree('translations', os.path.join(path,'translations'))
+   # (options, args) = parse_args()
+   # os.symlink(os.path.join(args[-1],'os2web.profile'), os.path.join(path,'os2web.profile'))
+   # os.symlink(os.path.join(args[-1],'os2web.info'), os.path.join(path,'os2web.info'))
+   # os.symlink(os.path.join(args[-1],'os2web.install'), os.path.join(path,'os2web.install'))
+   # os.symlink(os.path.join(args[-1],'translations'), os.path.join(path,'translations'))
 
 def create_symlinks(options, folder_name):
     """
