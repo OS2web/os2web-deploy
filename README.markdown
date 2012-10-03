@@ -1,4 +1,4 @@
-Oprettelse af OS2Dagsorden løsning
+Oprettelse af OS2Web løsning
 ==================================
 
 Forudsætninger
@@ -32,11 +32,11 @@ Kommer senere
 
 Scripts
 -------
-* os2dagsorden_build.py til nye installationer eller en komplet pull
+* os2web_build.py til nye installationer eller en komplet pull
 * reroll.sh bruges når der skal opdateres fra master branch i git
 * dev-reroll.sh bruges når der skal opdateres fra udviklings branchen
 
-Det udføres ved at man cd'er ind i diret og udfører kommandoen ./reroll.sh, dev-reroll.sh eller os2dagsorden_build.py
+Det udføres ved at man cd'er ind i diret og udfører kommandoen ./reroll.sh, dev-reroll.sh eller os2web_build.py
 
 Oprettelse af site folder og database m.m.
 ------------------------------------------
@@ -45,19 +45,19 @@ HUSK: Du skal selv skrive dit mysql root kodeord ind i filen i variablen $mysqlp
 
 * SSH til serveren inclusiv din git nøgle "ssh -A [server_navn]"
 * Udfør "cd /var/www/"
-* Udfør "git clone https://github.com/OS2web/os2dagsorden-deploy.git"
-* Udfør "cd os2dagsorden-deploy"
+* Udfør "git clone https://github.com/Syddjurs/os2web-deploy.git"
+* Udfør "cd os2web-deploy"
 * Udfør og ret kodeordet for mysql "vim ./create_site_with_db.php" og gem ved at trykke ESC og herefter :q! + ENTER
 * Udfør "sudo ./create_site_with_db.php [dit domane]"
 
 Deployment af koden fra GITHub
 ------------------------------
 
-* Udfør "cd /var/www/os2dagsorden-deploy"
+* Udfør "cd /var/www/os2web-deploy"
 
-Kør python scriptet fra det dir som filen ligger i os2dagsorden-deploy folderen
+Kør python scriptet fra det dir som filen ligger i os2web-deploy folderen
 
-* Udfør: "python os2dagsorden_build.py -D os2dagsorden.dev.make"
+* Udfør: "python os2web_build.py -D os2web.dev.make"
 * Udfør: "./reroll-dev.sh" - så vi får oprettet "latest" linket i /build/ folderen
 
 Installer Drupal
@@ -70,10 +70,10 @@ Fra den nye site folder Installer Drupal 7 med drush /var/www/[sitenavn]/
 
 Opret et symbolsk link til build folderen. 
 * Udfør: "cd public_html"
-* Udfør: "ln -s /var/www/os2dagsorden-deploy/build/latest profiles/os2dagsorden" (fra document / drupal root)
+* Udfør: "ln -s /var/www/os2web-deploy/build/latest profiles/os2web" (fra document / drupal root)
 
 Gå på url'en og installer drupal færdig. Eller brug denne
-* Udfør: "drush site-install os2dagsorden --account-name=admin --account-pass=admin --db-url=mysql://[db_bruger]:[db_passwd]@localhost/[db]"
+* Udfør: "drush site-install os2web --account-name=admin --account-pass=admin --db-url=mysql://[db_bruger]:[db_passwd]@localhost/[db]"
 
 Proceduren er at reroll.sh bruges når prod sitet skal reetableres, eller hvis alt fra dev branch er blevet opdateret til master branch. 
 
@@ -166,11 +166,11 @@ Disse placeres i: sites/default/files/acadre_views directory, med navnene:
 * V_web_MeetingGroups.xml
 * V_web_Meetings.xml
 
-Importen køres fra cron admin/config/system/cron, med OS2Dagsorden importer module
+Importen køres fra cron admin/config/system/cron, med OS2web importer module
 
 Adlib server
 -----------
-Ændring af Adlib webservice: sites/all/modules/os2dagsorden_adlib_api/includes/AbLibWS.class.inc
+Ændring af Adlib webservice: sites/all/modules/os2web_adlib_api/includes/AbLibWS.class.inc
 
 Import af Dagsordener og referater. I Acadre format
 ---------------------------------------------------
