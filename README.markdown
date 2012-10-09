@@ -42,11 +42,13 @@ HUSK: Du skal selv skrive dit mysql root kodeord ind i filen i variablen $mysqlp
 * Udfør "cd os2web-deploy"
 * Udfør og ret kodeordet for mysql "vim ./create_site_with_db.php" og gem ved at trykke ESC og herefter :q! + ENTER
 * Udfør "sudo ./create_site_with_db.php [dit domane]"
+* Udfør "cd /var/www/"
+* Udfør "mv os2web-deploy ./[dit domane]"
 
 Deployment af koden fra GITHub
 ------------------------------
 
-* Udfør "cd /var/www/os2web-deploy"
+* Udfør "cd /var/www/[dit domane]/os2web-deploy"
 
 Kør python scriptet fra det dir som filen ligger i os2web-deploy folderen
 
