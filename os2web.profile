@@ -37,22 +37,27 @@ function os2web_profile_prepare() {
       ->execute()
       ->fetchField();
 
+  // For compatibility reasons we have to offset the term-id's by 3
+  taxonomy_term_save((object) array('name' => 'Dummy1', 'description' => 'Dummy term', 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Dummy2', 'description' => 'Dummy term', 'vid' => $vid));
+  taxonomy_term_save((object) array('name' => 'Dummy3', 'description' => 'Dummy term', 'vid' => $vid));
+
   // Hovedtermer
   taxonomy_term_save((object) array(
-      'path' => array('alias' => 'borger'),
-      'name' => 'Borger',
-      'description' => 'Borger sektionen.',
-      'vid' => $vid));
+          'path' => array('alias' => 'borger'),
+          'name' => 'Borger',
+          'description' => 'Borger sektionen.',
+          'vid' => $vid));
   taxonomy_term_save((object) array(
-      'path' => array('alias' => 'erhverv'),
-      'name' => 'Erhverv',
-      'description' => 'Erhvervs sektionen.',
-      'vid' => $vid));
+          'path' => array('alias' => 'erhverv'),
+          'name' => 'Erhverv',
+          'description' => 'Erhvervs sektionen.',
+          'vid' => $vid));
   taxonomy_term_save((object) array(
-      'path' => array('alias' => 'politik-og-planer'),
-      'name' => 'Politik & Planer',
-      'description' => 'Politisk debat og indsigt.',
-      'vid' => $vid));
+          'path' => array('alias' => 'politik-og-planer'),
+          'name' => 'Politik & Planer',
+          'description' => 'Politisk debat og indsigt.',
+          'vid' => $vid));
 
   // Undertermer til Borger
   $tid = db_select('taxonomy_term_data', 'td')
@@ -80,37 +85,38 @@ function os2web_profile_prepare() {
 }
 
 function os2web_settings_form($install_state) {
+  drupal_set_title(st('Webservice endpoint setup'));
   $form['os2web_pws_config_group'] = array(
       '#type' => 'fieldset',
       '#title' => t('PWS Endpoint configuration'),
   );
   $form['os2web_pws_config_group']['os2web_pws_url'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_url'),
+//      '#default_value' => variable_get('os2web_pws_url'),
       '#title' => t('PWS URL for V4'),
       '#description' => t('URL to the PWS webservice endpoint.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_url_v6'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_url_v6'),
+//      '#default_value' => variable_get('os2web_pws_url_v6'),
       '#title' => t('PWS URL for  V6'),
       '#description' => t('URL to the PWSv6 webservice endpoint.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_url_search'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_url_search'),
+//      '#default_value' => variable_get('os2web_pws_url_search'),
       '#title' => t('PWS URL for Search service'),
       '#description' => t('URL to the webservice endpoint that runs the search service.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_user'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_user'),
+//      '#default_value' => variable_get('os2web_pws_user'),
       '#title' => t('PWS login user'),
       '#description' => t('PWS HTTP authentification user.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_password'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_password'),
+//      '#default_value' => variable_get('os2web_pws_password'),
       '#title' => t('PWS password'),
       '#description' => t('PWS HTTP authentification password.'),
   );
@@ -120,7 +126,7 @@ function os2web_settings_form($install_state) {
   );
   $form['os2web_pws_adlib_group']['os2web_adlib_url'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_adlib_url', 'http://10.1.1.180/ExponentWSA/ExponentWSA.asmx?wsdl'),
+//      '#default_value' => variable_get('os2web_adlib_url', 'http://10.1.1.180/ExponentWSA/ExponentWSA.asmx?wsdl'),
       '#title' => t('URL for Adlib service endpoint'),
       '#description' => t('URL to the webservice endpoint that runs the Adlib service.'),
   );
@@ -135,17 +141,17 @@ function os2web_settings_form($install_state) {
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy'] = array(
       '#type' => 'checkbox',
-      '#default_value' => variable_get('os2web_pws_proxy'),
+//      '#default_value' => variable_get('os2web_pws_proxy'),
       '#title' => t('Use proxy?'),
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy_host'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_proxy_host'),
+//      '#default_value' => variable_get('os2web_pws_proxy_host'),
       '#title' => t('Proxy hostname or IP'),
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy_port'] = array(
       '#type' => 'textfield',
-      '#default_value' => variable_get('os2web_pws_proxy_port'),
+//      '#default_value' => variable_get('os2web_pws_proxy_port'),
       '#title' => t('Proxy port number.'),
   );
   return system_settings_form($form);
@@ -160,7 +166,6 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate the site name with the server name.
   $form['site_information']['site_name']['#default_value'] = 'OS2Web Test';
   $form['update_notifications']['update_status_module']['#default_value'] = array(0, 0);
-  $form['update_notifications']['update_status_module']['#enable'] = false;
   $form['server_settings']['site_default_country']['#default_value'] = 'DK';
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
 }
@@ -270,6 +275,8 @@ function os2web_import_default_feeds($install_state) {
 
   if (variable_get('os2web_import_ofir_import'))
     $batch['operations'][] = array('feeds_batch', array('import', 'ofir_job_import', 0));
+//  error_log(basename(__FILE__) . ':' . __LINE__ . ' Var: $batch = ' . print_r($batch, 1));
+//  $batch = array();
 
   // Clean up temporary vars
   variable_del('os2web_import_ofir_url');
@@ -279,7 +286,7 @@ function os2web_import_default_feeds($install_state) {
   variable_del('os2web_import_gis_import');
   variable_del('os2web_import_ofir_import');
 
-
+  
   return $batch;
 }
 
@@ -288,7 +295,7 @@ function os2web_import_default_feeds($install_state) {
  *
  * @return array
  */
-function os2web_profile_details(){
+function os2web_profile_details() {
   $details['language'] = "da";
   return $details;
 }

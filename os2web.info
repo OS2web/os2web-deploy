@@ -12,17 +12,19 @@ dependencies[] = help
 dependencies[] = os2web_adlib_api
 dependencies[] = os2web_settings
 dependencies[] = os2web_special
+dependencies[] = locale
+dependencies[] = pathauto
+dependencies[] = toolbar
+dependencies[] = features_tools
+dependencies[] = feeds_soapfetcher
+
+; UI modules - Optional
 dependencies[] = fontyourface_ui
 dependencies[] = views_ui
 dependencies[] = feeds_ui
 dependencies[] = context_ui
 dependencies[] = delta_ui
 dependencies[] = field_ui
-dependencies[] = locale
-dependencies[] = pathauto
-dependencies[] = toolbar
-dependencies[] = features_tools
-dependencies[] = feeds_soapfetcher
 
 ; Needs to be moved into a feature dependency
 dependencies[] = views_content
@@ -32,7 +34,6 @@ dependencies[] = user_reference
 dependencies[] = customfilter
 
 ; OS2Web features
-
 dependencies[] = os2web_design
 dependencies[] = os2web_kontaktblok
 dependencies[] = os2web_kontaktform
@@ -55,7 +56,7 @@ dependencies[] = os2web_roles
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_workbench_setup
 dependencies[] = os2web_access_helper
-;dependencies[] = os2web_sovs
+; dependencies[] = os2web_search
 dependencies[] = content_taxonomy_autocomplete
 dependencies[] = os2web_taxonomy_autocomplete
 
