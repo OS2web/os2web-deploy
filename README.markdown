@@ -58,8 +58,8 @@ Deployment af koden fra GITHub
 
 Kør python scriptet fra det dir som filen ligger i os2web-deploy folderen
 
-* Udfør: "python os2web_build.py os2web.dev.make"
-* Udfør: "./reroll-dev.sh" - så vi får oprettet "latest" linket i /build/ folderen
+* Udfør: "python os2web_build.py os2web.make"
+* Udfør: "./reroll.sh" - så vi får oprettet "latest" linket i /build/ folderen
 
 Installer Drupal
 ----------------
