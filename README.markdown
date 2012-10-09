@@ -6,18 +6,19 @@ Forudsætninger
 
 * 0. En Ubuntu / Debian installation
 * 1. En git konto med adgang til repositoriet. http://help.github.com/linux-set-up-git/ (vil være offentlig efter frigivelsen)
-* 2. Drupal oprettelses script. /usr/local/sbin/create_site_with_db.php
-(findes på https://github.com/os2web/create_site_with_db)
-* 3. Os2web-deploy build filerne
-* 4. Rettigheder til www-data (tilføjes med "sudo adduser [brugernavn] www-data). Husk at logge ud.
-* 5. Drush make skal være installeret. http://drupal.org/project/drush_make (drush dl drush_make-6.x)
-* 6. Apache 2.x with mod_rewrite
-* 7. PHP 5.2.X and APC or XCache
-* 8. MySQL 5.X
-* 9. Opfylde http://drupal.org/requirements
-* 10. PHP `memory_limit` must be at least `128M` (128MB)
-* 11. PHP `max_execution_time` must be at least `60` (1 minute)
-* 12. En  RSA nøgle til din GIT konto (vejledning: https://help.github.com/articles/generating-ssh-keys)
+* 2. Rettigheder til www-data (tilføjes med "sudo adduser [brugernavn] www-data). Husk at logge ud.
+* 3. Drush make skal være installeret. http://drupal.org/project/drush_make (drush dl drush_make-6.x)
+* 4. Apache 2.x with mod_rewrite
+* 5. PHP 5.2.X og APC or XCache
+* 6. MySQL 5.X
+* 7. Opfylde http://drupal.org/requirements
+* 8. PHP `memory_limit` must be at least `128M` (128MB)
+* 9. PHP `max_execution_time` must be at least `60` (1 minute)
+
+Som udvikler
+------------
+* 1. En  RSA nøgle til din GIT konto (vejledning: https://help.github.com/articles/generating-ssh-keys)
+* 2. Adgang til dev branch med ret til at ændre i repositoriet.
 
 INSTALLATION
 ============
@@ -28,22 +29,14 @@ sudo apt-get install apache2 php5 mysql-server phpmyadmin pwgen drush php5-ldap 
 
 Git-flow (valgfri)
 --------
-Kommer senere
+* Udfør 'sudo apt-get install git-flow)
 
-Scripts
--------
-* os2web_build.py til nye installationer eller en komplet pull
-* reroll.sh bruges når der skal opdateres fra master branch i git
-* dev-reroll.sh bruges når der skal opdateres fra udviklings branchen
-
-Det udføres ved at man cd'er ind i diret og udfører kommandoen ./reroll.sh, dev-reroll.sh eller os2web_build.py
-
-Oprettelse af site folder og database m.m.
+Hent filer og opret site folder og database m.m.
 ------------------------------------------
 Kør drupal oprettelses scriptet med angivelse af domane navnet på det site du vil oprette
 HUSK: Du skal selv skrive dit mysql root kodeord ind i filen i variablen $mysqlpasswd
 
-* SSH til serveren inclusiv din git nøgle "ssh -A [server_navn]"
+* SSH til serveren inclusiv din git nøgle "ssh -A [server_navn]" (hvis du har behov for det - ellers udelad -A)
 * Udfør "cd /var/www/"
 * Udfør "git clone https://github.com/Syddjurs/os2web-deploy.git"
 * Udfør "cd os2web-deploy"
