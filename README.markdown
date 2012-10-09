@@ -31,6 +31,12 @@ Git-flow (valgfri)
 --------
 * Udfør 'sudo apt-get install git-flow)
 
+Installer Drush og drush make
+--------------------
+* Udfør: sudo pear channel-discover pear.drush.org
+* Udfør: sudo pear install drush/drush
+* Udfør: sudo drush dl drush_make-6.x
+
 Hent filer og opret site folder og database m.m.
 ------------------------------------------
 Kør drupal oprettelses scriptet med angivelse af domane navnet på det site du vil oprette
