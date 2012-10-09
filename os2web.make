@@ -10,6 +10,12 @@ projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-3
 
 ; Danish translations
 translations[] = da
+; Hack to manually add drupal translations to profile as this is not supported by drush_make
+projects[da][type] = "translation"
+projects[da][download][type] = "get"
+projects[da][download][url] = "http://ftp.drupal.org/files/translations/7.x/drupal/drupal-7.15.da.po"
+projects[da][download][filename] = "da.po"
+projects[da][directory_name] = "translations"
 
 ; OS2Web Modules
 projects[os2web][type] = "module"
@@ -192,7 +198,7 @@ projects[securelogin][version] = "1.2"
 projects[customfilter][subdir] = "contrib"
 projects[customfilter][version] = "1.0"
 ; Patch to fix undeclare var. http://drupal.org/node/1034556
-projects[customfilter][patches] = "http://drupal.org/files/customfilter-1034556.patch"
+projects[customfilter][patch][] = "http://drupal.org/files/customfilter-1034556.patch"
 
 projects[superfish][subdir] = "contrib"
 projects[superfish][version] = "1.8"
@@ -209,7 +215,7 @@ projects[link][version] = "1.0"
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
 ; Patch to remove notices in badly stored features. TODO: add issue on d.o
-projects[field_group][patches] = "patches/field_group-1.patch"
+projects[field_group][patch][] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
@@ -243,6 +249,7 @@ projects[autocomplete_deluxe][version] = "1.0-beta5"
 
 projects[menuux][subdir] = "contrib"
 projects[menuux][version] = "1.0-beta2"
+projects[menuux][patch][] = "http://drupal.org/files/menuux-7.x-1.x-beta2.patch"
 
 projects[wysiwyg][subdir] = "contrib"
 projects[wysiwyg][version] = "2.1"
