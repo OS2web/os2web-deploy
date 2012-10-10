@@ -46,7 +46,7 @@ HUSK: Du skal selv skrive dit mysql root kodeord ind i filen i variablen $mysqlp
 * Udfør "cd /var/www/"
 * Udfør "git clone https://github.com/syddjurs/os2web-deploy.git"
 * Udfør "cd os2web-deploy"
-* Udfør og ret kodeordet for mysql "vim ./create_site_with_db.php" og gem ved at trykke ESC og herefter :q! + ENTER
+* Udfør og ret kodeordet for mysql "vim ./create_site_with_db.php" og gem ved at trykke ESC og herefter :qw + ENTER
 * Udfør "sudo ./create_site_with_db.php [dit domane]"
 * Udfør "cd /var/www/"
 * Udfør "mv os2web-deploy ./[dit domane]"
