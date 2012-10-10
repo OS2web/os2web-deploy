@@ -15,7 +15,6 @@ dependencies[] = os2web_special
 dependencies[] = locale
 dependencies[] = pathauto
 dependencies[] = toolbar
-dependencies[] = features_tools
 dependencies[] = feeds_soapfetcher
 
 ; UI modules - Optional
@@ -76,4 +75,5 @@ files[] = os2web.install
 
 
 ; Development
-dependencies[] = devel_generate
+; dependencies[] = devel_generate
+; dependencies[] = features_tools
