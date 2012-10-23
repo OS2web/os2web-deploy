@@ -130,8 +130,8 @@ projects[media_browser_plus][version] = "1.x-dev"
 projects[multiform][subdir] = "contrib"
 projects[multiform][version] = "1.0"
 
-;projects[media_youtube][subdir] = "contrib"
-;projects[media_youtube][version] = "1.0-beta3"
+projects[media_youtube][subdir] = "contrib"
+projects[media_youtube][version] = "1.0-beta3"
 
 ; Files
 projects[filefield_sources][subdir] = "contrib"
@@ -264,7 +264,7 @@ projects[menu_position][subdir] = "contrib"
 projects[menu_position][version] = "1.1"
 
 projects[delta][subdir] = "contrib"
-projects[delta][version] = "3.0-beta9"
+projects[delta][version] = "3.0-beta11"
 
 projects[float_filter][subdir] = "contrib"
 projects[float_filter][version] = "1.0"

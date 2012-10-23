@@ -211,7 +211,7 @@ function os2web_import_default_feeds_form($install_state) {
           'os2web_import_ofir_import' => array(
               '#type' => 'checkbox',
               '#title' => st('Import during install ?'),
-              '#default_value' => false,
+              '#default_value' => FALSE,
           ),
       ),
   );
