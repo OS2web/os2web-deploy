@@ -27,7 +27,6 @@ dependencies[] = field_ui
 
 ; Needs to be moved into a feature dependency
 dependencies[] = views_content
-dependencies[] = features_tools
 dependencies[] = ctools_custom_content
 dependencies[] = user_reference
 dependencies[] = customfilter
@@ -36,7 +35,6 @@ dependencies[] = customfilter
 dependencies[] = os2web_design
 dependencies[] = os2web_kontaktblok
 dependencies[] = os2web_kontaktform
-dependencies[] = os2web_ofir_job
 dependencies[] = os2web_menuer_og_blokke
 dependencies[] = os2web_sektionssider
 dependencies[] = os2web_selvbetjeningslinks
@@ -48,7 +46,6 @@ dependencies[] = os2web_qbrick
 dependencies[] = ofir_job_index_integration
 dependencies[] = taxonomies_and_taxonomy_importers
 dependencies[] = kulturnaut_events
-dependencies[] = link_checker
 dependencies[] = os2web_indholdstyper
 dependencies[] = os2web_grund_paneler
 dependencies[] = os2web_roles
