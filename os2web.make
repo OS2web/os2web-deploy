@@ -423,7 +423,11 @@ projects[fieldable_panels_panes][version] = "1.2"
 projects[eim][subdir] = "contrib"
 projects[eim][version] = "1.1"
 
+
+projects[environment_indicator][subdir] = "contrib"
+projects[environment_indicator][version] = "1.1"
+
 ; Themes
 
-projects[rubik][version] = "4.0-beta8"
-projects[tao][version] = "3.0-beta4"
+; projects[rubik][version] = "4.0-beta8"
+; projects[tao][version] = "3.0-beta4"
