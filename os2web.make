@@ -225,6 +225,10 @@ projects[libraries][version] = "1.0"
 
 projects[jquery_update][subdir] = "contrib"
 projects[jquery_update][version] = "2.2"
+; Patch to update jQuery to version 1.7.2
+projects[jquery_update][patch][] = "patches/jquery_update.patch2"
+projects[jquery_update][patch][] = "patches/jquery.min.js.patch2"
+projects[jquery_update][patch][] = "patches/jquery.js.patch2"
 
 ; projects[forward][subdir] = "contrib"
 ; projects[forward][version] = "1.3"
