@@ -122,7 +122,10 @@ projects[menu_minipanels][version] = "1.0-rc6"
 
 ; Media
 projects[media][subdir] = "contrib"
-projects[media][version] = "1.1"
+projects[media][version] = "2.0-unstable6"
+
+projects[file_entity][subdir] = "contrib"
+projects[file_entity][version] = "2.0-unstable6"
 
 projects[media_browser_plus][subdir] = "contrib"
 projects[media_browser_plus][version] = "1.x-dev"
