@@ -195,6 +195,9 @@ projects[securelogin][subdir] = "contrib"
 projects[securelogin][version] = "1.2"
 
 ; Misc
+projects[htmlpurifier][subdir] = "contrib"
+projects[htmlpurifier][version] = "1.0"
+
 projects[customfilter][subdir] = "contrib"
 projects[customfilter][version] = "1.0"
 ; Patch to fix undeclare var. http://drupal.org/node/1034556
