@@ -63,6 +63,11 @@ libraries[markitup][download][url] = "http://markitup.jaysalvat.com/downloads/do
 libraries[markitup][directory_name] = "markitup"
 libraries[markitup][destination] = "libraries"
 
+libraries[htmlpurifier][download][type] = "get"
+libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.4.0.tar.gz"
+libraries[htmlpurifier][directory_name] = "htmlpurifier"
+libraries[htmlpurifier][destination] = "libraries"
+
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.5b3.zip"
 libraries[tinymce][directory_name] = "tinymce"
@@ -198,6 +203,9 @@ projects[securelogin][subdir] = "contrib"
 projects[securelogin][version] = "1.2"
 
 ; Misc
+projects[htmlpurifier][subdir] = "contrib"
+projects[htmlpurifier][version] = "1.0"
+
 projects[customfilter][subdir] = "contrib"
 projects[customfilter][version] = "1.0"
 ; Patch to fix undeclare var. http://drupal.org/node/1034556
@@ -338,7 +346,7 @@ projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_te
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
 ; Patch to enable Proxy support
-projects[feeds][patch][] = "patches/feeds-proxy.patch"
+; projects[feeds][patch][] = "patches/feeds-proxy.patch"
 
 projects[feeds_xpathparser][subdir] = "contrib"
 projects[feeds_xpathparser][version] = "1.x-dev"
