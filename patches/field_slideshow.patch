@@ -1,0 +1,33 @@
+diff -u a/field_slideshow.module b/field_slideshow.module
+--- a/field_slideshow.module	2012-11-12 09:26:24.131592550 +0100
++++ b/field_slideshow.module	2012-11-12 09:24:53.000000000 +0100
+@@ -735,6 +735,11 @@
+     // Generate the image html
+     $image['path'] = $item['uri'];
+     $image['attributes']['class'] = array('field-slideshow-image', 'field-slideshow-image-' . (1+$num));
++
++    // Rework to use fields from media module
++    $item['alt'] = $item['field_file_image_alt_text']['und'][0]['safe_value'];
++    $item['title']= $item['field_file_image_title_text']['und'][0]['safe_value'];
++
+     $image['alt'] = isset($item['alt']) ? $item['alt'] : '';
+     if (isset($item['width']) && isset($item['height'])) {
+       $image['width'] = $item['width'];
+@@ -745,7 +750,9 @@
+       $image['width'] = $image_dims[0];
+       $image['height'] = $image_dims[1];
+     }
++    
+     if (isset($item['title']) && drupal_strlen($item['title']) > 0) $image['title'] = $item['title'];
++    
+     if (isset($variables['image_style']) && $variables['image_style'] != '') {
+       $image['style_name'] = $variables['image_style'];
+       $variables['items'][$num]['image'] = theme('image_style', $image);
+@@ -881,4 +888,4 @@
+   }
+ 
+   return $links;
+-}
+\ No newline at end of file
++}
+Only in b: translations

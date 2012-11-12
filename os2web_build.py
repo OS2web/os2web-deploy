@@ -36,6 +36,9 @@ def parse_args():
     parser.add_option("-v", "--verbose",
                       action="store_true", dest="verbose", default=False,
                       help="make lots of noise")
+    parser.add_option("-t", "--test",
+                      action="store_true", dest="test", default=False,
+                      help="Do a test run, with no actual release generated.")
     parser.add_option("-q", "--quiet",
                       action="store_true", dest="quiet", default=False,
                       help="don't print status messages to stdout")
@@ -77,6 +80,8 @@ def make_command(options, make_path):
     elif options.quiet:
         command.insert(1, '-q')
 
+    if options.test:
+        command.insert(1, '--test')
     # For developers, keep SCM checkouts.
     if options.developer:
         command.insert(3, '--working-copy')

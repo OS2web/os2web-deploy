@@ -130,7 +130,8 @@ projects[media][subdir] = "contrib"
 projects[media][version] = "2.0-unstable6"
 
 projects[file_entity][subdir] = "contrib"
-projects[file_entity][version] = "2.0-unstable6"
+projects[file_entity][version] = "2.x-dev"
+projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
 
 projects[media_browser_plus][subdir] = "contrib"
 projects[media_browser_plus][version] = "1.x-dev"
@@ -230,6 +231,7 @@ projects[field_group][patch][] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
+projects[field_slideshow][patch][] = "patches/field_slideshow.patch"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "1.0"

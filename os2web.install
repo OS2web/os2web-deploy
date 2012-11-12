@@ -1,7 +1,11 @@
 <?php
+/**
+ * @file
+ * This file install the os2web profile.
+ */
 
 /**
- * Implement hook_install().
+ * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
  */
@@ -15,68 +19,18 @@ function os2web_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
 
-  // Add text formats.
-  $filtered_html_format = array(
-      'format' => 'filtered_html',
-      'name' => 'Filtered HTML',
-      'weight' => 0,
-      'filters' => array(
-          // URL filter.
-          'filter_url' => array('weight' => 0, 'status' => 1,),
-          // HTML filter.
-          'filter_html' => array('weight' => 1, 'status' => 1,),
-          // Line break filter.
-          'filter_autop' => array('weight' => 2, 'status' => 1,),
-          // HTML corrector filter.
-          'filter_htmlcorrector' => array('weight' => 10, 'status' => 1,),
-      ),
-  );
-  $filtered_html_format = (object) $filtered_html_format;
-  filter_format_save($filtered_html_format);
+  theme_enable(array('seven', 'cmstheme'));
+  theme_disable(array('bartik', 'rubik'));
+  variable_set('theme_default', 'cmstheme');
 
-  $full_html_format = array(
-      'format' => 'full_html',
-      'name' => 'Full HTML',
-      'weight' => 1,
-      'filters' => array(
-          // URL filter.
-          'filter_url' => array('weight' => 0, 'status' => 1,),
-          // Line break filter.
-          'filter_autop' => array('weight' => 1, 'status' => 1,),
-          // HTML corrector filter.
-          'filter_htmlcorrector' => array('weight' => 10, 'status' => 1,),
-      ),
-  );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
-
-    theme_enable(array('seven', 'cmstheme'));
-    theme_disable(array('bartik', 'rubik'));
-    variable_set('theme_default', 'cmstheme');
-
-//  // Create a default role for site administrators, with all available permissions assigned.
-//  $admin_role = new stdClass();
-//  $admin_role->name = 'administrator';
-//  $admin_role->weight = 2;
-//  user_role_save($admin_role);
-//  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
-//  // Set this as the administrator role.
-//  variable_set('user_admin_role', $admin_role->rid);
-//
-//  // Assign user 1 the "administrator" role.
-//  db_insert('users_roles')
-//    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
-//    ->execute();
-
-  // Set admin theme to Rubik
+  // Set admin theme to Rubik.
   variable_set('admin_theme', 'seven');
   // Set admin theme on node/edit and node/add
   variable_set('node_admin_theme', '1');
   module_disable(array('update'));
-  // Set default TZ
+  // Set default TZ.
   variable_set('date_default_timezone', "Europe/Berlin");
   variable_set('date_first_day', "1");
   variable_set('configurable_timezones', "0");
   variable_set('site_frontpage', "home");
 }
-
