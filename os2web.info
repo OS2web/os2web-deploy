@@ -1,6 +1,6 @@
 name = OS2Web
 description = Basic install
-version = 0.01a
+version = 1.8
 core = 7.x
 
 ;OS2web modules
@@ -66,10 +66,6 @@ dependencies[] = os2web_doc_field
 
 ; Acadre ARP
 ; dependencies[] = os2web_acadre_arp
-
-files[] = os2web.profile
-files[] = os2web.install
-
 
 ; Development
 ; dependencies[] = devel_generate

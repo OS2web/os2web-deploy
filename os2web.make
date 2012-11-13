@@ -63,6 +63,11 @@ libraries[markitup][download][url] = "http://markitup.jaysalvat.com/downloads/do
 libraries[markitup][directory_name] = "markitup"
 libraries[markitup][destination] = "libraries"
 
+libraries[htmlpurifier][download][type] = "get"
+libraries[htmlpurifier][download][url] = "http://htmlpurifier.org/releases/htmlpurifier-4.4.0.tar.gz"
+libraries[htmlpurifier][directory_name] = "htmlpurifier"
+libraries[htmlpurifier][destination] = "libraries"
+
 libraries[tinymce][download][type] = "get"
 libraries[tinymce][download][url] = "http://cloud.github.com/downloads/tinymce/tinymce/tinymce_3.5b3.zip"
 libraries[tinymce][directory_name] = "tinymce"
@@ -122,7 +127,11 @@ projects[menu_minipanels][version] = "1.0-rc6"
 
 ; Media
 projects[media][subdir] = "contrib"
-projects[media][version] = "1.1"
+projects[media][version] = "2.0-unstable6"
+
+projects[file_entity][subdir] = "contrib"
+projects[file_entity][version] = "2.x-dev"
+projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
 
 projects[media_browser_plus][subdir] = "contrib"
 projects[media_browser_plus][version] = "1.x-dev"
@@ -222,6 +231,7 @@ projects[field_group][patch][] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
+projects[field_slideshow][patch][] = "patches/field_slideshow.patch"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "1.0"
@@ -338,7 +348,7 @@ projects[feeds][patch][] = "http://drupal.org/files/issues/feeds_hierarchical_te
 ; Patch to support text format (eg. html) when importing to custom taxonomy term fields
 projects[feeds][patch][] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
 ; Patch to enable Proxy support
-projects[feeds][patch][] = "patches/feeds-proxy.patch"
+; projects[feeds][patch][] = "patches/feeds-proxy.patch"
 
 projects[feeds_xpathparser][subdir] = "contrib"
 projects[feeds_xpathparser][version] = "1.x-dev"
