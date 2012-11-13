@@ -22,7 +22,7 @@ projects[os2web][download][revision] = "master"
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/OS2web/cmstheme.git"
+projects[cmstheme][download][url] = "git://github.com/OS2web/os2web-theme.git"
 projects[cmstheme][download][revision] = "master"
 projects[cmstheme][directory] = "cmstheme"
 
