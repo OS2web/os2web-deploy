@@ -1,15 +1,11 @@
 api = 2
 core = 7.x
 
+;; Base of the main make file
+includes[core] = "os2web.base.make"
+
 ;; OS2Web projects:
 
-projects[drupal][type] = "core"
-projects[drupal][version] = "7.15"
-projects[drupal][patch][1187776] = "patches/1187776.patch" 
-projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
-
-; Danish translations
-translations[] = da
 ; Hack to manually add drupal translations to profile as this is not supported by drush_make
 projects[da][type] = "translation"
 projects[da][download][type] = "get"
@@ -20,14 +16,15 @@ projects[da][directory_name] = "translations"
 ; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
-projects[os2web][download][url] = "git://github.com/syddjurs/os2web.git"
+projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
 projects[os2web][download][revision] = "master"
 
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/syddjurs/cmstheme.git"
+projects[cmstheme][download][url] = "git://github.com/OS2web/cmstheme.git"
 projects[cmstheme][download][revision] = "master"
+projects[cmstheme][directory] = "cmstheme"
 
 ;; Contrib modules below:
 
