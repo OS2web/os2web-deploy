@@ -384,6 +384,13 @@ projects[special_menu_items][version] = "1.0"
 projects[scheduler][subdir] = "contrib"
 projects[scheduler][version] = "1.0"
 
+; For varnish
+projects[varnish][subdir] = "contrib"
+projects[varnish][version] = "1.0-beta1"
+
+projects[expire][subdir] = "contrib"
+projects[expire][version] = "1.0-alpha3"
+
 ; Solr and search
 projects[apachesolr][subdir] = "contrib"
 projects[apachesolr][version] = "1.0-beta19"
