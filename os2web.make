@@ -90,6 +90,11 @@ libraries[superfish][download][type] = "git"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal.git"
 libraries[superfish][download][revision] = "master"
 
+libraries[dompdf][download][type] = "git"
+libraries[dompdf][download][url] = "https://github.com/dompdf/dompdf.git"
+libraries[dompdf][download][revision] = "master"
+libraries[dompdf][destination] = "modules/contrib/print"
+
 ; Contrib modules
 
 ; Features + related
