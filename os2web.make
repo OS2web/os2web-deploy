@@ -1,15 +1,11 @@
 api = 2
 core = 7.x
 
+;; Base of the main make file
+includes[core] = "os2web.base.make"
+
 ;; OS2Web projects:
 
-projects[drupal][type] = "core"
-projects[drupal][version] = "7.15"
-projects[drupal][patch][1187776] = "patches/1187776.patch" 
-projects[drupal][patch][1277376] = "http://drupal.org/files/common.inc-1277376-36.patch"
-
-; Danish translations
-translations[] = da
 ; Hack to manually add drupal translations to profile as this is not supported by drush_make
 projects[da][type] = "translation"
 projects[da][download][type] = "get"
@@ -20,14 +16,15 @@ projects[da][directory_name] = "translations"
 ; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
-projects[os2web][download][url] = "git://github.com/syddjurs/os2web.git"
-projects[os2web][download][revision] = "master"
+projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
+projects[os2web][download][revision] = "1.10"
 
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/syddjurs/cmstheme.git"
-projects[cmstheme][download][revision] = "master"
+projects[cmstheme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+projects[cmstheme][download][revision] = "1.10"
+projects[cmstheme][directory] = "cmstheme"
 
 ;; Contrib modules below:
 
@@ -93,6 +90,11 @@ libraries[superfish][download][type] = "git"
 libraries[superfish][download][url] = "https://github.com/mehrpadin/Superfish-for-Drupal.git"
 libraries[superfish][download][revision] = "master"
 
+libraries[dompdf][download][type] = "git"
+libraries[dompdf][download][url] = "https://github.com/dompdf/dompdf.git"
+libraries[dompdf][download][revision] = "master"
+libraries[dompdf][destination] = "modules/contrib/print"
+
 ; Contrib modules
 
 ; Features + related
@@ -131,7 +133,7 @@ projects[media][version] = "2.0-unstable6"
 
 projects[file_entity][subdir] = "contrib"
 projects[file_entity][version] = "2.x-dev"
-projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
+;projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
 
 projects[media_browser_plus][subdir] = "contrib"
 projects[media_browser_plus][version] = "1.x-dev"

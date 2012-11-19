@@ -1,6 +1,6 @@
 name = OS2Web
 description = Basic install
-version = 1.8.1
+version = 1.10
 core = 7.x
 
 ;OS2web modules
@@ -56,11 +56,14 @@ dependencies[] = os2web_access_helper
 dependencies[] = content_taxonomy_autocomplete
 dependencies[] = os2web_taxonomy_autocomplete
 
+dependencies[] = os2web_esdh_provider
+dependencies[] = acadre_esdh
+
 ; Acadre MM
-dependencies[] = os2web_meetings
+; dependencies[] = os2web_meetings
 
 ; Acadre CM
-dependencies[] = os2web_pws
+; dependencies[] = os2web_pws
 dependencies[] = os2web_case_field
 dependencies[] = os2web_doc_field
 
