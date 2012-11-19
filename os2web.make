@@ -133,7 +133,7 @@ projects[media][version] = "2.0-unstable6"
 
 projects[file_entity][subdir] = "contrib"
 projects[file_entity][version] = "2.x-dev"
-projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
+;projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
 
 projects[media_browser_plus][subdir] = "contrib"
 projects[media_browser_plus][version] = "1.x-dev"
