@@ -161,9 +161,12 @@ def main():
     success = start_make(make_command(options, make_path))
 
     if success:
-        setup_profile(options, make_path)
-        if options.create_symlinks:
-            create_symlinks(options, folder_name)
+        if options.test:
+            logging.info('Test build successful.')
+        else:
+            setup_profile(options, make_path)
+            if options.create_symlinks:
+                create_symlinks(options, folder_name)
     else:
         logging.error('Build FAILED for mode "%s" in folder "%s"' % (options.mode, make_path))
 
