@@ -221,6 +221,9 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
  * Implements hook_form().
  */
 function os2web_import_default_feeds_form($install_state) {
+  if ($drush = function_exists('drush_log')) {
+    drush_log('Imports disabled during drush install. Rembmer to visit /import.','ok');
+  }
   $config = feeds_source('ofir_job_import')->getConfig();
   $ofir_url = $config['FeedsHTTPFetcher']['source'];
   $form = array(
@@ -231,22 +234,22 @@ function os2web_import_default_feeds_form($install_state) {
       'os2web_import_kle_import' => array(
         '#type' => 'checkbox',
         '#title' => st('KLE'),
-        '#default_value' => TRUE,
+        '#default_value' => TRUE && !$drush,
       ),
       'os2web_import_org_import' => array(
         '#type' => 'checkbox',
         '#title' => st('Organizations'),
-        '#default_value' => TRUE,
+        '#default_value' => TRUE && !$drush,
       ),
       'os2web_import_pol_import' => array(
         '#type' => 'checkbox',
         '#title' => st('Politics'),
-        '#default_value' => TRUE,
+        '#default_value' => TRUE && !$drush,
       ),
       'os2web_import_gis_import' => array(
         '#type' => 'checkbox',
         '#title' => st('GIS Names'),
-        '#default_value' => TRUE,
+        '#default_value' => TRUE && !$drush,
       ),
     ),
     'os2web_import_group2' => array(

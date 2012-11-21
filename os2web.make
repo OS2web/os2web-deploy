@@ -99,17 +99,17 @@ libraries[dompdf][destination] = "modules/contrib/print"
 
 ; Features + related
 projects[features][subdir] = "contrib"
-projects[features][version] = "1.0-rc2"
+projects[features][version] = "1.0"
 
 projects[strongarm][subdir] = "contrib"
-projects[strongarm][version] = "2.0-rc1"
+projects[strongarm][version] = "2.0"
 
 ;Views
 projects[views][subdir] = "contrib"
 projects[views][version] = "3.3"
 
-projects[views_bulk_operations][subdir] = "contrib"
-projects[views_bulk_operations][version] = "3.0-rc1"
+; projects[views_bulk_operations][subdir] = "contrib"
+; projects[views_bulk_operations][version] = "3.0-rc1"
 
 projects[views_slideshow][subdir] = "contrib"
 projects[views_slideshow][version] = "3.0"
@@ -188,7 +188,7 @@ projects[jquery_ui][subdir] = "contrib"
 projects[jquery_ui][version] = "1.x-dev"
 
 projects[context][subdir] = "contrib"
-projects[context][version] = "3.0-beta3"
+projects[context][version] = "3.0-beta4"
 
 projects[admin][subdir] = "contrib"
 projects[admin][version] = "2.0-beta3"
