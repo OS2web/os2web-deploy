@@ -16,13 +16,13 @@ projects[da][directory_name] = "translations"
 ; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
-projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
+projects[os2web][download][url] = "git://github.com/syddjurs/os2web.git"
 projects[os2web][download][revision] = "1.10"
 
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+projects[cmstheme][download][url] = "git://github.com/syddjurs/os2web-theme.git"
 projects[cmstheme][download][revision] = "1.10"
 projects[cmstheme][directory] = "cmstheme"
 
