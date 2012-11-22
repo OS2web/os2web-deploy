@@ -106,7 +106,7 @@ projects[strongarm][version] = "2.0"
 
 ;Views
 projects[views][subdir] = "contrib"
-projects[views][version] = "3.3"
+projects[views][version] = "3.5"
 
 ; projects[views_bulk_operations][subdir] = "contrib"
 ; projects[views_bulk_operations][version] = "3.0-rc1"
@@ -129,27 +129,27 @@ projects[menu_minipanels][version] = "1.0-rc6"
 
 ; Media
 projects[media][subdir] = "contrib"
-projects[media][version] = "2.0-unstable6"
+projects[media][version] = "2.0-unstable7"
 
 projects[file_entity][subdir] = "contrib"
-projects[file_entity][version] = "2.x-dev"
-;projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
+projects[file_entity][version] = "2.0-unstable7"
+; projects[file_entity][patch][] = "http://drupal.org/files/1553094-alt_and_title_support_for_images-175.patch"
 
-projects[media_browser_plus][subdir] = "contrib"
-projects[media_browser_plus][version] = "1.x-dev"
+; projects[media_browser_plus][subdir] = "contrib"
+; projects[media_browser_plus][version] = "1.x-dev"
 
 projects[multiform][subdir] = "contrib"
 projects[multiform][version] = "1.0"
 
 projects[media_youtube][subdir] = "contrib"
-projects[media_youtube][version] = "1.0-beta3"
+projects[media_youtube][version] = "2.0-rc1"
 
 ; Files
 projects[filefield_sources][subdir] = "contrib"
-projects[filefield_sources][version] = "1.4"
+projects[filefield_sources][version] = "1.7"
 
 projects[filefield_sources_plupload][subdir] = "contrib"
-projects[filefield_sources_plupload][version] = "1.x-dev"
+projects[filefield_sources_plupload][version] = "1.0"
 
 ; Workbench
 projects[workbench][subdir] = "contrib"
@@ -167,13 +167,13 @@ projects[workbench_access][version] = "1.0"
 
 ; Basic
 projects[ctools][subdir] = "contrib"
-projects[ctools][version] = "1.1"
+projects[ctools][version] = "1.2"
 
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
 
 projects[date][subdir] = "contrib"
-projects[date][version] = "2.5"
+projects[date][version] = "2.6"
 
 projects[entity][subdir] = "contrib"
 projects[entity][version] = "1.0-rc3"
@@ -267,7 +267,7 @@ projects[menuux][version] = "1.0-beta2"
 projects[menuux][patch][] = "http://drupal.org/files/menuux-7.x-1.x-beta2.patch"
 
 projects[wysiwyg][subdir] = "contrib"
-projects[wysiwyg][version] = "2.1"
+projects[wysiwyg][version] = "2.2"
 
 ; projects[skinr][subdir] = "contrib"
 ; projects[skinr][version] = "2.0-beta1"
@@ -318,7 +318,7 @@ projects[taxonomy_menu][subdir] = "contrib"
 projects[taxonomy_menu][version] = "1.2"
 
 projects[token][subdir] = "contrib"
-projects[token][version] = "1.1"
+projects[token][version] = "1.4"
 
 projects[prepopulate][subdir] = "contrib"
 projects[prepopulate][version] = "2.x-dev"
@@ -356,7 +356,7 @@ projects[feeds_xpathparser][subdir] = "contrib"
 projects[feeds_xpathparser][version] = "1.x-dev"
 
 projects[entityreference][subdir] = "contrib"
-projects[entityreference][version] = "1.0-rc1"
+projects[entityreference][version] = "1.0"
 
 projects[computed_field][subdir] = "contrib"
 projects[computed_field][version] = "1.0-beta1"
@@ -372,7 +372,7 @@ projects[search_log][subdir] = "contrib"
 projects[search_log][version] = "1.0"
 
 projects[fontyourface][subdir] = "contrib"
-projects[fontyourface][version] = "2.3"
+projects[fontyourface][version] = "2.6"
 
 projects[nice_menus][subdir] = "contrib"
 projects[nice_menus][version] = "2.1"
@@ -443,7 +443,7 @@ projects[fieldable_panels_panes][subdir] = "contrib"
 projects[fieldable_panels_panes][version] = "1.2"
 
 projects[eim][subdir] = "contrib"
-projects[eim][version] = "1.1"
+projects[eim][version] = "1.2"
 
 
 projects[environment_indicator][subdir] = "contrib"

@@ -20,3 +20,4 @@ projects[simpletest][subdir] = "contrib"
 ; Development
 projects[devel][subdir] = "contrib"
 projects[ftools][subdir] = "contrib"
+projects[diff][subdir] = "contrib"
