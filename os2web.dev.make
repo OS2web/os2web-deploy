@@ -12,7 +12,7 @@ projects[os2web][download][tag] = ""
 projects[os2web][download][url] = "git@github.com:syddjurs/os2web.git"
 
 ; OS2Web Themes
-projects[cmstheme][download][branch] = "develop"
+; projects[cmstheme][download][branch] = "develop"
 projects[cmstheme][download][tag] = ""
 projects[cmstheme][download][url] = "git@github.com:syddjurs/cmstheme.git"
 

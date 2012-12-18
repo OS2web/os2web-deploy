@@ -450,6 +450,11 @@ projects[fieldable_panels_panes][version] = "1.2"
 projects[eim][subdir] = "contrib"
 projects[eim][version] = "1.2"
 
+projects[feedback][subdir] = "contrib"
+projects[feedback][version] = "2.x-dev"
+
+projects[lightbox2][subdir] = "contrib"
+projects[lightbox2][version] = "1.0-beta1"
 
 projects[environment_indicator][subdir] = "contrib"
 projects[environment_indicator][version] = "1.1"
