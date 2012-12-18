@@ -19,10 +19,15 @@ projects[os2web][download][type] = "git"
 projects[os2web][download][url] = "git://github.com/syddjurs/os2web.git"
 projects[os2web][download][tag] = "1.10"
 
+; Bedst paa nettet
+projects[bedstpaanettet][subdir] = "contrib"
+projects[bedstpaanettet][version] = "1.0"
+
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
 projects[cmstheme][download][url] = "git://github.com/syddjurs/cmstheme.git"
+projects[cmstheme][download][tag] = "1.10"
 projects[cmstheme][download][branch] = "master"
 projects[cmstheme][directory] = "cmstheme"
 
