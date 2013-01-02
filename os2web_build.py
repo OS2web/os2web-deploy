@@ -115,6 +115,7 @@ def setup_profile(options, make_path):
     shutil.copy('os2web.profile', path)
     shutil.copy('os2web.info', path)
     shutil.copy('os2web.install', path)
+    shutil.copy('db.sql.gz', path)
    # shutil.copytree('translations', os.path.join(path,'translations'))
    # (options, args) = parse_args()
    # os.symlink(os.path.join(args[-1],'os2web.profile'), os.path.join(path,'os2web.profile'))
