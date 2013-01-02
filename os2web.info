@@ -59,6 +59,8 @@ dependencies[] = os2web_taxonomy_autocomplete
 dependencies[] = os2web_esdh_provider
 dependencies[] = acadre_esdh
 
+dependencies[] = os2web_print_send_to_friend
+
 ; Acadre MM
 ; dependencies[] = os2web_meetings
 
