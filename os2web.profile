@@ -23,10 +23,10 @@ function os2web_install_tasks() {
       'type' => 'normal',
       'display_name' => st('Import default database'),
     ),
-//    'os2web_profile_prepare' => array(
-//      'type' => 'normal',
-//      'display_name' => st('Prepare OS2web..'),
-//    ),
+    'os2web_profile_prepare' => array(
+      'type' => 'normal',
+      'display_name' => st('Prepare OS2web..'),
+    ),
     'os2web_settings_form' => array(
       'display_name' => st('Setup OS2Web'),
       'type' => 'form',
@@ -50,100 +50,8 @@ function os2web_profile_prepare() {
   drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
   // Menu rebuild neccesary to load xpath_parser
   menu_rebuild();
-
-  variable_set('typekit_api_token', '42f286fdd829f36627e2002272e6f5df8a57e8f2');
-  #typekit_api_fontyourface_import();
-  // Create the basic site structure.
-  $vid = db_select('taxonomy_vocabulary', 'tv')
-      ->fields('tv', array('vid'))
-      ->condition('machine_name', 'site_struktur')
-      ->execute()
-      ->fetchField();
-
-  // For compatibility reasons we have to offset the term-id's by 3
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy1',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy2',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy3',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-
-  // Hovedtermer.
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'borger'),
-        'name' => 'Borger',
-        'description' => 'Borger sektionen.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'erhverv'),
-        'name' => 'Erhverv',
-        'description' => 'Erhvervs sektionen.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'politik-og-planer'),
-        'name' => 'Politik & Planer',
-        'description' => 'Politisk debat og indsigt.',
-        'vid' => $vid));
-
-  // Undertermer til Borger.
-  $tid = db_select('taxonomy_term_data', 'td')
-          ->fields('td', array('tid'))
-          ->condition('name', 'Borger')
-          ->condition('vid', $vid)
-          ->execute()->fetchField();
-  taxonomy_term_save((object) array(
-        'name' => 'Dagpasning 0-6 år',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Kultur og Fritid',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Social, psykiatri og handikap',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Natur, miljø og klima',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Ældre',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Sundhed',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-
-  // Create promotion terms.
-  $vid = db_select('taxonomy_vocabulary', 'tv')
-      ->fields('tv', array('vid'))
-      ->condition('machine_name', 'forfrem_til')
-      ->execute()
-      ->fetchField();
-
-  // Hovedtermer.
-  taxonomy_term_save((object) array(
-        'name' => 'Forside',
-        'description' => 'Vil blive vist på forsiden.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Portalforside',
-        'description' => 'Vil blive vist på Portalsider.',
-        'vid' => $vid));
+  drupal_get_form('os2web_settings_form');
+  drupal_set_message('Database import complete, please reload this form to continue.','ok');
 }
 
 /**
@@ -399,6 +307,7 @@ function os2web_import_database() {
     'clean_url',
     'update_status_module',
     'install_task',
+    'drupal_private_key',
   );
   $data = array();
   foreach ($vars as $name) {
@@ -406,7 +315,7 @@ function os2web_import_database() {
   }
 
   // Import database dump file.
-  $os2web_file = dirname(__FILE__) . '/db.sql';
+  $os2web_file = dirname(__FILE__) . '/db.sql.gz';
   $success = import_dump($os2web_file);
 
   if (!$success) {
@@ -421,7 +330,6 @@ function os2web_import_database() {
   // Perform additional clean-up tasks.
   variable_del('file_temporary_path');
   variable_del('file_public_path');
-
 
 //  drupal_goto('<front>');
 }
@@ -442,7 +350,9 @@ function import_dump($filename) {
 
   // Drop all existing tables.
   foreach (list_tables() as $table) {
-    db_query("DROP TABLE " . $table);
+    if ($table != 'sessions') {
+      db_query("DROP TABLE " . $table);
+    }
   }
 
   // Load data from dump file.
