@@ -16,9 +16,8 @@ projects[da][directory_name] = "translations"
 ; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
-projects[os2web][download][url] = "git://github.com/syddjurs/os2web.git"
-projects[os2web][download][tag] = "1.11"
-projects[os2web][download][branch] = "master"
+projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
+projects[os2web][download][tag] = "1.10"
 
 ; Bedst paa nettet
 projects[bedstpaanettet][subdir] = "contrib"
@@ -27,9 +26,8 @@ projects[bedstpaanettet][version] = "1.0"
 ; OS2Web Themes
 projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
-projects[cmstheme][download][url] = "git://github.com/syddjurs/cmstheme.git"
-projects[cmstheme][download][tag] = "1.11"
-projects[cmstheme][download][branch] = "master"
+projects[cmstheme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+projects[cmstheme][download][tag] = "1.10"
 projects[cmstheme][directory] = "cmstheme"
 
 ;; Contrib modules below:
@@ -235,11 +233,11 @@ projects[link][version] = "1.0"
 projects[field_group][subdir] = "contrib"
 projects[field_group][version] = "1.1"
 ; Patch to remove notices in badly stored features. TODO: add issue on d.o
-projects[field_group][patch][] = "patches/field_group-1.patch"
+; projects[field_group][patch][] = "patches/field_group-1.patch"
 
 projects[field_slideshow][subdir] = "contrib"
 projects[field_slideshow][version] = "1.6"
-projects[field_slideshow][patch][] = "patches/field_slideshow.patch"
+; projects[field_slideshow][patch][] = "patches/field_slideshow.patch"
 
 projects[libraries][subdir] = "contrib"
 projects[libraries][version] = "1.0"
@@ -445,6 +443,9 @@ projects[custom_search][version] = "1.9"
 projects[chart][subdir] = "contrib"
 projects[chart][version] = "1.1"
 
+projects[extlink][subdir] = "contrib"
+projects[extlink][version] = "1.12"
+
 projects[fieldable_panels_panes][subdir] = "contrib"
 projects[fieldable_panels_panes][version] = "1.2"
 
@@ -459,6 +460,12 @@ projects[lightbox2][version] = "1.0-beta1"
 
 projects[environment_indicator][subdir] = "contrib"
 projects[environment_indicator][version] = "1.1"
+
+projects[lightbox2][subdir] = "contrib"
+projects[lightbox2][version] = "1.0-beta1"
+
+projects[views_php][subdir] = "contrib"
+projects[views_php][version] = "1.x-dev"
 
 ; Themes
 

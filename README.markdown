@@ -1,3 +1,1 @@
-Dokumentationen til projektet findes her: 
-
-https://github.com/syddjurs/os2web-deploy/wiki
+Dokumentationen til projektet finde her https://github.com/OS2web/os2web-deploy/wiki
