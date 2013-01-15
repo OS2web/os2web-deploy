@@ -4,12 +4,25 @@
  * @file
  * This file includes all hooks to proper set up profile during install
  */
+/**
+ * Name of profile; visible in profile selection form.
+ */
+define('PROFILE_NAME', 'OS2Web');
+
+/**
+ * Description of profile; visible in profile selection form.
+ */
+define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2Web.');
 
 /**
  * Implements hook_install_tasks().
  */
 function os2web_install_tasks() {
   $task = array(
+    'os2web_import_database' => array(
+      'type' => 'normal',
+      'display_name' => st('Import default database'),
+    ),
     'os2web_profile_prepare' => array(
       'type' => 'normal',
       'display_name' => st('Prepare OS2web..'),
@@ -37,101 +50,8 @@ function os2web_profile_prepare() {
   drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
   // Menu rebuild neccesary to load xpath_parser
   menu_rebuild();
-
-  variable_set('typekit_api_token', '42f286fdd829f36627e2002272e6f5df8a57e8f2');
-  typekit_api_fontyourface_import();
-
-  // Create the basic site structure.
-  $vid = db_select('taxonomy_vocabulary', 'tv')
-      ->fields('tv', array('vid'))
-      ->condition('machine_name', 'site_struktur')
-      ->execute()
-      ->fetchField();
-
-  // For compatibility reasons we have to offset the term-id's by 3
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy1',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy2',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Dummy3',
-        'description' => 'Dummy term',
-        'vid' => $vid));
-
-  // Hovedtermer.
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'borger'),
-        'name' => 'Borger',
-        'description' => 'Borger sektionen.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'erhverv'),
-        'name' => 'Erhverv',
-        'description' => 'Erhvervs sektionen.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'path' => array('alias' => 'politik-og-planer'),
-        'name' => 'Politik & Planer',
-        'description' => 'Politisk debat og indsigt.',
-        'vid' => $vid));
-
-  // Undertermer til Borger.
-  $tid = db_select('taxonomy_term_data', 'td')
-          ->fields('td', array('tid'))
-          ->condition('name', 'Borger')
-          ->condition('vid', $vid)
-          ->execute()->fetchField();
-  taxonomy_term_save((object) array(
-        'name' => 'Dagpasning 0-6 år',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Kultur og Fritid',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Social, psykiatri og handikap',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Natur, miljø og klima',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Ældre',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Sundhed',
-        'description' => '',
-        'parent' => $tid,
-        'vid' => $vid));
-
-  // Create promotion terms.
-  $vid = db_select('taxonomy_vocabulary', 'tv')
-      ->fields('tv', array('vid'))
-      ->condition('machine_name', 'forfrem_til')
-      ->execute()
-      ->fetchField();
-
-  // Hovedtermer.
-  taxonomy_term_save((object) array(
-        'name' => 'Forside',
-        'description' => 'Vil blive vist på forsiden.',
-        'vid' => $vid));
-  taxonomy_term_save((object) array(
-        'name' => 'Portalforside',
-        'description' => 'Vil blive vist på Portalsider.',
-        'vid' => $vid));
+  drupal_get_form('os2web_settings_form');
+  drupal_set_message('Database import complete, please reload this form to continue.','ok');
 }
 
 /**
@@ -146,26 +66,31 @@ function os2web_settings_form($install_state) {
   $form['os2web_pws_config_group']['os2web_pws_url'] = array(
     '#type' => 'textfield',
     '#title' => t('PWS URL for V4'),
+    '#default_value' => variable_get('os2web_pws_url'),
     '#description' => t('URL to the PWS webservice endpoint.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_url_v6'] = array(
     '#type' => 'textfield',
     '#title' => t('PWS URL for  V6'),
+    '#default_value' => variable_get('os2web_pws_url_v6'),
     '#description' => t('URL to the PWSv6 webservice endpoint.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_url_search'] = array(
     '#type' => 'textfield',
     '#title' => t('PWS URL for Search service'),
+    '#default_value' => variable_get('os2web_pws_url_search'),
     '#description' => t('URL to the webservice endpoint that runs the search service.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_user'] = array(
     '#type' => 'textfield',
     '#title' => t('PWS login user'),
+    '#default_value' => variable_get('os2web_pws_user'),
     '#description' => t('PWS HTTP authentification user.'),
   );
   $form['os2web_pws_config_group']['os2web_pws_password'] = array(
     '#type' => 'textfield',
     '#title' => t('PWS password'),
+    '#default_value' => variable_get('os2web_pws_password'),
     '#description' => t('PWS HTTP authentification password.'),
   );
   $form['os2web_pws_adlib_group'] = array(
@@ -175,6 +100,7 @@ function os2web_settings_form($install_state) {
   $form['os2web_pws_adlib_group']['os2web_adlib_url'] = array(
     '#type' => 'textfield',
     '#title' => t('URL for Adlib service endpoint'),
+    '#default_value' => variable_get('os2web_adlib_url'),
     '#description' => t('URL to the webservice endpoint that runs the Adlib service.'),
   );
 
@@ -188,17 +114,17 @@ function os2web_settings_form($install_state) {
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy'] = array(
     '#type' => 'checkbox',
-    // '#default_value' => variable_get('os2web_pws_proxy'),
+    '#default_value' => variable_get('os2web_pws_proxy'),
     '#title' => t('Use proxy?'),
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy_host'] = array(
     '#type' => 'textfield',
-    // '#default_value' => variable_get('os2web_pws_proxy_host'),
+    '#default_value' => variable_get('os2web_pws_proxy_host'),
     '#title' => t('Proxy hostname or IP'),
   );
   $form['os2web_pws_proxy_group']['os2web_pws_proxy_port'] = array(
     '#type' => 'textfield',
-    // '#default_value' => variable_get('os2web_pws_proxy_port'),
+    '#default_value' => variable_get('os2web_pws_proxy_port'),
     '#title' => t('Proxy port number.'),
   );
   return system_settings_form($form);
@@ -214,6 +140,8 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
   $form['site_information']['site_name']['#default_value'] = 'OS2Web Test';
   $form['update_notifications']['update_status_module']['#default_value'] = array(0, 0);
   $form['server_settings']['site_default_country']['#default_value'] = 'DK';
+  $form['server_settings']['#access'] = FALSE;
+  $form['update_notifications']['#access'] = FALSE;
   $form['admin_account']['account']['name']['#default_value'] = 'admin';
 }
 
@@ -222,36 +150,36 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
  */
 function os2web_import_default_feeds_form($install_state) {
   if ($drush = function_exists('drush_log')) {
-    drush_log('Imports disabled during drush install. Rembmer to visit /import.','ok');
+    drush_log('Imports disabled during drush install. Rembmer to visit /import.', 'ok');
   }
   $config = feeds_source('ofir_job_import')->getConfig();
   $ofir_url = $config['FeedsHTTPFetcher']['source'];
   $form = array(
-    'os2web_import_group' => array(
-      '#type' => 'fieldset',
-      '#title' => st('Taxonomy imports'),
-      '#description' => st('Choose if you wish to import all vocabularies during install.'),
-      'os2web_import_kle_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('KLE'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_org_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('Organizations'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_pol_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('Politics'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_gis_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('GIS Names'),
-        '#default_value' => TRUE && !$drush,
-      ),
-    ),
+//    'os2web_import_group' => array(
+//      '#type' => 'fieldset',
+//      '#title' => st('Taxonomy imports'),
+//      '#description' => st('Choose if you wish to import all vocabularies during install.'),
+//      'os2web_import_kle_import' => array(
+//        '#type' => 'checkbox',
+//        '#title' => st('KLE'),
+//        '#default_value' => TRUE && !$drush,
+//      ),
+//      'os2web_import_org_import' => array(
+//        '#type' => 'checkbox',
+//        '#title' => st('Organizations'),
+//        '#default_value' => TRUE && !$drush,
+//      ),
+//      'os2web_import_pol_import' => array(
+//        '#type' => 'checkbox',
+//        '#title' => st('Politics'),
+//        '#default_value' => TRUE && !$drush,
+//      ),
+//      'os2web_import_gis_import' => array(
+//        '#type' => 'checkbox',
+//        '#title' => st('GIS Names'),
+//        '#default_value' => TRUE && !$drush,
+//      ),
+//    ),
     'os2web_import_group2' => array(
       '#type' => 'fieldset',
       '#title' => st('Ofir.dk job Import'),
@@ -317,23 +245,23 @@ function os2web_import_default_feeds($install_state) {
         @remaining | Total: @total | Percentage: @percentage'),
   );
 
-  if (variable_get('os2web_import_kle_import')) {
+  if (variable_get('os2web_import_kle_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'taxonomy_kle', 0));
   }
-  if (variable_get('os2web_import_org_import')) {
+  if (variable_get('os2web_import_org_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'taxonomy_organization', 0));
   }
-  if (variable_get('os2web_import_pol_import')) {
+  if (variable_get('os2web_import_pol_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'taxonomy_politics', 0));
   }
-  if (variable_get('os2web_import_gis_import')) {
+  if (variable_get('os2web_import_gis_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'taxonomy_gisnames', 0));
   }
-  if (variable_get('os2web_import_ofir_import')) {
+  if (variable_get('os2web_import_ofir_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'ofir_job_import', 0));
   }
@@ -354,6 +282,121 @@ function os2web_import_default_feeds($install_state) {
  * Sets the default language to danish.
  */
 function os2web_profile_details() {
-  $details['language'] = "da";
-  return $details;
+  return array(
+    'name' => PROFILE_NAME,
+    'description' => PROFILE_DESCRIPTION,
+//    'language' => "da",
+    'language' => "en",
+  );
+}
+
+/* * ************** DB DUMP INSTALLER *************************** */
+
+/**
+ * Custom form submit handler for configuration form.
+ *
+ * Drops all data from existing database, imports database dump, and restores
+ * values entered into configuration form.
+ */
+function os2web_import_database() {
+  // Store the set-up vars:
+  $vars = array(
+    'site_name',
+    'site_mail',
+    'date_default_timezone',
+    'clean_url',
+    'update_status_module',
+    'install_task',
+    'drupal_private_key',
+  );
+  $data = array();
+  foreach ($vars as $name) {
+    $data[$name] = variable_get($name);
+  }
+
+  // Import database dump file.
+  $os2web_file = dirname(__FILE__) . '/db.sql.gz';
+  $success = import_dump($os2web_file);
+
+  if (!$success) {
+    return;
+  }
+
+  // Now re-set the values they filled in during the previous step.
+  foreach ($data as $key => $value) {
+    variable_set($key, $value);
+  }
+
+  // Perform additional clean-up tasks.
+  variable_del('file_temporary_path');
+  variable_del('file_public_path');
+
+//  drupal_goto('<front>');
+}
+
+// The rest is copy/paste/modify code from demo module. //
+/**
+ * Imports a database dump file.
+ *
+ * @see demo_reset()
+ */
+function import_dump($filename) {
+  // Open dump file.
+//  if (!file_exists($filename) || !($fp = fopen($filename, 'r'))) {
+  if (!file_exists($filename) || !($fp = gzopen($filename, 'r'))) {
+    drupal_set_message(t('Unable to open dump file %filename.', array('%filename' => $filename)), 'error');
+    return FALSE;
+  }
+
+  // Drop all existing tables.
+  foreach (list_tables() as $table) {
+    if ($table != 'sessions') {
+      db_query("DROP TABLE " . $table);
+    }
+  }
+
+  // Load data from dump file.
+  $success = TRUE;
+  $query = '';
+  while (!feof($fp)) {
+    $line = fgets($fp, 16384);
+    if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
+      $query .= $line;
+      if (substr($line, -2) == ";\n") {
+        $options = array(
+          'target' => 'default',
+          'return' => Database::RETURN_NULL,
+            // 'throw_exception' => FALSE,
+        );
+        $stmt = Database::getConnection($options['target'])->prepare($query);
+        if (!$stmt->execute(array(), $options)) {
+          if ($verbose) {
+            // Don't use t() here, as the locale_* tables might not (yet) exist.
+            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
+          }
+          $success = FALSE;
+        }
+        $query = '';
+      }
+    }
+  }
+  fclose($fp);
+
+  if (!$success) {
+    drupal_set_message(t('Failed importing database from %filename.', array('%filename' => $filename)), 'error');
+  }
+
+  return $success;
+}
+
+/**
+ * Returns a list of tables in the active database.
+ *
+ * Only returns tables whose prefix matches the configured one (or ones, if
+ * there are multiple).
+ *
+ * @see demo_enum_tables()
+ */
+function list_tables() {
+  return db_query("SHOW TABLES")->fetchCol();
 }
