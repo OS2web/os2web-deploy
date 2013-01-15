@@ -5,71 +5,77 @@ core = 7.x
 
 ;OS2web modules
 
-; Basic setup and common modules
+;; Basic setup and common modules
+;
+;dependencies[] = dblog
+;dependencies[] = help
+;dependencies[] = os2web_adlib_api
+;dependencies[] = os2web_settings
+;dependencies[] = os2web_special
+;dependencies[] = locale
+;dependencies[] = pathauto
+;dependencies[] = toolbar
+;dependencies[] = feeds_soapfetcher
+;
+;; UI modules - Optional
+;dependencies[] = fontyourface_ui
+;dependencies[] = views_ui
+;dependencies[] = feeds_ui
+;dependencies[] = context_ui
+;dependencies[] = delta_ui
+;dependencies[] = field_ui
+;
+;; Needs to be moved into a feature dependency
+;dependencies[] = views_content
+;dependencies[] = ctools_custom_content
+;dependencies[] = user_reference
+;dependencies[] = customfilter
+;
+;; OS2Web features
+;dependencies[] = os2web_design
+;dependencies[] = os2web_kontaktblok
+;dependencies[] = os2web_kontaktform
+;dependencies[] = os2web_menuer_og_blokke
+;dependencies[] = os2web_sektionssider
+;dependencies[] = os2web_selvbetjeningslinks
+;dependencies[] = os2web_borgerservices
+;dependencies[] = os2web_spotbokse
+;dependencies[] = os2web_meeting_views
+;dependencies[] = os2web_context
+;dependencies[] = os2web_qbrick
+;dependencies[] = ofir_job_index_integration
+;dependencies[] = taxonomies_and_taxonomy_importers
+;dependencies[] = kulturnaut_events
+;dependencies[] = os2web_indholdstyper
+;dependencies[] = os2web_grund_paneler
+;dependencies[] = os2web_roles
+;dependencies[] = os2web_ad_integration
+;dependencies[] = os2web_workbench_setup
+;dependencies[] = os2web_access_helper
+;; dependencies[] = os2web_search
+;dependencies[] = content_taxonomy_autocomplete
+;dependencies[] = os2web_taxonomy_autocomplete
+;
+;dependencies[] = os2web_esdh_provider
+;dependencies[] = acadre_esdh
+;
+;; Acadre MM
+;; dependencies[] = os2web_meetings
+;
+;; Acadre CM
+;; dependencies[] = os2web_pws
+;dependencies[] = os2web_case_field
+;dependencies[] = os2web_doc_field
+;
+;; Acadre ARP
+;; dependencies[] = os2web_acadre_arp
+;
+;; Development
+;; dependencies[] = devel_generate
+;; dependencies[] = features_tools
+<<<<<<< Updated upstream
+;
 
-dependencies[] = dblog
-dependencies[] = help
-dependencies[] = os2web_adlib_api
-dependencies[] = os2web_settings
-dependencies[] = os2web_special
-dependencies[] = locale
-dependencies[] = pathauto
-dependencies[] = toolbar
-dependencies[] = feeds_soapfetcher
-
-; UI modules - Optional
-dependencies[] = fontyourface_ui
-dependencies[] = views_ui
-dependencies[] = feeds_ui
-dependencies[] = context_ui
-dependencies[] = delta_ui
-dependencies[] = field_ui
-
-; Needs to be moved into a feature dependency
-dependencies[] = views_content
-dependencies[] = ctools_custom_content
-dependencies[] = user_reference
-dependencies[] = customfilter
-
-; OS2Web features
-dependencies[] = os2web_design
-dependencies[] = os2web_kontaktblok
-dependencies[] = os2web_kontaktform
-dependencies[] = os2web_menuer_og_blokke
-dependencies[] = os2web_sektionssider
-dependencies[] = os2web_selvbetjeningslinks
-dependencies[] = os2web_borgerservices
-dependencies[] = os2web_spotbokse
-dependencies[] = os2web_meeting_views
-dependencies[] = os2web_context
-dependencies[] = os2web_qbrick
-dependencies[] = ofir_job_index_integration
-dependencies[] = taxonomies_and_taxonomy_importers
-dependencies[] = kulturnaut_events
-dependencies[] = os2web_indholdstyper
-dependencies[] = os2web_grund_paneler
-dependencies[] = os2web_roles
-dependencies[] = os2web_ad_integration
-dependencies[] = os2web_workbench_setup
-dependencies[] = os2web_access_helper
-; dependencies[] = os2web_search
-dependencies[] = content_taxonomy_autocomplete
-dependencies[] = os2web_taxonomy_autocomplete
-
-dependencies[] = os2web_esdh_provider
-dependencies[] = acadre_esdh
-
-; Acadre MM
-; dependencies[] = os2web_meetings
-
-; Acadre CM
-; dependencies[] = os2web_pws
-dependencies[] = os2web_case_field
-dependencies[] = os2web_doc_field
-
-; Acadre ARP
-; dependencies[] = os2web_acadre_arp
-
-; Development
-; dependencies[] = devel_generate
-; dependencies[] = features_tools
+=======
+;
+>>>>>>> Stashed changes
