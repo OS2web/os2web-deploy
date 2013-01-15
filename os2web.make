@@ -439,6 +439,9 @@ projects[custom_search][version] = "1.9"
 projects[chart][subdir] = "contrib"
 projects[chart][version] = "1.1"
 
+projects[extlink][subdir] = "contrib"
+projects[extlink][version] = "1.12"
+
 projects[fieldable_panels_panes][subdir] = "contrib"
 projects[fieldable_panels_panes][version] = "1.2"
 
