@@ -152,6 +152,8 @@ function os2web_import_default_feeds_form($install_state) {
   if ($drush = function_exists('drush_log')) {
     drush_log('Imports disabled during drush install. Rembmer to visit /import.', 'ok');
   }
+  // drupal_load('module', 'feeds');
+  module_load_all();
   $config = feeds_source('ofir_job_import')->getConfig();
   $ofir_url = $config['FeedsHTTPFetcher']['source'];
   $form = array(
