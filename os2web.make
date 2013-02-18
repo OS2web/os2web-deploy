@@ -18,7 +18,7 @@ projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
 projects[os2web][download][tag] = "1.10"
 projects[os2web][download][branch] = "master"
-projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
+projects[os2web][download][url] = "https://github.com/OS2web/os2web.git"
 
 ; Bedst paa nettet
 projects[bedstpaanettet][subdir] = "contrib"
@@ -29,7 +29,7 @@ projects[cmstheme][type] = "theme"
 projects[cmstheme][download][type] = "git"
 projects[cmstheme][download][branch] = "master"
 projects[cmstheme][download][tag] = "1.10"
-projects[cmstheme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+projects[cmstheme][download][url] = "https://github.com/OS2web/os2web-theme.git"
 projects[cmstheme][directory] = "cmstheme"
 
 ;; Contrib modules below:
@@ -54,7 +54,7 @@ libraries[jcarousel][destination] = "libraries"
 libraries[ckeditor][download][type]= "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.2/ckeditor_3.6.2.zip"
 libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][destination] = "libraries"
+libraries[ckeditor][destination] =libraries"
 
 libraries[plupload][download][type] = "get"
 libraries[plupload][download][url] = "https://github.com/downloads/moxiecode/plupload/plupload_1_5_2.zip"
