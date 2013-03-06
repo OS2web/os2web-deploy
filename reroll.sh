@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./os2web_build.py -D -l -m profile -L master os2web-master-`date +%Y%m%d%H%M`
+drush make -y --no-core --contrib-destination=. --working-copy os2web.make

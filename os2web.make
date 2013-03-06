@@ -1,17 +1,21 @@
 api = 2
 core = 7.x
 
-;; Base of the main make file
-includes[core] = "os2web.base.make"
-
 ;; OS2Web projects:
 
-; OS2Web Modules
-projects[os2web][type] = "module"
-projects[os2web][download][type] = "git"
-projects[os2web][download][tag] = "1.10"
-projects[os2web][download][branch] = "master"
-projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
+; OS2Web acadre_esdh integration
+projects[os2web_acadre_esdh][type] = "module"
+projects[os2web_acadre_esdh][download][type] = "git"
+; projects[os2web_acadre_esdh][download][tag] = "1.10"
+projects[os2web_acadre_esdh][download][branch] = "master"
+projects[os2web_acadre_esdh][download][url] = "git@github.com:OS2web/os2web_acadre_esdh.git"
+
+; OS2Web Node Feedback
+projects[os2web_node_feedback][type] = "module"
+projects[os2web_node_feedback][download][type] = "git"
+; projects[os2web_node_feedback][download][tag] = "1.10"
+projects[os2web_node_feedback][download][branch] = "master"
+projects[os2web_node_feedback][download][url] = "git@github.com:OS2web/os2web_node_feedback.git"
 
 ; Borger.dk Integration
 projects[os2web_borger_dk][type] = "module"
