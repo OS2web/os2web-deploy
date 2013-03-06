@@ -20,26 +20,26 @@ define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2Web.');
  */
 function os2web_install_tasks() {
   $task = array(
-    'os2web_import_database' => array(
-      'type' => 'normal',
-      'display_name' => st('Import default database'),
-    ),
-    'os2web_profile_prepare' => array(
-      'type' => 'normal',
-      'display_name' => st('Prepare OS2web..'),
-    ),
-    'os2web_settings_form' => array(
-      'display_name' => st('Setup OS2Web'),
-      'type' => 'form',
-    ),
-    'os2web_import_default_feeds_form' => array(
-      'display_name' => st('Setup Imports'),
-      'type' => 'form',
-    ),
-    'os2web_import_default_feeds' => array(
-      'display_name' => st('Import default content'),
-      'type' => 'batch',
-    ),
+//    'os2web_import_database' => array(
+//      'type' => 'normal',
+//      'display_name' => st('Import default database'),
+//    ),
+//    'os2web_profile_prepare' => array(
+//      'type' => 'normal',
+//      'display_name' => st('Prepare OS2web..'),
+//    ),
+//    'os2web_settings_form' => array(
+//      'display_name' => st('Setup OS2Web'),
+//      'type' => 'form',
+//    ),
+//    'os2web_import_default_feeds_form' => array(
+//      'display_name' => st('Setup Imports'),
+//      'type' => 'form',
+//    ),
+//    'os2web_import_default_feeds' => array(
+//      'display_name' => st('Import default content'),
+//      'type' => 'batch',
+//    ),
   );
   return $task;
 }
