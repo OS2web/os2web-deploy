@@ -47,9 +47,16 @@ projects[os2web_taxon_api][download][type] = "git"
 projects[os2web_taxon_api][download][branch] = "master"
 projects[os2web_taxon_api][download][url] = "https://github.com/OS2web/os2web_taxon_api.git"
 
-
 ; OS2Web Themes
 projects[os2web-theme][type] = "theme"
 projects[os2web-theme][download][type] = "git"
 projects[os2web-theme][download][branch] = "simple"
 projects[os2web-theme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+
+
+; Contrib Modules
+
+projects[feeds_soap][subdir] = "contrib"
+projects[feeds_soap][version] = "1.x-dev"
+;D7 port patch
+projects[feeds_soap][patch][] = "http://drupal.org/files/feeds_soap-port_to_7-1539112-9.patch"
