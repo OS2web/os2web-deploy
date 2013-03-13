@@ -20,6 +20,12 @@ projects[os2web][download][tag] = "1.10"
 projects[os2web][download][branch] = "master"
 projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
 
+projects[os2web_cp_service][type] = "module"
+projects[os2web_cp_service][download][type] = "git"
+projects[os2web_cp_service][download][tag] = "0.1"
+projects[os2web_cp_service][download][branch] = "master"
+projects[os2web_cp_service][download][url] = "git://github.com/OS2web/os2web_cp_service.git"
+
 ; Borger.dk Integration
 projects[os2web_borger_dk][type] = "module"
 projects[os2web_borger_dk][download][type] = "git"
