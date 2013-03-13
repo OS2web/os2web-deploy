@@ -61,8 +61,10 @@ projects[os2web-theme][download][url] = "git://github.com/OS2web/os2web-theme.gi
 
 ; Contrib Modules
 
-projects[feeds_soap][type] = "module"
-projects[feeds_soap][subdir] = "contrib"
-projects[feeds_soap][version] = "1.x-dev"
-;D7 port patch
-projects[feeds_soap][patch][] = "http://drupal.org/files/feeds_soap-port_to_7-1539112-9.patch"
+# projects[feeds_soap][type] = "module"
+# projects[feeds_soap][subdir] = "contrib"
+# projects[feeds_soap][download][type] = "git"
+# projects[feeds_soap][download][branch] = "master"
+# projects[feeds_soap][download][url] = "http://git.drupal.org/project/feeds_soap.git"
+# ;D7 port patch
+# projects[feeds_soap][patch][] = "http://drupal.org/files/feeds_soap-port_to_7-1539112-9.patch"
