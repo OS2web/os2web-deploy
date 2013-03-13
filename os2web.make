@@ -24,6 +24,13 @@ projects[os2web_acadre_esdh][download][type] = "git"
 projects[os2web_acadre_esdh][download][branch] = "master"
 projects[os2web_acadre_esdh][download][url] = "git@github.com:OS2web/os2web_acadre_esdh.git"
 
+; OS2Web CP service
+projects[os2web_cp_service][type] = "module"
+projects[os2web_cp_service][download][type] = "git"
+; projects[os2web_cp_service][download][tag] = "0.1"
+projects[os2web_cp_service][download][branch] = "master"
+projects[os2web_cp_service][download][url] = "git@github.com:OS2web/os2web_cp_service.git"
+
 ; OS2Web Node Feedback
 projects[os2web_node_feedback][type] = "module"
 projects[os2web_node_feedback][download][type] = "git"
@@ -54,6 +61,7 @@ projects[os2web-theme][download][url] = "git://github.com/OS2web/os2web-theme.gi
 
 ; Contrib Modules
 
+projects[feeds_soap][type] = "module"
 projects[feeds_soap][subdir] = "contrib"
 projects[feeds_soap][version] = "1.x-dev"
 ;D7 port patch
