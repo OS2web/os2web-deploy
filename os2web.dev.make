@@ -30,6 +30,14 @@ projects[os2web_node_feedback][download][branch] = "develop"
 projects[os2web_borger_dk][download][tag] = ""
 projects[os2web_borger_dk][download][branch] = "develop"
 
+; Kulturnaut Events
+projects[os2web_kulturnaut_events][download][tag] = ""
+projects[os2web_kulturnaut_events][download][branch] = "develop"
+
+; Ofir Job
+projects[os2web_ofir_job][download][tag] = ""
+projects[os2web_ofir_job][download][branch] = "develop"
+
 # ; OS2Web Taxon API
 # projects[os2web_taxon_api][download][tag] = ""
 # projects[os2web_taxon_api][download][branch] = "develop"

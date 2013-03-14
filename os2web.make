@@ -45,6 +45,20 @@ projects[os2web_borger_dk][download][type] = "git"
 projects[os2web_borger_dk][download][branch] = "master"
 projects[os2web_borger_dk][download][url] = "https://github.com/OS2web/os2web_borger_dk.git"
 
+; Kulturnaut Events
+projects[os2web_kulturnaut_events][type] = "module"
+projects[os2web_kulturnaut_events][download][type] = "git"
+; projects[os2web_kulturnaut_events][download][tag] = "1.0"
+projects[os2web_kulturnaut_events][download][branch] = "master"
+projects[os2web_kulturnaut_events][download][url] = "https://github.com/OS2web/os2web_kulturnaut_events.git"
+
+; Ofir Job
+projects[os2web_ofir_job][type] = "module"
+projects[os2web_ofir_job][download][type] = "git"
+; projects[os2web_ofir_job][download][tag] = "1.0"
+projects[os2web_ofir_job][download][branch] = "master"
+projects[os2web_ofir_job][download][url] = "https://github.com/OS2web/os2web_ofir_job.git"
+
 # ; OS2Web Taxon API
 # projects[os2web_taxon_api][type] = "module"
 # projects[os2web_taxon_api][download][type] = "git"
@@ -68,7 +82,7 @@ projects[feeds_soap][download][type] = "git"
 projects[feeds_soap][download][branch] = "6.x-1.x"
 projects[feeds_soap][download][url] = "git://git.drupal.org/project/feeds_soap.git"
 # ;D7 port patch
-projects[feeds_soap][patch][] = "patches/feeds_soap-d7_port.patch"
+projects[feeds_soap][patch][] = "patches/feeds_soap-port_to_7-1539112-9.patch"
 
 ; Cookiecontrol danish js translation
 projects[cookiecontrol][subdir] = "contrib"
