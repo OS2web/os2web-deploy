@@ -1,0 +1,270 @@
+diff --git a/classes/WsSoapClient.inc b/classes/WsSoapClient.inc
+--- a/classes/WsSoapClient.inc
++++ b/classes/WsSoapClient.inc
+@@ -8,63 +8,64 @@
+  * See more at http://stackoverflow.com/questions/953639/connecting-to-ws-security-protected-web-service-with-php
+  */
+ class WsSoapClient extends SoapClient {
+-  private static $WssNamespace = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd';
++  protected static $WssNamespace = 'http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd';
+
+-  private $login;
+-  private $password;
++  protected $login;
++  protected $password;
+
+   /**
+    * Constructor.
+    */
+   public function __construct($wsdl, $options = array()) {
+-    // Keep authentication for the WS-Security header
+-    $this->login = $options['login'];
+-    unset($options['login']);
+-    $this->password = $options['password'];
+-    unset($options['password']);
+-
+-    // Forward constructor
++    if (isset($options['login'])) {
++      // Keep authentication for the WS-Security header.
++      $this->login = $options['login'];
++      unset($options['login']);
++      $this->password = $options['password'];
++      unset($options['password']);
++    }
++    // Forward constructor.
+     parent::__construct($wsdl, $options);
+
+-    // Set the initial Soap header (will be overrided next)
+-    $objHeader = new SoapHeader('http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd', 'Security', '', FALSE);
+-    $this->__setSoapHeaders(array($objHeader));
++    // Set the initial Soap header (will be overrided next).
++    $obj_header = new SoapHeader(self::$WssNamespace, 'Security', '', FALSE);
++    $this->__setSoapHeaders(array($obj_header));
+   }
+
+   /**
+    * Overrided to provide custom security header.
+    */
+-  public function __doRequest($request, $location, $action, $version) {
+-    $domRequest = new DOMDocument();
+-    $domRequest->loadXML($request);
+-    $xp = new DOMXPath($domRequest);
+-    $header = $xp->query('/SOAP-ENV:Envelope/SOAP-ENV:Header')->item(0);
++  public function __doRequest($request, $location, $action, $version, $one_way = 0) {
++    $dom_request = new DOMDocument();
++    $dom_request->loadXML($request);
++    $xp = new DOMXPath($dom_request);
++    $header = $xp->query('/SOAP-ENV:Envelope/SOAP-ENV:Header')->item(0);
+
+-    // Implement WS-Security
++    // Implement WS-Security.
+     if ($this->login) {
+-      $securityToken = $domRequest->createElementNS(self::$WssNamespace, 'wsse:Security');
+-      $usernameToken = $domRequest->createElementNS(self::$WssNamespace, 'wsse:UsernameToken');
+-      $username = $domRequest->createElementNS(self::$WssNamespace, 'wsse:Username', $this->login);
+-      $password = $domRequest->createElementNS(self::$WssNamespace, 'wsse:Password', $this->password);
+-      $usernameToken->appendChild($username);
+-      $usernameToken->appendChild($password);
+-      $securityToken->appendChild($usernameToken);
+-      $header->appendChild($securityToken);
++      $security_token = $dom_request->createElementNS(self::$WssNamespace, 'wsse:Security');
++      $username_token = $dom_request->createElementNS(self::$WssNamespace, 'wsse:UsernameToken');
++      $username = $dom_request->createElementNS(self::$WssNamespace, 'wsse:Username', $this->login);
++      $password = $dom_request->createElementNS(self::$WssNamespace, 'wsse:Password', $this->password);
++      $username_token->appendChild($username);
++      $username_token->appendChild($password);
++      $security_token->appendChild($username_token);
++      $header->appendChild($security_token);
+     }
+
+-    // Do request
+-    $request = $domRequest->saveXML();
++    // Do request.
++    $request = $dom_request->saveXML();
+     $response = parent::__doRequest($request, $location, $action, $version, $one_way);
+
+-    // Extract SOAP XML from multipart message
+-    $response = $this->__extractSoapEnvelope($response);
++    // Extract SOAP XML from multipart message.
++    $response = $this->extractSoapEnvelope($response);
+     return $response;
+   }
+
+   /**
+    * Extract the SOAP message from a multipart message.
+    */
+-  private function __extractSoapEnvelope($message) {
++  protected function extractSoapEnvelope($message) {
+     $matches = array();
+     $result = preg_match('#<soap:Envelope(?:\s+[^>]+)?>(.*?)</soap:Envelope>#s', $message, $matches);
+     if ($result) {
+@@ -72,4 +73,4 @@ class WsSoapClient extends SoapClient {
+     }
+     return $message;
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/feeds_soap.info b/feeds_soap.info
+index 30fa6c3..5c85661 100644
+--- a/feeds_soap.info
++++ b/feeds_soap.info
+@@ -2,9 +2,9 @@ name = Feeds SOAP
+ description = SOAP fetcher for Feeds
+ package = Feeds
+ php = 5.2
++core = 7.x
+
+-dependencies[] = autoload
+ dependencies[] = ctools
+ dependencies[] = feeds
+
+-files[] = classes/WsSoapClient.inc
+\ No newline at end of file
++files[] = classes/WsSoapClient.inc
+diff --git a/feeds_soap.module b/feeds_soap.module
+index 79ef8a2..adf14b0 100644
+--- a/feeds_soap.module
++++ b/feeds_soap.module
+@@ -6,6 +6,28 @@
+  */
+
+ /**
++ * Implements hook_ctools_plugin_api().
++ */
++function feeds_soap_ctools_plugin_api($owner, $api) {
++  if ($owner == 'feeds' && $api == 'plugins') {
++    return array('version' => 1);
++  }
++}
++
++/**
++ * Implements hook_ctools_plugin_type().
++ */
++function feeds_soap_ctools_plugin_type() {
++  return array(
++    'plugins' => array(
++      'cache' => TRUE,
++      'use hooks' => TRUE,
++      'classes' => array('handler'),
++    ),
++  );
++}
++
++/**
+ * Implementation of hook_feeds_plugins().
+ */
+ function feeds_soap_feeds_plugins() {
+diff --git a/plugins/FeedsSOAPFetcher.inc b/plugins/FeedsSOAPFetcher.inc
+index 7555eb4..ae8e906 100644
+--- a/plugins/FeedsSOAPFetcher.inc
++++ b/plugins/FeedsSOAPFetcher.inc
+@@ -6,20 +6,18 @@
+  */
+
+ /**
+- * Definition of the import batch object created on the fetching stage by
+- * FeedsSoapFetcher.
++ * Fetches data via SOAP.
+  */
+-class FeedsSOAPBatch extends FeedsImportBatch {
+-
+-  protected $config;
+-  protected $client;
++class FeedsSOAPFetcher extends FeedsFetcher {
+
+   /**
+-   * Constructor.
++   * Implementation of FeedsFetcher::fetch().
+    */
+-  public function __construct($config) {
+-    $this->config = $config;
+-
++  public function fetch(FeedsSource $source) {
++    // Note: we fetch data using the Feed config instead of using the source
++    // import form. The reason for this, is that does not make sense allowing
++    // the user to switch the SOAP endpoint, when it requires a much more
++    // complex configuration.
+     $options = array('trace' => TRUE);
+     if ($this->config['username']) {
+       $options['login'] = $this->config['username'];
+@@ -27,13 +25,6 @@ class FeedsSOAPBatch extends FeedsImportBatch {
+     }
+     $this->client = new WsSoapClient($this->config['endpoint'], $options);
+
+-    parent::__construct();
+-  }
+-
+-  /**
+-   * Implementation of FeedsImportBatch::getRaw().
+-   */
+-  public function getRaw() {
+     $args = array();
+     if ($this->config['arguments']) {
+       $query_str = str_replace(array("\r", "\r\n", "\n"), '&', $this->config['arguments']);
+@@ -41,31 +32,14 @@ class FeedsSOAPBatch extends FeedsImportBatch {
+     }
+
+     try {
+-      $this->client->__soapCall($this->config['function'], $args['args']);
++      call_user_func(array($this->client, $this->config['function']), $args);
+       $response = $this->client->__getLastResponse();
+-      return $response;
++      return new FeedsFetcherResult($response);
+     } catch (SoapFault $fault) {
+       drupal_set_message("SOAP Fault: (faultcode: {$fault->faultcode}, faultstring: {$fault->faultstring})", 'error');
+       return;
+     }
+   }
+-}
+-
+-/**
+- * Fetches data via SOAP.
+- */
+-class FeedsSOAPFetcher extends FeedsFetcher {
+-
+-  /**
+-   * Implementation of FeedsFetcher::fetch().
+-   */
+-  public function fetch(FeedsSource $source) {
+-    // Note: we fetch data using the Feed config instead of using the source
+-    // import form. The reason for this, is that does not make sense allowing
+-    // the user to switch the SOAP endpoint, when it requires a much more
+-    // complex configuration.
+-    return new FeedsSOAPBatch($this->config);
+-  }
+
+   /**
+    * Override parent::configDefaults().
+@@ -76,7 +50,7 @@ class FeedsSOAPFetcher extends FeedsFetcher {
+       'username' => '',
+       'password' => '',
+       'function' => '',
+-      'arguments' => ''
++      'arguments' => '',
+     );
+   }
+
+@@ -153,12 +127,12 @@ class FeedsSOAPFetcher extends FeedsFetcher {
+     return $form;
+   }
+
++
+   /**
+    * Expose source form.
+    */
+   public function sourceForm($source_config) {
+     $form = array();
+-
+     // HACK: the hidden field is required to allow Feeds to process the import
+     $form['source'] = array('#type' => 'hidden', '#value' => 'hack_to_allow_import');
+
+@@ -168,4 +142,4 @@ class FeedsSOAPFetcher extends FeedsFetcher {
+     );
+     return $form;
+   }
+-}
+\ No newline at end of file
++}
+--
+1.7.10.2 (Apple Git-33)+GitX

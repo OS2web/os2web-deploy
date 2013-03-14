@@ -30,7 +30,11 @@ projects[os2web_node_feedback][download][branch] = "develop"
 projects[os2web_borger_dk][download][tag] = ""
 projects[os2web_borger_dk][download][branch] = "develop"
 
-; OS2Web Taxon API
-projects[os2web_taxon_api][download][tag] = ""
-projects[os2web_taxon_api][download][branch] = "develop"
+# ; OS2Web Taxon API
+# projects[os2web_taxon_api][download][tag] = ""
+# projects[os2web_taxon_api][download][branch] = "develop"
+
+# ; OS2Web Taxon Taxonomy
+# projects[os2web_taxon_taxonomy][download][tag] = ""
+# projects[os2web_taxon_taxonomy][download][branch] = "develop"
 
