@@ -15,7 +15,7 @@ Install an OS2web Installation via .make
 7. `ln -s ../../os2web-deploy os2web`
 
 Reroll the modules and contrib modules specified in os2web.make:
-- `./reroll.sh` or `./reroll-dev.sh`
+- `./reroll.core.sh`, `./reroll.turnkey.sh` or `./reroll.dev.sh`
 
 List of OS2Web modules: (In alphabetic order)
 ---------------
