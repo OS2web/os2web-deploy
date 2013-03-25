@@ -4,6 +4,8 @@ version = 1.10
 core = 7.x
 
 ;OS2web modules
+dependencies[] = os2web_base
+dependencies[] = os2web_settings
 dependencies[] = os2web_frontend
 
 
