@@ -147,3 +147,7 @@ projects[os2web-theme][download][url] = "git://github.com/OS2web/os2web-theme.gi
 
 
 ;; Contrib Modules
+
+# Used by os2web_cp_service. Has to be here for now.
+projects[pathauto][subdir] = "contrib"
+projects[pathauto][version] = "1.1"
