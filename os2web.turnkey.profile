@@ -8,7 +8,7 @@
 /**
  * Name of profile; visible in profile selection form.
  */
-define('PROFILE_NAME', 'OS2Web');
+define('PROFILE_NAME', 'OS2Web Turnkey');
 
 /**
  * Description of profile; visible in profile selection form.
@@ -18,7 +18,7 @@ define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2Web.');
 /**
  * Implements hook_install_tasks().
  */
-function os2web_install_tasks() {
+function os2web_turnkey_install_tasks() {
   $task = array(
 //    'os2web_import_database' => array(
 //      'type' => 'normal',
@@ -47,7 +47,7 @@ function os2web_install_tasks() {
 /**
  * Implements hook_profile_prepare().
  */
-function os2web_profile_prepare() {
+function os2web_turnkey_profile_prepare() {
   drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
   // Menu rebuild neccesary to load xpath_parser
   menu_rebuild();
@@ -58,7 +58,7 @@ function os2web_profile_prepare() {
 /**
  * Implements hook_form().
  */
-function os2web_settings_form($install_state) {
+function os2web_turnkey_settings_form($install_state) {
   drupal_set_title(st('Webservice endpoint setup'));
   $form['os2web_pws_config_group'] = array(
     '#type' => 'fieldset',
@@ -136,7 +136,7 @@ function os2web_settings_form($install_state) {
  *
  * Allows the profile to alter the site configuration form.
  */
-function os2web_form_install_configure_form_alter(&$form, $form_state) {
+function os2web_turnkey_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate the site name with the server name.
   $form['site_information']['site_name']['#default_value'] = 'OS2Web Test';
   $form['update_notifications']['update_status_module']['#default_value'] = array(
@@ -150,7 +150,7 @@ function os2web_form_install_configure_form_alter(&$form, $form_state) {
 /**
  * Implements hook_form().
  */
-function os2web_import_default_feeds_form($install_state) {
+function os2web_turnkey_import_default_feeds_form($install_state) {
   if ($drush = function_exists('drush_log')) {
     drush_log('Imports disabled during drush install. Rembmer to visit /import.', 'ok');
   }
@@ -206,7 +206,7 @@ function os2web_import_default_feeds_form($install_state) {
 /**
  * Sets up default feeds for os2web.
  */
-function os2web_import_default_feeds($install_state) {
+function os2web_turnkey_import_default_feeds($install_state) {
   // Set default KLE taxonomy feed url.
   $source = feeds_source('os2web_taxonomies_feed_kle');
   $config = $source->getConfig();
@@ -285,7 +285,7 @@ function os2web_import_default_feeds($install_state) {
 /**
  * Sets the default language to danish.
  */
-function os2web_profile_details() {
+function os2web_turnkey_profile_details() {
   return array(
     'name' => PROFILE_NAME,
     'description' => PROFILE_DESCRIPTION,
@@ -302,7 +302,7 @@ function os2web_profile_details() {
  * Drops all data from existing database, imports database dump, and restores
  * values entered into configuration form.
  */
-function os2web_import_database() {
+function os2web_turnkey_import_database() {
   // Store the set-up vars:
   $vars = array(
     'site_name',
