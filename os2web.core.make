@@ -54,3 +54,6 @@ projects[cookiecontrol][patch][] = "patches/cookiecontrol-read_more_DK.patch"
 
 projects[views][subdir] = "contrib"
 projects[views][version] = "3.5"
+
+projects[entity][subdir] = "contrib"
+projects[entity][version] = "1.0"
