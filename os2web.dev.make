@@ -10,6 +10,10 @@ includes[base] = "os2web.turnkey.make"
 projects[os2web_base][download][tag] = ""
 projects[os2web_base][download][branch] = "develop"
 
+; OS2Web ADLIB api
+projects[os2web_adlib_api][download][tag] = ""
+projects[os2web_adlib_api][download][branch] = "develop"
+
 ; OS2Web settings
 projects[os2web_settings][download][tag] = ""
 projects[os2web_settings][download][branch] = "develop"
@@ -62,10 +66,6 @@ projects[os2web_ad_integration][download][branch] = "develop"
 projects[os2web_taxon_api][download][tag] = ""
 projects[os2web_taxon_api][download][branch] = "develop"
 
-; OS2Web Taxon Taxonomy
-projects[os2web_taxon_taxonomy][download][tag] = ""
-projects[os2web_taxon_taxonomy][download][branch] = "develop"
-
 ; OS2Web Contact
 projects[os2web_contact][download][tag] = ""
 projects[os2web_contact][download][branch] = "develop"
@@ -77,3 +77,27 @@ projects[os2web_meetings][download][branch] = "develop"
 ; OS2Web Spotbox
 projects[os2web_spotbox][download][tag] = ""
 projects[os2web_spotbox][download][branch] = "develop"
+
+; OS2Web Sections
+projects[os2web_sections][download][tag] = ""
+projects[os2web_sections][download][branch] = "develop"
+
+; OS2Web Taxonomies
+projects[os2web_taxonomies][download][tag] = ""
+projects[os2web_taxonomies][download][branch] = "develop"
+
+; OS2Web Taxonomies
+projects[os2web_taxon_taxonomy][download][tag] = ""
+projects[os2web_taxon_taxonomy][download][branch] = "develop"
+
+; OS2Web Webform download
+projects[os2web_webform][download][tag] = ""
+projects[os2web_webform][download][branch] = "develop"
+
+# ; OS2Web Search
+# projects[os2web_search][download][tag] = ""
+# projects[os2web_search][download][branch] = "develop"
+
+# ; OS2Web Selfservice Links
+# projects[os2web_selfservicelinks][download][tag] = ""
+# projects[os2web_selfservicelinks][download][branch] = "develop"
