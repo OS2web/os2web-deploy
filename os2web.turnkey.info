@@ -7,6 +7,10 @@ core = 7.x
 dependencies[] = os2web_base
 dependencies[] = os2web_settings
 dependencies[] = os2web_frontend
+dependencies[] = os2web_base_panels
+dependencies[] = os2web_sections
+dependencies[] = os2web_spotbox
+dependencies[] = os2web_citizenservices
 
 
 ;; Basic setup and common modules
