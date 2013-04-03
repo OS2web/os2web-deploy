@@ -11,6 +11,9 @@ dependencies[] = os2web_base_panels
 dependencies[] = os2web_sections
 dependencies[] = os2web_spotbox
 dependencies[] = os2web_citizenservices
+dependencies[] = os2web_contact
+dependencies[] = os2web_meetings
+dependencies[] = os2web_node_feedback
 
 
 ;; Basic setup and common modules

@@ -32,14 +32,14 @@ function os2web_install_tasks() {
 //      'display_name' => st('Setup OS2Web'),
 //      'type' => 'form',
 //    ),
-//    'os2web_import_default_feeds_form' => array(
-//      'display_name' => st('Setup Imports'),
-//      'type' => 'form',
-//    ),
-//    'os2web_import_default_feeds' => array(
-//      'display_name' => st('Import default content'),
-//      'type' => 'batch',
-//    ),
+    'os2web_import_default_feeds_form' => array(
+      'display_name' => st('Setup Imports'),
+      'type' => 'form',
+    ),
+    'os2web_import_default_feeds' => array(
+      'display_name' => st('Import default content'),
+      'type' => 'batch',
+    ),
   );
   return $task;
 }
@@ -319,7 +319,7 @@ function os2web_import_database() {
   }
 
   // Import database dump file.
-  $os2web_file = dirname(__FILE__) . '/db.sql.gz';
+  $os2web_file = dirname(__FILE__) . '/dump.turney.sql.gz';
   $success = import_dump($os2web_file);
 
   if (!$success) {
