@@ -18,6 +18,24 @@ Install an OS2web Installation via .make
 Reroll the modules and contrib modules specified in os2web.make:
 - `./reroll.core.sh`, `./reroll.turnkey.sh` or `./reroll.dev.sh`
 
+`./reroll.dev.sh` generates an working copy of the git repos. Very good when developing. It includes all modules and setup as the turnkey.
+
+Overview of the directory map
+---------------
+
+`[site]`
+   - `[public_html]`
+       - `[profiles]`
+           - `[os2web]` (`symlink ../../os2web-deploy/os2web`)
+   - `[os2web-deploy]`
+       - `[os2web]`
+           - `[modules]`
+               - `[contrib]`
+               ...
+           - `[libraries]`
+           - `[themes]`
+
+
 Configuration of install profile
 ---------------
 There will be two types of install profiles. Core and Turnkey.
