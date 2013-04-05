@@ -151,6 +151,7 @@ projects[os2web-theme][type] = "theme"
 projects[os2web-theme][download][type] = "git"
 projects[os2web-theme][download][branch] = "develop"
 projects[os2web-theme][download][url] = "git://github.com/OS2web/os2web-theme.git"
+projects[os2web-theme][name] = "cmstheme"
 
 
 ;; Contrib Modules

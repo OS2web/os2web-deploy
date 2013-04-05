@@ -20,10 +20,10 @@ define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2Web.');
  */
 function os2web_install_tasks() {
   $task = array(
-//    'os2web_import_database' => array(
-//      'type' => 'normal',
-//      'display_name' => st('Import default database'),
-//    ),
+   'os2web_import_database' => array(
+     'type' => 'normal',
+     'display_name' => st('Import default database'),
+   ),
 //    'os2web_profile_prepare' => array(
 //      'type' => 'normal',
 //      'display_name' => st('Prepare OS2web..'),
@@ -319,7 +319,7 @@ function os2web_import_database() {
   }
 
   // Import database dump file.
-  $os2web_file = dirname(__FILE__) . '/dump.turney.sql.gz';
+  $os2web_file = dirname($_SERVER["SCRIPT_FILENAME"]) . '/db.sql.gz';
   $success = import_dump($os2web_file);
 
   if (!$success) {
