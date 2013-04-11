@@ -1,6 +1,8 @@
 api = 2
 core = 7.x
 
+includes[custom] = os2web.custom.make
+
 ;; OS2Web projects:
 
 ; OS2Web base

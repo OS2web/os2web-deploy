@@ -28,10 +28,10 @@ function os2web_install_tasks() {
 //      'type' => 'normal',
 //      'display_name' => st('Prepare OS2web..'),
 //    ),
-//    'os2web_settings_form' => array(
-//      'display_name' => st('Setup OS2Web'),
-//      'type' => 'form',
-//    ),
+   'os2web_settings_form' => array(
+     'display_name' => st('Setup OS2Web'),
+     'type' => 'form',
+   ),
     'os2web_import_default_feeds_form' => array(
       'display_name' => st('Setup Imports'),
       'type' => 'form',
@@ -128,7 +128,41 @@ function os2web_settings_form($install_state) {
     '#default_value' => variable_get('os2web_pws_proxy_port'),
     '#title' => t('Proxy port number.'),
   );
+
+  // Proxy setups.
+  $form['os2web_theme_group'] = array(
+    '#type' => 'fieldset',
+    '#collapsible' => FALSE,
+    '#collapsed' => FALSE,
+    '#title' => t('Theme configuration'),
+    '#weight' => 20,
+  );
+  $form['os2web_theme_group']['os2web_theme_logo'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Upload Logo'),
+    '#description' => t('The uploaded image will be used as the themes logo.'),
+    '#upload_location' => 'public://',
+  );
+  $form['#submit'][] = 'os2web_settings_form_submit';
   return system_settings_form($form);
+}
+
+/**
+ * Form settings submit callback function.
+ */
+function os2web_settings_form_submit(&$form, $form_state) {
+  $theme_settings = variable_get('theme_cmstheme_settings', array());
+  if ($theme_settings) {
+
+    // If logo is uploaded, save it in os2web theme.
+    if (!empty($form['os2web_theme_group']['os2web_theme_logo']['#file']->uri)) {
+
+      $theme_settings['logo_path'] = $form['os2web_theme_group']['os2web_theme_logo']['#file']->uri;
+      $theme_settings['default_logo'] = 0;
+
+      variable_set('theme_cmstheme_settings', $theme_settings);
+    }
+  }
 }
 
 /**
@@ -139,8 +173,7 @@ function os2web_settings_form($install_state) {
 function os2web_form_install_configure_form_alter(&$form, $form_state) {
   // Pre-populate the site name with the server name.
   $form['site_information']['site_name']['#default_value'] = 'OS2Web Test';
-  $form['update_notifications']['update_status_module']['#default_value'] = array(
-    0, 0);
+  $form['update_notifications']['update_status_module']['#default_value'] = array(0, 0);
   $form['server_settings']['site_default_country']['#default_value'] = 'DK';
   $form['server_settings']['#access'] = FALSE;
   $form['update_notifications']['#access'] = FALSE;
@@ -319,7 +352,7 @@ function os2web_import_database() {
   }
 
   // Import database dump file.
-  $os2web_file = dirname($_SERVER["SCRIPT_FILENAME"]) . '/db.sql.gz';
+  $os2web_file = dirname(__FILE__) . '/os2web/db.sql.gz';
   $success = import_dump($os2web_file);
 
   if (!$success) {
@@ -344,7 +377,7 @@ function os2web_import_database() {
  */
 function import_dump($filename) {
   // Open dump file.
-  if (!file_exists($filename) || !($fp = gzopen($filename, 'r'))) {
+  if (!file_exists($filename) || !($file = gzopen($filename, 'r'))) {
     drupal_set_message(t('Unable to open dump file %filename.', array('%filename' => $filename)), 'error');
     return FALSE;
   }
@@ -359,8 +392,8 @@ function import_dump($filename) {
   // Load data from dump file.
   $success = TRUE;
   $query = '';
-  while (!feof($fp)) {
-    $line = fgets($fp, 16384);
+  while (!feof($file)) {
+    $line = fgets($file, 16384);
     if ($line && $line != "\n" && strncmp($line, '--', 2) && strncmp($line, '#', 1)) {
       $query .= $line;
       if (substr($line, -2) == ";\n") {
@@ -381,7 +414,7 @@ function import_dump($filename) {
       }
     }
   }
-  fclose($fp);
+  fclose($file);
 
   if (!$success) {
     drupal_set_message(t('Failed importing database from %filename.', array('%filename' => $filename)), 'error');
