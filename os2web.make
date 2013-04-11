@@ -16,7 +16,7 @@ projects[da][directory_name] = "translations"
 ; OS2Web Modules
 projects[os2web][type] = "module"
 projects[os2web][download][type] = "git"
-projects[os2web][download][tag] = "1.10"
+;projects[os2web][download][tag] = "1.10"
 projects[os2web][download][branch] = "master"
 projects[os2web][download][url] = "git://github.com/OS2web/os2web.git"
 
@@ -28,9 +28,10 @@ projects[os2web_cp_service][download][url] = "git://github.com/OS2web/os2web_cp_
 ; Borger.dk Integration
 projects[os2web_borger_dk][type] = "module"
 projects[os2web_borger_dk][download][type] = "git"
-; projects[os2web_borger_dk][download][tag] = "1.0"
+;projects[os2web_borger_dk][download][tag] = "1.0"
 projects[os2web_borger_dk][download][branch] = "master"
 projects[os2web_borger_dk][download][url] = "https://github.com/OS2web/os2web_borger_dk.git"
+
 
 ; Bedst paa nettet
 projects[bedstpaanettet][subdir] = "contrib"

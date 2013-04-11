@@ -15,6 +15,10 @@ projects[os2web_cp_service][download][branch] = "develop"
 projects[os2web_cp_service][download][tag] = ""
 projects[os2web_cp_service][download][url] = "git@github.com:OS2web/os2web_cp_service.git"
 
+projects[os2web_borger_dk][download][branch] = "develop"
+projects[os2web_borger_dk][download][tag] = ""
+projects[os2web_borger_dk][download][url] = "git@github.com:OS2web/os2web_borger_dk.git"
+
 ; OS2Web Themes
 ; projects[cmstheme][download][branch] = "develop"
 projects[cmstheme][download][tag] = ""
