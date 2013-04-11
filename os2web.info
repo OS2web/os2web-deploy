@@ -1,6 +1,6 @@
 name = OS2Web
 description = Basic install
-version = 1.10
+version = 0.90
 core = 7.x
 
 ;OS2web modules
