@@ -26,6 +26,62 @@ projects[os2web_frontend][download][type] = "git"
 projects[os2web_frontend][download][branch] = "master"
 projects[os2web_frontend][download][url] = "git@github.com:OS2web/os2web_frontend.git"
 
+; OS2Web meetings
+projects[os2web_meetings][type] = "module"
+projects[os2web_meetings][download][type] = "git"
+; projects[os2web_meetings][download][tag] = "1.0"
+projects[os2web_meetings][download][branch] = "master"
+projects[os2web_meetings][download][url] = "git@github.com:OS2web/os2web_meetings.git"
+
+; OS2Web Borger Dk
+projects[os2web_borger_dk][type] = "module"
+projects[os2web_borger_dk][download][type] = "git"
+; projects[os2web_borger_dk][download][tag] = "1.0"
+projects[os2web_borger_dk][download][branch] = "master"
+projects[os2web_borger_dk][download][url] = "git@github.com:OS2web/os2web_borger_dk.git"
+
+; OS2Web Taxonomies
+projects[os2web_taxonomies][type] = "module"
+projects[os2web_taxonomies][download][type] = "git"
+; projects[os2web_taxonomies][download][tag] = "1.0"
+projects[os2web_taxonomies][download][branch] = "master"
+projects[os2web_taxonomies][download][url] = "git@github.com:OS2web/os2web_taxonomies.git"
+
+; OS2Web Taxon Api
+projects[os2web_taxon_api][type] = "module"
+projects[os2web_taxon_api][download][type] = "git"
+; projects[os2web_taxon_api][download][tag] = "1.0"
+projects[os2web_taxon_api][download][branch] = "master"
+projects[os2web_taxon_api][download][url] = "git@github.com:OS2web/os2web_taxon_api.git"
+
+; OS2Web Search
+projects[os2web_search][type] = "module"
+projects[os2web_search][download][type] = "git"
+; projects[os2web_search][download][tag] = "1.0"
+projects[os2web_search][download][branch] = "master"
+projects[os2web_search][download][url] = "git@github.com:OS2web/os2web_search.git"
+
+; OS2Web Selfservice links
+projects[os2web_selfservicelinks][type] = "module"
+projects[os2web_selfservicelinks][download][type] = "git"
+; projects[os2web_selfservicelinks][download][tag] = "1.0"
+projects[os2web_selfservicelinks][download][branch] = "master"
+projects[os2web_selfservicelinks][download][url] = "git@github.com:OS2web/os2web_selfservicelinks.git"
+
+; OS2Web AD integration
+projects[os2web_ad_integration][type] = "module"
+projects[os2web_ad_integration][download][type] = "git"
+; projects[os2web_ad_integration][download][tag] = "1.0"
+projects[os2web_ad_integration][download][branch] = "master"
+projects[os2web_ad_integration][download][url] = "git@github.com:OS2web/os2web_ad_integration.git"
+
+; OS2Web Kulturnaut Events
+projects[os2web_kulturnaut][type] = "module"
+projects[os2web_kulturnaut][download][type] = "git"
+; projects[os2web_kulturnaut][download][tag] = "1.0"
+projects[os2web_kulturnaut][download][branch] = "master"
+projects[os2web_kulturnaut][download][url] = "git@github.com:OS2web/os2web_kulturnaut.git"
+
 ;; Contrib Modules
 
 projects[feeds][subdir] = "contrib"

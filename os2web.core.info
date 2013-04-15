@@ -7,7 +7,14 @@ core = 7.x
 dependencies[] = os2web_base
 dependencies[] = os2web_settings
 dependencies[] = os2web_frontend
-
+dependencies[] = os2web_meetings
+dependencies[] = os2web_borger_dk
+dependencies[] = os2web_taxonomies
+dependencies[] = os2web_taxon_api
+dependencies[] = os2web_search
+dependencies[] = os2web_selfservicelinks
+dependencies[] = os2web_ad_integration
+dependencies[] = os2web_kulturnaut
 
 ;; Basic setup and common modules
 ; Modules as a standard profile
