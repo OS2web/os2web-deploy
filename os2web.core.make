@@ -82,6 +82,13 @@ projects[os2web_kulturnaut][download][type] = "git"
 projects[os2web_kulturnaut][download][branch] = "master"
 projects[os2web_kulturnaut][download][url] = "git@github.com:OS2web/os2web_kulturnaut.git"
 
+; OS2Web Webform
+projects[os2web_webform][type] = "module"
+projects[os2web_webform][download][type] = "git"
+; projects[os2web_webform][download][tag] = "1.0"
+projects[os2web_webform][download][branch] = "master"
+projects[os2web_webform][download][url] = "git@github.com:OS2web/os2web_webform.git"
+
 ;; Contrib Modules
 
 projects[feeds][subdir] = "contrib"
@@ -115,3 +122,18 @@ projects[views][version] = "3.5"
 
 projects[entity][subdir] = "contrib"
 projects[entity][version] = "1.0"
+
+projects[views_rss][subdir] = "contrib"
+projects[views_rss][version] = "2.0-rc3"
+
+projects[simple_news][subdir] = "contrib"
+projects[simple_news][version] = "1.0"
+
+projects[linkit][subdir] = "contrib"
+projects[linkit][version] = "2.6"
+
+projects[imagecrop][subdir] = "contrib"
+projects[imagecrop][version] = "1.0-rc3"
+
+projects[pathauto][subdir] = "contrib"
+projects[pathauto][version] = "1.2"

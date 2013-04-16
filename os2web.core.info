@@ -15,6 +15,7 @@ dependencies[] = os2web_search
 dependencies[] = os2web_selfservicelinks
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_kulturnaut
+dependencies[] = os2web_webform
 
 ;; Basic setup and common modules
 ; Modules as a standard profile
@@ -44,6 +45,14 @@ dependencies[] = rdf
 dependencies[] = locale
 dependencies[] = pathauto
 dependencies[] = feeds
+dependencies[] = cookiecontrol
+dependencies[] = views
+dependencies[] = views_rss
+dependencies[] = entity
+dependencies[] = simple_news
+dependencies[] = linkit
+dependencies[] = imagecrop
+dependencies[] = pathauto
 
 
 ;; UI modules - Optional
