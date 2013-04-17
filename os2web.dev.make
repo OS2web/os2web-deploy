@@ -93,3 +93,7 @@ includes[base] = "os2web.turnkey.make"
 # ; OS2Web Selfservice Links
 # projects[os2web_selfservicelinks][download][tag] = ""
 # projects[os2web_selfservicelinks][download][branch] = "develop"
+
+# ; OS2Web Selfservice Links
+# projects[os2web_print_send_to_friend][download][tag] = ""
+# projects[os2web_print_send_to_friend][download][branch] = "develop"

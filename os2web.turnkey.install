@@ -75,9 +75,9 @@ function os2web_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
 
-  theme_enable(array('seven', 'omega', 'cmstheme'));
+  theme_enable(array('seven', 'omega', 'os2web_core_theme'));
   theme_disable(array('bartik', 'rubik'));
-  variable_set('theme_default', 'cmstheme');
+  variable_set('theme_default', 'os2web_core_theme');
 
   // Set admin theme to Rubik.
   variable_set('admin_theme', 'seven');

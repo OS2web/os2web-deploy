@@ -151,7 +151,7 @@ function os2web_settings_form($install_state) {
  * Form settings submit callback function.
  */
 function os2web_settings_form_submit(&$form, $form_state) {
-  $theme_settings = variable_get('theme_cmstheme_settings', array());
+  $theme_settings = variable_get('theme_os2web_core_theme_settings', array());
   if ($theme_settings) {
 
     // If logo is uploaded, save it in os2web theme.
@@ -160,7 +160,7 @@ function os2web_settings_form_submit(&$form, $form_state) {
       $theme_settings['logo_path'] = $form['os2web_theme_group']['os2web_theme_logo']['#file']->uri;
       $theme_settings['default_logo'] = 0;
 
-      variable_set('theme_cmstheme_settings', $theme_settings);
+      variable_set('theme_os2web_core_theme_settings', $theme_settings);
     }
   }
 }
