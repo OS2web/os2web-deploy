@@ -482,6 +482,9 @@ projects[lightbox2][version] = "1.0-beta1"
 projects[views_php][subdir] = "contrib"
 projects[views_php][version] = "1.x-dev"
 
+projects[honeypot][subdir] = "contrib"
+projects[honeypot][version] = "1.14"
+
 ; Themes
 
 ; projects[rubik][version] = "4.0-beta8"
