@@ -12,7 +12,7 @@ Install an OS2web Installation via .make
 4. `mv drupal-7.x public_html`
 5. `git clone git@github.com:OS2web/os2web-deploy.git -b feature/recursive-make`
 6. `cd public_html/profiles`
-7. `ln -s ../../os2web-deploy/os2web os2web`
+7. `ln -s ../../os2web-deploy/build/master-latest os2web`
 
 Reroll the modules and contrib modules specified in os2web.make:
 - `./reroll.core.sh`, `./reroll.turnkey.sh` or `./reroll.dev.sh`
@@ -27,12 +27,13 @@ Overview of the directory map
        - `[profiles]`
            - `[os2web]` (`symlink ../../os2web-deploy/os2web`)
    - `[os2web-deploy]`
-       - `[os2web]`
-           - `[modules]`
-               - `[contrib]`
-               - `...`
-           - `[libraries]`
-           - `[themes]`
+       - `[build]`
+           - `[master-lates]`
+               - `[modules]`
+                   - `[contrib]`
+                   - `...`
+               - `[libraries]`
+               - `[themes]`
 
 
 Configuration of install profile
@@ -43,6 +44,15 @@ Core modules:
 - os2web_base
 - os2web_settings
 - os2web_frontend
+- os2web_meetings
+- os2web_borger_dk
+- os2web_taxonomies
+- os2web_taxon_api
+- os2web_search
+- os2web_selfservicelinks
+- os2web_ad_integration
+- os2web_kulturnaut_events
+- os2web_webform
 - - And their dependents
 
 Activated Turnkey modules:
