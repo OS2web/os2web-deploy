@@ -34,7 +34,7 @@ if [ -d "build/$BUILD_DIR/modules" ]; then
 	cp $PROFILE_SRC.info build/$BUILD_DIR/$PROFILE_DST.info
 	cp $PROFILE_SRC.profile build/$BUILD_DIR/$PROFILE_DST.profile
 	cp $PROFILE_SRC.install build/$BUILD_DIR/$PROFILE_DST.install
-	cp db.sql.gz build/$BUILD_DIR/db.sql.gz
+	cp $PROFILE_SRC.sql.gz build/$BUILD_DIR/db.sql.gz
 
 	# Move old build to previous
 	unlink build/$BUILD_DIR_PREV

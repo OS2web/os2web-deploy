@@ -22,7 +22,7 @@ DRUPAL_ROOT=$(dirname `pwd`)/public_html
 
 mkdir build/$BUILD_DIR
 
-drush make --no-gitinfofile -y --no-core --working-copy --contrib-destination=build/$BUILD_DIR $PROFILE_SRC.make
+drush make --no-gitinfofile -y --no-core --working-copy --contrib-destination=build/$BUILD_DIR $PROFILE_SRC.dev.make
 
 ### Code below can be in seperate file. source execute file from here. ###
 # . ./deploy.sh
@@ -34,7 +34,7 @@ if [ -d "build/$BUILD_DIR/modules" ]; then
 	cp $PROFILE_SRC.info build/$BUILD_DIR/$PROFILE_DST.info
 	cp $PROFILE_SRC.profile build/$BUILD_DIR/$PROFILE_DST.profile
 	cp $PROFILE_SRC.install build/$BUILD_DIR/$PROFILE_DST.install
-	cp db.sql.gz build/$BUILD_DIR/db.sql.gz
+	cp $PROFILE_SRC.sql.gz build/$BUILD_DIR/db.sql.gz
 
 	# Move old build to previous
 	unlink build/$BUILD_DIR_PREV
