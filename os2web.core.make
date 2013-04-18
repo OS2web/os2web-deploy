@@ -89,6 +89,13 @@ projects[os2web_webform][download][type] = "git"
 projects[os2web_webform][download][branch] = "master"
 projects[os2web_webform][download][url] = "git@github.com:OS2web/os2web_webform.git"
 
+; OS2Web Hearings
+projects[os2web_hearings][type] = "module"
+projects[os2web_hearings][download][type] = "git"
+; projects[os2web_hearings][download][tag] = "1.0"
+projects[os2web_hearings][download][branch] = "master"
+projects[os2web_hearings][download][url] = "git@github.com:OS2web/os2web_hearings.git"
+
 ;; Contrib Modules
 
 projects[feeds][subdir] = "contrib"
@@ -129,8 +136,8 @@ projects[views_rss][version] = "2.0-rc3"
 projects[simplenews][subdir] = "contrib"
 projects[simplenews][version] = "1.0"
 
-projects[linkit][subdir] = "contrib"
-projects[linkit][version] = "2.6"
+projects[word_link][subdir] = "contrib"
+projects[word_link][version] = "1.8"
 
 projects[imagecrop][subdir] = "contrib"
 projects[imagecrop][version] = "1.0-rc3"

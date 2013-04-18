@@ -146,6 +146,13 @@ projects[os2web_webform][download][type] = "git"
 projects[os2web_webform][download][branch] = "master"
 projects[os2web_webform][download][url] = "git@github.com:OS2web/os2web_webform.git"
 
+; OS2Web Hearings
+projects[os2web_hearings][type] = "module"
+projects[os2web_hearings][download][type] = "git"
+; projects[os2web_hearings][download][tag] = "1.10"
+projects[os2web_hearings][download][branch] = "master"
+projects[os2web_hearings][download][url] = "git@github.com:OS2web/os2web_hearings.git"
+
 ; OS2Web Themes
 projects[os2web_core_theme][type] = "theme"
 projects[os2web_core_theme][download][type] = "git"
