@@ -14,7 +14,7 @@ dependencies[] = os2web_taxon_api
 dependencies[] = os2web_search
 dependencies[] = os2web_selfservicelinks
 dependencies[] = os2web_ad_integration
-dependencies[] = os2web_kulturnaut
+dependencies[] = os2web_kulturnaut_events
 dependencies[] = os2web_webform
 
 ;; Basic setup and common modules
@@ -49,7 +49,7 @@ dependencies[] = cookiecontrol
 dependencies[] = views
 dependencies[] = views_rss
 dependencies[] = entity
-dependencies[] = simple_news
+dependencies[] = simplenews
 dependencies[] = linkit
 dependencies[] = imagecrop
 dependencies[] = pathauto

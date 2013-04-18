@@ -1,7 +1,7 @@
 api = 2
 core = 7.x
 
-includes[custom] = os2web.custom.make
+;includes[custom] = os2web.custom.make
 
 ;; OS2Web projects:
 
@@ -76,11 +76,11 @@ projects[os2web_ad_integration][download][branch] = "master"
 projects[os2web_ad_integration][download][url] = "git@github.com:OS2web/os2web_ad_integration.git"
 
 ; OS2Web Kulturnaut Events
-projects[os2web_kulturnaut][type] = "module"
-projects[os2web_kulturnaut][download][type] = "git"
-; projects[os2web_kulturnaut][download][tag] = "1.0"
-projects[os2web_kulturnaut][download][branch] = "master"
-projects[os2web_kulturnaut][download][url] = "git@github.com:OS2web/os2web_kulturnaut.git"
+projects[os2web_kulturnaut_events][type] = "module"
+projects[os2web_kulturnaut_events][download][type] = "git"
+; projects[os2web_kulturnaut_events][download][tag] = "1.0"
+projects[os2web_kulturnaut_events][download][branch] = "master"
+projects[os2web_kulturnaut_events][download][url] = "git@github.com:OS2web/os2web_kulturnaut_events.git"
 
 ; OS2Web Webform
 projects[os2web_webform][type] = "module"
@@ -126,8 +126,8 @@ projects[entity][version] = "1.0"
 projects[views_rss][subdir] = "contrib"
 projects[views_rss][version] = "2.0-rc3"
 
-projects[simple_news][subdir] = "contrib"
-projects[simple_news][version] = "1.0"
+projects[simplenews][subdir] = "contrib"
+projects[simplenews][version] = "1.0"
 
 projects[linkit][subdir] = "contrib"
 projects[linkit][version] = "2.6"
