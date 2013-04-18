@@ -96,6 +96,13 @@ projects[os2web_hearings][download][type] = "git"
 projects[os2web_hearings][download][branch] = "master"
 projects[os2web_hearings][download][url] = "git@github.com:OS2web/os2web_hearings.git"
 
+; OS2Web Breaking News
+projects[os2web_breaking_news][type] = "module"
+projects[os2web_breaking_news][download][type] = "git"
+; projects[os2web_breaking_news][download][tag] = "1.0"
+projects[os2web_breaking_news][download][branch] = "master"
+projects[os2web_breaking_news][download][url] = "git@github.com:OS2web/os2web_breaking_news.git"
+
 ;; Contrib Modules
 
 projects[feeds][subdir] = "contrib"
@@ -144,3 +151,9 @@ projects[imagecrop][version] = "1.0-rc3"
 
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
+
+projects[sharethis][subdir] = "contrib"
+projects[sharethis][version] = "2.5"
+
+projects[text_resize][subdir] = "contrib"
+projects[text_resize][version] = "1.8"

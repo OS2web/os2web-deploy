@@ -16,6 +16,7 @@ dependencies[] = os2web_selfservicelinks
 dependencies[] = os2web_ad_integration
 dependencies[] = os2web_kulturnaut_events
 dependencies[] = os2web_webform
+dependencies[] = os2web_breaking_news
 
 ;; Basic setup and common modules
 ; Modules as a standard profile
@@ -53,6 +54,8 @@ dependencies[] = simplenews
 dependencies[] = linkit
 dependencies[] = imagecrop
 dependencies[] = pathauto
+dependencies[] = sharethis
+dependencies[] = text_resize
 
 
 ;; UI modules - Optional
