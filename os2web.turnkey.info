@@ -15,7 +15,6 @@ dependencies[] = os2web_contact
 dependencies[] = os2web_meetings
 dependencies[] = os2web_node_feedback
 
-
 ;; Basic setup and common modules
 ; Modules as a standard profile
 dependencies[] = block
@@ -44,11 +43,18 @@ dependencies[] = rdf
 dependencies[] = locale
 dependencies[] = pathauto
 dependencies[] = feeds
-
+dependencies[] = cookiecontrol
+dependencies[] = views
+dependencies[] = views_rss
+dependencies[] = entity
+dependencies[] = simplenews
+dependencies[] = word_link
+dependencies[] = imagecrop
+dependencies[] = sharethis
+dependencies[] = text_resize
 
 ;; UI modules - Optional
 dependencies[] = views_ui
 dependencies[] = feeds_ui
 dependencies[] = context_ui
 dependencies[] = delta_ui
-dependencies[] = field_ui
