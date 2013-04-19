@@ -12,6 +12,13 @@ projects[os2web_base][download][type] = "git"
 projects[os2web_base][download][branch] = "master"
 projects[os2web_base][download][url] = "git@github.com:OS2web/os2web_base.git"
 
+; OS2Web base panels
+projects[os2web_base_panels][type] = "module"
+projects[os2web_base_panels][download][type] = "git"
+; projects[os2web_base_panels][download][tag] = "1.0"
+projects[os2web_base_panels][download][branch] = "master"
+projects[os2web_base_panels][download][url] = "git@github.com:OS2web/os2web_base_panels.git"
+
 ; OS2Web settings
 projects[os2web_settings][type] = "module"
 projects[os2web_settings][download][type] = "git"
