@@ -311,7 +311,6 @@ function os2web_import_default_feeds($install_state) {
   variable_del('os2web_import_gis_import');
   variable_del('os2web_import_ofir_import');
 
-
   return $batch;
 }
 
@@ -382,14 +381,7 @@ function import_dump($filename) {
     return FALSE;
   }
 
-  // Drop all existing tables.
-  foreach (list_tables() as $table) {
-    if ($table != 'sessions') {
-      db_query("DROP TABLE " . $table);
-    }
-  }
-
-  // Load data from dump file.
+  // Load data from dump file. The Dump file should have DROP TABLE in it.
   $success = TRUE;
   $query = '';
   while (!feof($file)) {
@@ -404,10 +396,6 @@ function import_dump($filename) {
         );
         $stmt = Database::getConnection($options['target'])->prepare($query);
         if (!$stmt->execute(array(), $options)) {
-          if ($verbose) {
-            // Don't use t() here, as the locale_* tables might not (yet) exist.
-            drupal_set_message(strtr('Query failed: %query', array('%query' => $query)), 'error');
-          }
           $success = FALSE;
         }
         $query = '';
@@ -421,16 +409,4 @@ function import_dump($filename) {
   }
 
   return $success;
-}
-
-/**
- * Returns a list of tables in the active database.
- *
- * Only returns tables whose prefix matches the configured one (or ones, if
- * there are multiple).
- *
- * @see demo_enum_tables()
- */
-function list_tables() {
-  return db_query("SHOW TABLES")->fetchCol();
 }
