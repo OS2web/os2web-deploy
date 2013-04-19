@@ -144,3 +144,7 @@ projects[imagecrop][version] = "1.0-rc3"
 
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
+
+projects[best_responsive][type] = "theme"
+projects[best_responsive][subdir] = "contrib"
+projects[best_responsive][version] = "1.1"
