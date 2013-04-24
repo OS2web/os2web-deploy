@@ -20,7 +20,7 @@ PROFILE_DST=os2web
 # The root dir of your drupal instance. Used by drush!
 DRUPAL_ROOT=$(dirname `pwd`)/public_html
 
-mkdir build/$BUILD_DIR
+mkdir -p build/$BUILD_DIR
 
 drush make --no-gitinfofile -y --no-core --contrib-destination=build/$BUILD_DIR $PROFILE_SRC.make
 
