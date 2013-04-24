@@ -1,4 +1,18 @@
 #!/bin/sh
+
+##### Drupal deploy script made in shell
+# - Makes build with drush make
+# - Moves latest build to dev-latest
+# - Backup database
+# - Update database with drush updb
+# - Clear cache
+#
+# ## Multisite?
+# Run the script with URI infront:
+# URI=http://domain.tld ./reroll.sh
+#
+# Author: Anders Bryrup (andersbryrup@gmail.com)
+
 DATE=`date +%Y%m%d%H%M`
 
 # The newly builed dir
@@ -47,25 +61,21 @@ if [ -d "build/$BUILD_DIR/modules" ]; then
 	echo "Backing up the database..."
 		# TODO: skip basic tables like cache --structure-tables-key=#{tables}
 		# Will make the dump smaller.
-	drush sql-dump --root=$DRUPAL_ROOT --gzip > build/$BUILD_DIR_PREV/sql-dump.$DATE.sql.gz
+	drush sql-dump --root=$DRUPAL_ROOT --uri=$URI --gzip > build/$BUILD_DIR_PREV/sql-dump.$DATE.sql.gz
 
 	echo "Updating database... Site will go in maintenance mode!"
-	drush --root=$DRUPAL_ROOT vset maintenance_mode 1
-	drush --root=$DRUPAL_ROOT updb
-	drush --root=$DRUPAL_ROOT vset maintenance_mode 0
+	drush --root=$DRUPAL_ROOT --uri=$URI vset maintenance_mode 1
+	drush --root=$DRUPAL_ROOT --uri=$URI updb
 
 	# # Any additionally drush commands?
 
 	# Finnally clear the cache
 	echo "Clearing cache..."
-	if [ -n "${URI}" ]; then
-		# Either use URI as a parameter to this script, or hardcode it in the top.
-		# URI=domain.tld ./reroll.sh
-		drush --root=$DRUPAL_ROOT --uri=$URI cc all
-	else
-		drush --root=$DRUPAL_ROOT cc all
-	fi
-	echo "Deploy Complete."
+	drush --root=$DRUPAL_ROOT --uri=$URI cc all
+
+	drush --root=$DRUPAL_ROOT --uri=$URI vset maintenance_mode 0
+
+	echo "Deploy Complete. End of maintenance mode!"
 else
 	# Build failed, remove build
 	rm -rf build/$BUILD_DIR
