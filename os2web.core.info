@@ -17,6 +17,7 @@ dependencies[] = os2web_ad_integration
 dependencies[] = os2web_kulturnaut_events
 dependencies[] = os2web_webform
 dependencies[] = os2web_breaking_news
+dependencies[] = os2web_help
 
 ;; Basic setup and common modules
 ; Modules as a standard profile
