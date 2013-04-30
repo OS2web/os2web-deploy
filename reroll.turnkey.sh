@@ -71,6 +71,7 @@ if [ -d "build/$BUILD_DIR/modules" ]; then
 
 	# Finnally clear the cache
 	echo "Clearing cache..."
+	drush --root=$DRUPAL_ROOT --uri=$URI cc registry
 	drush --root=$DRUPAL_ROOT --uri=$URI cc all
 
 	drush --root=$DRUPAL_ROOT --uri=$URI vset maintenance_mode 0
