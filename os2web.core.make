@@ -121,13 +121,7 @@ projects[os2web_help][download][url] = "https://github.com/OS2web/os2web_help.gi
 
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
-projects[feeds][version] = "2.0-alpha4"
-; Patch to support import of hierarchical taxonomy terms
-projects[feeds][patch][1152940] = "http://drupal.org/files/issues/feeds_hierarchical_term_processor-1152940-23.patch"
-; Patch to support text format (eg. html) when importing to custom taxonomy term fields
-projects[feeds][patch][1466170] = "http://drupal.org/files/feeds-taxonomy-text-format-1466170-1.patch"
-; Patch to enable Proxy support
-; projects[feeds][patch][] = "patches/feeds-proxy.patch"
+projects[feeds][version] = "2.0-alpha8"
 
 projects[job_scheduler][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
@@ -151,7 +145,7 @@ projects[cookiecontrol][download][branch] = "7.x-1.6"
 projects[cookiecontrol][patch][read_more_DK] = "patches/cookiecontrol-read_more_DK.patch"
 
 projects[views][subdir] = "contrib"
-projects[views][version] = "3.5"
+projects[views][version] = "3.7"
 
 projects[entity][subdir] = "contrib"
 projects[entity][version] = "1.0"
