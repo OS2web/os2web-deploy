@@ -59,77 +59,9 @@ function os2web_profile_prepare() {
  * Implements hook_form().
  */
 function os2web_settings_form($install_state) {
-  drupal_set_title(st('Webservice endpoint setup'));
-  $form['os2web_pws_config_group'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('PWS Endpoint configuration'),
-  );
-  $form['os2web_pws_config_group']['os2web_pws_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('PWS URL for V4'),
-    '#default_value' => variable_get('os2web_pws_url'),
-    '#description' => t('URL to the PWS webservice endpoint.'),
-  );
-  $form['os2web_pws_config_group']['os2web_pws_url_v6'] = array(
-    '#type' => 'textfield',
-    '#title' => t('PWS URL for  V6'),
-    '#default_value' => variable_get('os2web_pws_url_v6'),
-    '#description' => t('URL to the PWSv6 webservice endpoint.'),
-  );
-  $form['os2web_pws_config_group']['os2web_pws_url_search'] = array(
-    '#type' => 'textfield',
-    '#title' => t('PWS URL for Search service'),
-    '#default_value' => variable_get('os2web_pws_url_search'),
-    '#description' => t('URL to the webservice endpoint that runs the search service.'),
-  );
-  $form['os2web_pws_config_group']['os2web_pws_user'] = array(
-    '#type' => 'textfield',
-    '#title' => t('PWS login user'),
-    '#default_value' => variable_get('os2web_pws_user'),
-    '#description' => t('PWS HTTP authentification user.'),
-  );
-  $form['os2web_pws_config_group']['os2web_pws_password'] = array(
-    '#type' => 'textfield',
-    '#title' => t('PWS password'),
-    '#default_value' => variable_get('os2web_pws_password'),
-    '#description' => t('PWS HTTP authentification password.'),
-  );
-  $form['os2web_pws_adlib_group'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Adlib Endpoint configuration'),
-  );
-  $form['os2web_pws_adlib_group']['os2web_adlib_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('URL for Adlib service endpoint'),
-    '#default_value' => variable_get('os2web_adlib_url'),
-    '#description' => t('URL to the webservice endpoint that runs the Adlib service.'),
-  );
+  drupal_set_title(st('Settings'));
 
-  // Proxy setups.
-  $form['os2web_pws_proxy_group'] = array(
-    '#type' => 'fieldset',
-    '#collapsible' => TRUE,
-    '#collapsed' => !variable_get('os2web_pws_proxy'),
-    '#title' => t('Proxy configuration'),
-    '#weight' => 10,
-  );
-  $form['os2web_pws_proxy_group']['os2web_pws_proxy'] = array(
-    '#type' => 'checkbox',
-    '#default_value' => variable_get('os2web_pws_proxy'),
-    '#title' => t('Use proxy?'),
-  );
-  $form['os2web_pws_proxy_group']['os2web_pws_proxy_host'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('os2web_pws_proxy_host'),
-    '#title' => t('Proxy hostname or IP'),
-  );
-  $form['os2web_pws_proxy_group']['os2web_pws_proxy_port'] = array(
-    '#type' => 'textfield',
-    '#default_value' => variable_get('os2web_pws_proxy_port'),
-    '#title' => t('Proxy port number.'),
-  );
-
-  // Proxy setups.
+  // Theme setups.
   $form['os2web_theme_group'] = array(
     '#type' => 'fieldset',
     '#collapsible' => FALSE,
@@ -187,37 +119,13 @@ function os2web_import_default_feeds_form($install_state) {
   if ($drush = function_exists('drush_log')) {
     drush_log('Imports disabled during drush install. Rembmer to visit /import.', 'ok');
   }
+  drupal_set_title(st('Feeds setup'));
   // drupal_load('module', 'feeds');
   module_load_all();
   $config = feeds_source('os2web_ofir_job_import')->getConfig();
   $ofir_url = $config['FeedsHTTPFetcher']['source'];
   $form = array(
     'os2web_import_group' => array(
-      '#type' => 'fieldset',
-      '#title' => st('Taxonomy imports'),
-      '#description' => st('Choose if you wish to import all vocabularies during install.'),
-      'os2web_import_kle_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('KLE'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_org_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('Organizations'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_pol_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('Politics'),
-        '#default_value' => TRUE && !$drush,
-      ),
-      'os2web_import_gis_import' => array(
-        '#type' => 'checkbox',
-        '#title' => st('GIS Names'),
-        '#default_value' => TRUE && !$drush,
-      ),
-    ),
-    'os2web_import_group2' => array(
       '#type' => 'fieldset',
       '#title' => st('Ofir.dk job Import'),
       '#description' => st('Setup for the Ofir.dk import.'),
@@ -240,33 +148,7 @@ function os2web_import_default_feeds_form($install_state) {
  * Sets up default feeds for os2web.
  */
 function os2web_import_default_feeds($install_state) {
-  // Set default KLE taxonomy feed url.
-  $source = feeds_source('os2web_taxonomies_feed_kle');
-  $config = $source->getConfig();
-  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'os2web_taxonomies') . '/data/kle.xml';
-  $source->setConfig($config);
-  $source->save();
-
-  // Set default Organisation taxonomy feed url.
-  $source = feeds_source('os2web_taxonomies_feed_org');
-  $config = $source->getConfig();
-  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'os2web_taxonomies') . '/data/org.xml';
-  $source->setConfig($config);
-  $source->save();
-
-  // Set default Politik taxonomy feed url.
-  $source = feeds_source('os2web_taxonomies_feed_politics');
-  $config = $source->getConfig();
-  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'os2web_taxonomies') . '/data/pol.xml';
-  $source->setConfig($config);
-  $source->save();
-
-  // Set default Egenavne/stednavne taxonomy feed url.
-  $source = feeds_source('os2web_taxonomies_feed_gis');
-  $config = $source->getConfig();
-  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'os2web_taxonomies') . '/data/gis.xml';
-  $source->setConfig($config);
-  $source->save();
+  drupal_set_title(st('Feed import'));
 
   // Set default Ofir feed url.
   $source = feeds_source('os2web_ofir_job_import');
@@ -282,22 +164,6 @@ function os2web_import_default_feeds($install_state) {
         @remaining | Total: @total | Percentage: @percentage'),
   );
 
-  if (variable_get('os2web_import_kle_import', FALSE)) {
-    $batch['operations'][] = array('feeds_batch',
-      array('import', 'os2web_taxonomies_feed_kle', 0));
-  }
-  if (variable_get('os2web_import_org_import', FALSE)) {
-    $batch['operations'][] = array('feeds_batch',
-      array('import', 'os2web_taxonomies_feed_org', 0));
-  }
-  if (variable_get('os2web_import_pol_import', FALSE)) {
-    $batch['operations'][] = array('feeds_batch',
-      array('import', 'os2web_taxonomies_feed_politics', 0));
-  }
-  if (variable_get('os2web_import_gis_import', FALSE)) {
-    $batch['operations'][] = array('feeds_batch',
-      array('import', 'os2web_taxonomies_feed_gis', 0));
-  }
   if (variable_get('os2web_import_ofir_import', FALSE)) {
     $batch['operations'][] = array('feeds_batch',
       array('import', 'os2web_ofir_job_import', 0));
@@ -305,10 +171,6 @@ function os2web_import_default_feeds($install_state) {
   // $batch = array();
   // Clean up temporary vars.
   variable_del('os2web_import_ofir_url');
-  variable_del('os2web_import_kle_import');
-  variable_del('os2web_import_org_import');
-  variable_del('os2web_import_pol_import');
-  variable_del('os2web_import_gis_import');
   variable_del('os2web_import_ofir_import');
 
   return $batch;
