@@ -171,5 +171,8 @@ projects[sharethis][version] = "2.5"
 projects[text_resize][subdir] = "contrib"
 projects[text_resize][version] = "1.8"
 
+projects[google_analytics][subdir] = "contrib"
+projects[google_analytics][version] = "1.3"
+
 projects[best_responsive][type] = "theme"
 projects[best_responsive][version] = "1.1"
