@@ -176,3 +176,6 @@ projects[google_analytics][version] = "1.3"
 
 projects[best_responsive][type] = "theme"
 projects[best_responsive][version] = "1.1"
+
+projects[environment_indicator][subdir] = "contrib"
+projects[environment_indicator][version] = "1.1"
