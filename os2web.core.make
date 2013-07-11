@@ -119,6 +119,9 @@ projects[os2web_help][download][url] = "https://github.com/OS2web/os2web_help.gi
 
 ;; Contrib Modules
 
+projects[ctools][subdir] = "contrib"
+projects[ctools][version] = "1.3"
+
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
 projects[feeds][version] = "2.0-alpha8"
