@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ##### Drupal deploy script made in shell
 # - Makes build with drush make
@@ -77,6 +77,10 @@ if [ -d "build/$BUILD_DIR/modules" ]; then
 	drush --root=$DRUPAL_ROOT --uri=$URI vset maintenance_mode 0
 
 	echo "Deploy Complete. End of maintenance mode!"
+
+	# Cleanup old builds.
+	echo "Deleting old build dirs..."
+	. ./cleanup.sh
 else
 	# Build failed, remove build
 	rm -rf build/$BUILD_DIR
