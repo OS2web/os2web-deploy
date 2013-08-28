@@ -6,5 +6,8 @@
 /modules
 /themes
 
+# Ignore build template products
+/site
+
 /nbproject
 *.sublime-workspace
